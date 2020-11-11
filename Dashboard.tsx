@@ -8,13 +8,15 @@ export class Dashboard extends React.Component<Props> {
     render() {
       return (
         <View style={{ flex: 10, alignItems: 'center', justifyContent: 'center' }}>
-          <Button title="Start" onPress={() => this.props.navigation.navigate('details')}></Button>
+          <Button title="Start" onPress={() => this.props.navigation.navigate('detailsList')}></Button>
           <br></br>
-          <Button title="DHL" onPress={()=> this.props.navigation.navigate('details')}></Button>
+          <Button title="DHL" onPress={()=> this.props.navigation.navigate('detailsList')}></Button>
           <br></br>
-          <Button title="KLM" onPress={()=> this.props.navigation.navigate('details')}></Button>
+          <Button title="KLM" onPress={()=> this.props.navigation.navigate('detailsList')}></Button>
           <br></br>
-          <Button title="John Doe" onPress={()=> this.props.navigation.navigate('details')}></Button>
+          <Button title="John Doe" onPress={()=> this.props.navigation.navigate('detailsList')}></Button>
+          <br></br>
+          <Button title="Register" onPress={()=> this.props.navigation.navigate('register')}></Button>
         </View>
       );
     }
