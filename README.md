@@ -35,9 +35,9 @@ Within the context of COVID-19, effective data sharing and transparency are the 
 Some of the main problems identified in a typical air cargo flow are:
 
 * There is no unique source of truth. There are multiple isolated and unrelated systems everywhere
-* There is no a complete provenance record that can be trusted
-* The product associated can be tampered or mixed with counterfeited during transportation
-* The custom office needs to know upfront that some goods are going to need to be validated
+* There is no complete provenance record that can be trusted
+* The product associated can be tampered or mixed with counterfeits during transportation
+* The customs office needs to know upfront that some goods are going to need to be validated
 * Not much transparency. If something goes wrong, it’s difficult to understand how this happened
 * It is difficult to recognize a bad actor and mitigate the impact of their actions
 * There is no an effective and secure data sharing between parties
@@ -46,7 +46,7 @@ Some of the main problems identified in a typical air cargo flow are:
 
 ### What do we need to do to improve that?
 
-During Odyssey we worked in an on-chain Provenance registry based in the W3C Provenance specifications. The W3C worked for providing a generic and standard able to track the information about entities, activities and people involved producing data or things.
+During Odyssey we worked in an on-chain Provenance registry based in the [W3C Provenance specifications](https://www.w3.org/TR/2013/NOTE-prov-overview-20130430/). The W3C worked for providing a generic and standard able to track the information about entities, activities and people involved producing data or things.
 
 Our motivation here is to provide a unique source of truth for all the parties involved during the cargo process. This is gonna be based in a Smart Contract and will include:
 
