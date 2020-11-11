@@ -7,14 +7,14 @@
 > [keyko.io](https://keyko.io)
 
 
-* [Odyssey Provenance Dashboard](#odyssey-provenance-dashboard)
-   * [Introduction](#introduction)
-      * [Main Problems](#main-problems)
-      * [What do we need to do to improve that?](#what-do-we-need-to-do-to-improve-that)
-      * [Benefits](#benefits)
-   * [Odyssey Demo](#odyssey-demo)
-   * [Dev quickstart](#dev-quickstart)
-   * [Links](#links)
+- [Odyssey Provenance Dashboard](#odyssey-provenance-dashboard)
+  - [Introduction](#introduction)
+    - [Main Problems](#main-problems)
+    - [What do we need to do to improve that?](#what-do-we-need-to-do-to-improve-that)
+    - [Benefits](#benefits)
+  - [Odyssey Demo](#odyssey-demo)
+  - [Dev quickstart](#dev-quickstart)
+  - [Links](#links)
 
 
 ---
