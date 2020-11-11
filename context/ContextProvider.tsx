@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import Web3 from 'web3'
+// import Web3 from 'web3'
 import { Context } from '.'
 // import HDWalletProvider from '@truffle/hdwallet-provider'
-const bip39 = require('bip39')
+// const bip39 = require('bip39')
 
 interface ContextProviderProps {}
 
@@ -12,7 +12,7 @@ interface ContextProviderState {
     account: string
     network: string
     tokenContract: any
-    web3: Web3
+    // web3: Web3
     message: string
 }
 
@@ -24,7 +24,7 @@ export default class ContextProvider extends Component<ContextProviderProps, Con
         account: '',
         network: '',
         tokenContract: null,
-        web3: {} as any,
+        // web3: {} as any,
         message: 'Connecting...'
     }
 
@@ -71,6 +71,7 @@ export default class ContextProvider extends Component<ContextProviderProps, Con
             this.setState({ isLoading: false })
         }
         */
+        this.setState({ isLoading: false })
     }
 
     public render() {
