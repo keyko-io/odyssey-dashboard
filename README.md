@@ -8,18 +8,21 @@
 
 
 
-   * [Odyssey Provenance Dashboard](#odyssey-provenance-dashboard)
-      * [Introduction](#introduction)
-         * [Main Problems](#main-problems)
-         * [What do we need to do to improve that?](#what-do-we-need-to-do-to-improve-that)
-         * [Benefits](#benefits)
-      * [Odyssey Demo](#odyssey-demo)
-         * [Merk demo](#merk-demo)
-         * [DHL demo](#dhl-demo)
-         * [KLM demo](#klm-demo)
-         * [Final recipient](#final-recipient)
-      * [Dev quickstart](#dev-quickstart)
-      * [Links](#links)
+* [Odyssey Provenance Dashboard](#odyssey-provenance-dashboard)
+   * [Introduction](#introduction)
+      * [Main Problems](#main-problems)
+      * [What do we need to do to improve that?](#what-do-we-need-to-do-to-improve-that)
+      * [Benefits](#benefits)
+   * [Odyssey Demo](#odyssey-demo)
+      * [MSD demo](#msd-demo)
+      * [DHL demo](#dhl-demo)
+      * [KLM demo](#klm-demo)
+      * [Final recipient](#final-recipient)
+   * [Bad Handover scenarios](#bad-handover-scenarios)
+      * [Scenario 1 - Failed due diligence](#scenario-1---failed-due-diligence)
+   * [Dev quickstart](#dev-quickstart)
+   * [Links](#links)
+
 
 
 
@@ -78,58 +81,58 @@ What are the main benefits of it?
 During the Odyssey demo we want show how the multiple parties participating in the air cargo flow can use a common backbone to track and manage the provenance record of the cargo.
 This brings the benefits described above.
 
-### Merk demo
+### MSD demo
 
-The flow of the demo using a Merk user is:
+The flow of the demo using a *MSD* user is:
 
-1. We open the application as a Merk user
-1. We show the Merk home page with all the goods managed by Merk and the different states (Registered, In transit, Delivered, Problem detected)
+1. We open the application as a *MSD* user
+1. We show the *MSD* home page with all the goods managed by *MSD* and the different states (Registered, In transit, Delivered, Problem detected)
 1. We click the '+' to register a new good
-1. The app opens a screen with the camera enabled, the Merk user scans the good QR code
+1. The app opens a screen with the camara enabled, the *MSD* user scans the good QR code
 1. After the QR is scanned, a screen asking for some additional metadata (name, description, etc.) is shown
 1. The view with the list of items registered now has a new item. This item has the state of "Registered"
 1. The user clicks in the item just created, and see the detailed view
 1. In the detailed view we can see the QR of the good and some metadata. The item is in "Registered" state.
 1. If we scroll down we can see the "Provenance" list with only one entry (green tick): "Registered"
 1. If the user clicks in the first and unique item of the list a new view is opened showing the:
-   - Digital signature of Merk as manufacturer
+   - Digital signature of *MSD* as manufacturer
    - List of files associated with the good (product specs, quality report)
    - Each file will show a fingerprint (like the md5sum but abbreviated)
 1. The user clicks in the "hand over" button
-1. This open a view with the good QR code that can be shown to the DHL pick-up guy
+1. This open a view with the good QR code that can be shown to the *DHL* pick-up guy
 
 ### DHL demo
 
-The flow of the demo using a DHL user is:
+The flow of the demo using a *DHL* user is:
 
-1. We open the application as a DHL user
-1. We show the DHL home page with all the goods managed by DHL and the different states (In transit, Delivered, Problem detected)
-1. We open the "Pick up" button from the app, this open the camera view for scanning a QR
-1. We scan the QR from the Merk app. We show a confirmation page where we say everything is looking good
+1. We open the application as a *DHL* user
+1. We show the *DHL* home page with all the goods managed by *DHL* and the different states (In transit, Delivered, Problem detected)
+1. We open the "Pick up" button from the app, this open the camara view for scanning a QR
+1. We scan the QR from the *MSD* app. We show a confirmation page where we say everything is looking good
 1. We show again the home page, with the new cargo added, now the state is "In Transit"
 1. The user clicks in the item just created, and see the detailed view
 1. In the detailed view we can see the QR of the good and some metadata. The item is in "In Transit" state.
 1. If we scroll down we can see the "Provenance" list with 2 entries (green tick): "Registered" and "Handed over"
 1. If the user clicks in the second item of the list (Handed Over) a new view is opened showing the:
-   - Digital signature of Merk as manufacturer and DHL as carrier
+   - Digital signature of *MSD* as manufacturer and *DHL* as carrier
    - List of files associated with the good (product specs, quality report)
    - Each file will show a fingerprint (like the md5sum but abbreviated)
 1. The user clicks in the "hand over" button
 
 ### KLM demo
 
-The flow of the demo using a KLM user is:
+The flow of the demo using a *KLM* user is:
 
-1. We open the application as a KLM user
-1. We show the KLM home page with all the goods managed by KLM and the different states (In transit, Delivered, Problem detected)
-1. We open the "Pick up" button from the app, this open the camera view for scanning a QR
-1. We scan the QR from the DHL app. We show a confirmation page where we say everything is looking good
+1. We open the application as a *KLM* user
+1. We show the *KLM* home page with all the goods managed by *KLM* and the different states (In transit, Delivered, Problem detected)
+1. We open the "Pick up" button from the app, this open the camara view for scanning a QR
+1. We scan the QR from the *DHL* app. We show a confirmation page where we say everything is looking good
 1. We show again the home page, with the new cargo added, now the state is "In Transit"
 1. The user clicks in the item just created, and see the detailed view
 1. In the detailed view we can see the QR of the good and some metadata. The item is in "In Transit" state.
 1. If we scroll down we can see the "Provenance" list with 3 entries (green tick): "Registered" and "Handed over" two times
 1. If the user clicks in the third item of the list (Handed Over) a new view is opened showing the:
-   - Digital signature of DHL and KLM as carriers
+   - Digital signature of *DHL* and *KLM* as carriers
    - List of files associated with the good (product specs, quality report)
    - Each file will show a fingerprint (like the md5sum but abbreviated)
 1. The user clicks in the "hand over" button
@@ -140,14 +143,14 @@ The flow of the demo using the John Doe user is:
 
 1. We open the application as a John Doe user
 1. We show the user home page with all the goods controlled by the user and the different states (In transit, Delivered, Problem detected)
-1. We open the "Pick up" button from the app, this open the camera view for scanning a QR
-1. We scan the QR from the KLM app. We show a confirmation page where we say everything is looking good
+1. We open the "Pick up" button from the app, this open the camara view for scanning a QR
+1. We scan the QR from the *KLM* app. We show a confirmation page where we say everything is looking good
 1. We show again the home page, with the new cargo added, now the state is "In Transit"
 1. The user clicks in the item just created, and see the detailed view
 1. In the detailed view we can see the QR of the good and some metadata. The item is in "In Transit" state.
 1. If we scroll down we can see the "Provenance" list with 4 entries (green tick): "Registered" and "Handed over" two times and "Delivered"
 1. If the user clicks in the third item of the list (Handed Over) a new view is opened showing the:
-   - Digital signature of KLM as carrier and John Doe
+   - Digital signature of *KLM* as carrier and John Doe
    - List of files associated with the good (product specs, quality report)
    - Each file will show a fingerprint (like the md5sum but abbreviated)
 1. The user scroll down and can see the map with the complete journey of the cargo
@@ -157,54 +160,35 @@ The flow of the demo using the John Doe user is:
 
 Since the handover seems to be the most important part of the supply chain it is important to go through some of the failure scenarios that can happen during the handover and detail how our solution behaves in this case. The users of this solution don't want just to see an ❌ but we want to also know what was the reason for the handover to fail.
 
-Imagine the case where a handover fails between *Merk* and *DHL*. Which side is at fault? Maybe *DHL* presented wrong identity credentials during the handover and *Merk* decided to cancel the handover. Or maybe *DHL* after looking at the metadata associated with the cargo found problems and decided to cancel the handover.
+Imagine the case where a handover fails between *MSD* and *DHL*. Which side is at fault? Maybe *DHL* presented wrong identity credentials during the handover and *MSD* decied to cancel the handover. Or maybe *DHL* after looking at the metadata associated with the cargo found problems and decided to cancel the handover.
 
-In this section we detail some failed handover scenario. We will focus on two actors, with *Merk* trying to handover cargo the *DHL*.
+In this section we detail some failed handover scenario. We will focus on two actors, with *MSD* trying to handover cargo the *DHL*.
 
 ### Scenario 1 - Failed due diligence
 
-1. *Merk* clicks in the "hand over" button:
-   - *Merk* possibly needs to select the identity of *DHL* or this is already somehow predefined for this cargo.
-   - This represents *Merk's* intent to handover the cargo to *DHL*
+1. *MSD* clicks in the "hand over" button:
+   - *MSD* possibly needs to select the identity of *DHL* or this is already somehow predefined for this cargo.
+   - This represents *MSD's* intent to handover the cargo to *DHL*
    - (Could this action be recorded in the provenance contract?)
-2. This open a view with the QR code (unique to this handover) that can be shown to the DHL pick-up guy
+2. This open a view with the QR code (unique to this handover) that can be shown to the *DHL* pick-up guy
 3. *DHL* opens the application
-4. We show the DHL home page with all the goods managed by DHL and the different states (In transit, Delivered, Problem detected)
-5. *DHL* clicks the "Pick up" button from the app, this open the camera view for scanning a QR
-6. *DHL* scans the QR from the *Merk* app. We show a confirmation page where we say that there is a problem with the cargo
+4. We show the *DHL* home page with all the goods managed by *DHL* and the different states (In transit, Delivered, Problem detected)
+5. *DHL* clicks the "Pick up" button from the app, this open the camara view for scanning a QR
+6. We scan the QR from the *MSD* app. We show a confirmation page where we say that there is a problem with the cargo
 7. We show again the home page, with the new cargo added, still in the state "Registered"
 8. The user clicks in the item just created, and see the detailed view
 9.  In the detailed view we can see the QR of the good and some metadata. The item is in the "Registered" state.
 10. If we scroll down we can see the "Provenance" list with 2 entries (green tick): "Registered" and (greyed out pending) "Handed over"
 11. If the user clicks in the second item of the list (Handed Over) a new view is opened showing the:
-    - Digital signature of Merk as manufacturer
+    - Digital signature of *MSD* as manufacturer
     - List of files associated with the good (product specs, quality report)
     - Each file will show a fingerprint (like the md5sum but abbreviated)
 12. *DHL* clicks in the "cancel hand over" button
     - Maybe this can also be recorded in the provenance contract
 
 Depending on what is recorded in the provenance contract in this scenario we could learn that:
-- *Merk* met with *DHL* and showed intent to handover the cargo
+- *MSD* met with *DHL* and showed intent to handover the cargo
 - *DHL* denied the handover specifying some reason
-
-
-### Scenario 2 - DHL impersonator
-
-1. *Merk* clicks in the "hand over" button:
-   - *Merk* possibly needs to select the identity of *DHL* or this is already somehow predefined for this cargo.
-   - This represents *Merk's* intent to handover the cargo to *DHL*
-   - (Could this action be recorded in the provenance contract?)
-2. This open a view with the QR code (unique to this handover) that can be shown to the DHL pick-up guy
-3. *"DHL"* opens the application
-4. We show the DHL home page with all the goods managed by DHL and the different states (In transit, Delivered, Problem detected)
-5. *"DHL"* clicks the "Pick up" button from the app, this open the camera view for scanning a QR
-6. *"DHL"* scans the QR from the *Merk* app. We show an error page saying that there was a problem verifying the identity
-7. *Merk* not trusting the identity of *"DHL"* cancels the handover
-   - Maybe this can be recorded on the provenance contract
-
-Depending on what is recorded in the provenance contract in this scenario we could learn that:
-- *Merk* met with *"DHL"* and showed intent to handover the cargo
-- After not being able to verify the identity of *DHL* *Merk* decides to cancel the handover
 
 
 ## Dev quickstart
@@ -213,6 +197,8 @@ Depending on what is recorded in the provenance contract in this scenario we cou
 - Install expo framework globally using `npm install -g expo-cli`
 - Install packages (inside folder) `yarn`
 - Start web livereload app with `expo start --web`
+
+
 
 
 ## Links
