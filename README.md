@@ -70,10 +70,36 @@ What are the main benefits of it?
 ## Odyssey Demo
 
 During the Odyssey demo we want show how the multiple parties participating in the air cargo flow can use a common backbone to track and manage the provenance record of the cargo.
-This brings the benefits described above. The flow of the demo is:
+This brings the benefits described above.
+
+### Merk demo
+
+The flow of the demo using a Merk user is:
 
 1. We open the application as a Merk user
-1.
+1. We show the Merk home page with all the goods managed by Merk and the different states (Registered, In transit, Delivered, Problem detected)
+1. We click the '+' to register a new good
+1. The app opens a screen with the camara enabled, the Merk user scans the good QR code
+1. After the QR is scanned, a screen asking for some additional metadata (name, description, etc.) is shown
+1. The view with the list of items registered now has a new item. This item has the state of "Registered"
+1. The user clicks in the item just created, and see the detailed view
+1. In the detailed view we can see the QR of the good and some metadata. The item is in "Registered" state.
+1. If we scroll down we can see the "Provenance" list with only one entry (green tick): "Registered"
+1. If the user clicks in the first and unique item of the list a new view is opened showing the:
+   - Digital signature of Merk as manufacturer
+   - List of files associated with the good (product specs, quality report)
+   - Each file will show a fingerprint (like the md5sum but abbreviated)
+1. The user clicks in the "hand over" button
+1. This open a view with the good QR code that can be shown to the DHL pick-up guy
+
+### DHL demo
+
+The flow of the demo using a DHL user is:
+
+1. We open the application as a DHL user
+1. We show the DHL home page with all the goods managed by DHL and the different states (In transit, Delivered, Problem detected)
+1. We open the "Pick up" button from the app
+
 
 
 ## Dev quickstart
