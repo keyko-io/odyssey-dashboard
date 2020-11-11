@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" version="1.0">
+	<bindings  scd="x-schema::tns" xmlns:tns="urn:un:unece:uncefact:codelist:standard:6:3055:D09A">
+		<schemaBindings>
+			<package name="com.afklm.soa.stubs.w001928.v2.standard.unece.agency"/>
+		</schemaBindings>
+	</bindings>
+</bindings>
