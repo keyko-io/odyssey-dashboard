@@ -153,6 +153,39 @@ The flow of the demo using the John Doe user is:
 1. The user scroll down and can see the map with the complete journey of the cargo
 
 
+## Bad Handover scenarios
+
+Since the handover seems to be the most important part of the supply chain it is important to go through some of the failure scenarios that can happen during the handover and detail how our solution behaves in this case. The users of this solution don't want just to see an ❌ but we want to also know what was the reason for the handover to fail.
+
+Imagine the case where a handover fails between *Merke* and *DHL*. Which side is at fault? Maybe *DHL* presented wron identity credentials during the handover and *Merke* decied to cancel the handover. Or maybe *DHL* after looking at the metadata associated with the cargo found problems and decided to cancel the handover.
+
+In this section we detail some failed handover scenario. We will focus on two actors, with *Merke* trying to handover cargo the *DHL*.
+
+### Scenario 1 - Failed due diligence
+
+1. *Merke* clicks in the "hand over" button:
+   - *Merke* possibly needs to select the identity of *DHL* or this is already somehow predifined for this cargo.
+   - This represents *Merke's* intent to handover the cargo to *DHL*
+   - (Could this action be recorded in the provenance contract?)
+2. This open a view with the QR code (unique to this handover) that can be shown to the DHL pick-up guy
+3. *DHL* opens the application
+4. We show the DHL home page with all the goods managed by DHL and the different states (In transit, Delivered, Problem detected)
+5. *DHL* clicks the "Pick up" button from the app, this open the camara view for scanning a QR
+6. We scan the QR from the *Merk* app. We show a confirmation page where we say that there is a problem with the cargo
+7. We show again the home page, with the new cargo added, still in the state "Registered"
+8. The user clicks in the item just created, and see the detailed view
+9.  In the detailed view we can see the QR of the good and some metadata. The item is in the "Registered" state.
+10. If we scroll down we can see the "Provenance" list with 2 entries (green tick): "Registered" and (greyed out pending) "Handed over"
+11. If the user clicks in the second item of the list (Handed Over) a new view is opened showing the:
+    - Digital signature of Merk as manufacturer
+    - List of files associated with the good (product specs, quality report)
+    - Each file will show a fingerprint (like the md5sum but abbreviated)
+12. *DHL* clicks in the "cancel hand over" button
+    - Maybe this can also be recorded in the provenance contract
+
+Depending on what is recorded in the provenance contract in this scenario we could learn that:
+- *Merke* met with DHL and showed intent to handover the cargo
+- *DHL* denied the handover specifying some reason
 
 
 ## Dev quickstart
