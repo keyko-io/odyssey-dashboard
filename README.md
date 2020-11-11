@@ -13,6 +13,10 @@
       * [What do we need to do to improve that?](#what-do-we-need-to-do-to-improve-that)
       * [Benefits](#benefits)
    * [Odyssey Demo](#odyssey-demo)
+      * [Merk demo](#merk-demo)
+      * [DHL demo](#dhl-demo)
+      * [KLM demo](#klm-demo)
+      * [Final recipient](#final-recipient)
    * [Dev quickstart](#dev-quickstart)
    * [Links](#links)
 
@@ -98,7 +102,54 @@ The flow of the demo using a DHL user is:
 
 1. We open the application as a DHL user
 1. We show the DHL home page with all the goods managed by DHL and the different states (In transit, Delivered, Problem detected)
-1. We open the "Pick up" button from the app
+1. We open the "Pick up" button from the app, this open the camara view for scanning a QR
+1. We scan the QR from the Merk app. We show a confirmation page where we say everything is looking good
+1. We show again the home page, with the new cargo added, now the state is "In Transit"
+1. The user clicks in the item just created, and see the detailed view
+1. In the detailed view we can see the QR of the good and some metadata. The item is in "In Transit" state.
+1. If we scroll down we can see the "Provenance" list with 2 entries (green tick): "Registered" and "Handed over"
+1. If the user clicks in the second item of the list (Handed Over) a new view is opened showing the:
+   - Digital signature of Merk as manufacturer and DHL as carrier
+   - List of files associated with the good (product specs, quality report)
+   - Each file will show a fingerprint (like the md5sum but abbreviated)
+1. The user clicks in the "hand over" button
+
+### KLM demo
+
+The flow of the demo using a KLM user is:
+
+1. We open the application as a KLM user
+1. We show the KLM home page with all the goods managed by KLM and the different states (In transit, Delivered, Problem detected)
+1. We open the "Pick up" button from the app, this open the camara view for scanning a QR
+1. We scan the QR from the DHL app. We show a confirmation page where we say everything is looking good
+1. We show again the home page, with the new cargo added, now the state is "In Transit"
+1. The user clicks in the item just created, and see the detailed view
+1. In the detailed view we can see the QR of the good and some metadata. The item is in "In Transit" state.
+1. If we scroll down we can see the "Provenance" list with 3 entries (green tick): "Registered" and "Handed over" two times
+1. If the user clicks in the third item of the list (Handed Over) a new view is opened showing the:
+   - Digital signature of DHL and KLM as carriers
+   - List of files associated with the good (product specs, quality report)
+   - Each file will show a fingerprint (like the md5sum but abbreviated)
+1. The user clicks in the "hand over" button
+
+### Final recipient
+
+The flow of the demo using the John Doe user is:
+
+1. We open the application as a John Doe user
+1. We show the user home page with all the goods controlled by the user and the different states (In transit, Delivered, Problem detected)
+1. We open the "Pick up" button from the app, this open the camara view for scanning a QR
+1. We scan the QR from the KLM app. We show a confirmation page where we say everything is looking good
+1. We show again the home page, with the new cargo added, now the state is "In Transit"
+1. The user clicks in the item just created, and see the detailed view
+1. In the detailed view we can see the QR of the good and some metadata. The item is in "In Transit" state.
+1. If we scroll down we can see the "Provenance" list with 4 entries (green tick): "Registered" and "Handed over" two times and "Delivered"
+1. If the user clicks in the third item of the list (Handed Over) a new view is opened showing the:
+   - Digital signature of KLM as carrier and John Doe
+   - List of files associated with the good (product specs, quality report)
+   - Each file will show a fingerprint (like the md5sum but abbreviated)
+1. The user scroll down and can see the map with the complete journey of the cargo
+
 
 
 
