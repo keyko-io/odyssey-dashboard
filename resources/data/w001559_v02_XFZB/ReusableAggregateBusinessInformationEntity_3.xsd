@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?><!--SOA repository reference: W001559-v2.0.0--><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:qdt="urn:un:unece:uncefact:data:standard:QualifiedDataType:7" xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:8" xmlns:ram="iata:datamodel:3" elementFormDefault="qualified" targetNamespace="iata:datamodel:3" version="2.0">
+  <!--previous value QualifiedDataType_7p0.xsd updated--><xsd:import namespace="urn:un:unece:uncefact:data:standard:QualifiedDataType:7" schemaLocation="QualifiedDataType_7p0.xsd"/>
+  <!--previous value UnqualifiedDataType_8p0.xsd updated--><xsd:import namespace="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:8" schemaLocation="UnqualifiedDataType_8p0.xsd"/>
+  <xsd:element name="AccountingNote" type="ram:AccountingNoteType"/>
+  <xsd:element name="AddressLocation" type="ram:AddressLocationType"/>
+  <xsd:element name="ArrivalEvent" type="ram:ArrivalEventType"/>
+  <xsd:element name="ArrivalLocation" type="ram:ArrivalLocationType"/>
+  <xsd:element name="AssociatedParty" type="ram:AssociatedPartyType"/>
+  <xsd:element name="AuthenticationLocation" type="ram:AuthenticationLocationType"/>
+  <xsd:element name="BusinessHeaderDocument" type="ram:BusinessHeaderDocumentType"/>
+  <xsd:element name="CarrierAuthentication" type="ram:CarrierAuthenticationType"/>
+  <xsd:element name="ConsigneeParty" type="ram:ConsigneePartyType"/>
+  <xsd:element name="ConsignmentCustomsProcedure" type="ram:ConsignmentCustomsProcedureType"/>
+  <xsd:element name="ConsignorAuthentication" type="ram:ConsignorAuthenticationType"/>
+  <xsd:element name="ConsignorParty" type="ram:ConsignorPartyType"/>
+  <xsd:element name="CustomsNote" type="ram:CustomsNoteType"/>
+  <xsd:element name="DepartureEvent" type="ram:DepartureEventType"/>
+  <xsd:element name="DepartureLocation" type="ram:DepartureLocationType"/>
+  <xsd:element name="DestinationCurrencyExchange" type="ram:DestinationCurrencyExchangeType"/>
+  <xsd:element name="EmailCommunication" type="ram:EmailCommunicationType"/>
+  <xsd:element name="FaxCommunication" type="ram:FaxCommunicationType"/>
+  <xsd:element name="FinalDestinationLocation" type="ram:FinalDestinationLocationType"/>
+  <xsd:element name="FreightForwarderParty" type="ram:FreightForwarderPartyType"/>
+  <xsd:element name="FreightRateServiceCharge" type="ram:FreightRateServiceChargeType"/>
+  <xsd:element name="HeaderNote" type="ram:HeaderNoteType"/>
+  <xsd:element name="HouseConsignment" type="ram:HouseConsignmentType"/>
+  <xsd:element name="HouseConsignmentItem" type="ram:HouseConsignmentItemType"/>
+  <xsd:element name="InsuranceParty" type="ram:InsurancePartyType"/>
+  <xsd:element name="LogisticsAllowanceCharge" type="ram:LogisticsAllowanceChargeType"/>
+  <xsd:element name="LogisticsPackage" type="ram:LogisticsPackageType"/>
+  <xsd:element name="LogisticsSeal" type="ram:LogisticsSealType"/>
+  <xsd:element name="LogisticsServiceCharge" type="ram:LogisticsServiceChargeType"/>
+  <xsd:element name="LogisticsTransportEquipment" type="ram:LogisticsTransportEquipmentType"/>
+  <xsd:element name="LogisticsTransportMeans" type="ram:LogisticsTransportMeansType"/>
+  <xsd:element name="LogisticsTransportMovement" type="ram:LogisticsTransportMovementType"/>
+  <xsd:element name="MasterConsignment" type="ram:MasterConsignmentType"/>
+  <xsd:element name="MessageHeaderDocument" type="ram:MessageHeaderDocumentType"/>
+  <xsd:element name="OperatingParty" type="ram:OperatingPartyType"/>
+  <xsd:element name="OriginCountry" type="ram:OriginCountryType"/>
+  <xsd:element name="OriginCurrencyExchange" type="ram:OriginCurrencyExchangeType"/>
+  <xsd:element name="OriginLocation" type="ram:OriginLocationType"/>
+  <xsd:element name="OSIInstructions" type="ram:OSIInstructionsType"/>
+  <xsd:element name="RateCombinationPointLocation" type="ram:RateCombinationPointLocationType"/>
+  <xsd:element name="RecipientParty" type="ram:RecipientPartyType"/>
+  <xsd:element name="ReferenceDocument" type="ram:ReferenceDocumentType"/>
+  <xsd:element name="SenderParty" type="ram:SenderPartyType"/>
+  <xsd:element name="SpatialDimension" type="ram:SpatialDimensionType"/>
+  <xsd:element name="SPHInstructions" type="ram:SPHInstructionsType"/>
+  <xsd:element name="SSRInstructions" type="ram:SSRInstructionsType"/>
+  <xsd:element name="StructuredAddress" type="ram:StructuredAddressType"/>
+  <xsd:element name="TelephoneCommunication" type="ram:TelephoneCommunicationType"/>
+  <xsd:element name="TelexCommunication" type="ram:TelexCommunicationType"/>
+  <xsd:element name="TradeContact" type="ram:TradeContactType"/>
+  <xsd:element name="TransportCargo" type="ram:TransportCargoType"/>
+  <xsd:element name="TransportCargoInsurance" type="ram:TransportCargoInsuranceType"/>
+  <xsd:element name="TransportContractDocument" type="ram:TransportContractDocumentType"/>
+  <xsd:element name="UnitLoadTransportEquipment" type="ram:UnitLoadTransportEquipmentType"/>
+  <xsd:complexType name="AccountingNoteType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="ContentCode" type="udt:CodeType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Content" type="udt:TextType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AddressLocationType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Name" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="TypeCode" type="udt:CodeType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ArrivalEventType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ScheduledOccurrenceDateTime" type="udt:DateTimeType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="OccurrenceArrivalLocation" type="ram:ArrivalLocationType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ArrivalLocationType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Name" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="TypeCode" type="udt:CodeType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AssociatedPartyType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="PrimaryID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AdditionalID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Name" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="RoleCode" type="qdt:PartyRoleCodeType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Role" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="PostalStructuredAddress" type="ram:StructuredAddressType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="DefinedTradeContact" type="ram:TradeContactType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AuthenticationLocationType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Name" type="udt:TextType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BusinessHeaderDocumentType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="ID" type="udt:IDType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="IncludedHeaderNote" type="ram:HeaderNoteType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="SignatoryConsignorAuthentication" type="ram:ConsignorAuthenticationType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="SignatoryCarrierAuthentication" type="ram:CarrierAuthenticationType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CarrierAuthenticationType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="ActualDateTime" type="udt:DateTimeType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Signatory" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="IssueAuthenticationLocation" type="ram:AuthenticationLocationType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ConsigneePartyType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="PrimaryID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AdditionalID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Name" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AccountID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="PostalStructuredAddress" type="ram:StructuredAddressType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="DefinedTradeContact" type="ram:TradeContactType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ConsignmentCustomsProcedureType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="GoodsStatusCode" type="udt:CodeType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ConsignorAuthenticationType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Signatory" type="udt:TextType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ConsignorPartyType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="PrimaryID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AdditionalID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Name" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AccountID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="PostalStructuredAddress" type="ram:StructuredAddressType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="DefinedTradeContact" type="ram:TradeContactType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomsNoteType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ContentCode" type="udt:CodeType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Content" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="SubjectCode" type="udt:CodeType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="CountryID" type="qdt:CountryIDType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DepartureEventType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ScheduledOccurrenceDateTime" type="udt:DateTimeType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="OccurrenceDepartureLocation" type="ram:DepartureLocationType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DepartureLocationType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Name" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="TypeCode" type="udt:CodeType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DestinationCurrencyExchangeType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="TargetCurrencyCode" type="qdt:CurrencyCodeType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="MarketID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ConversionRate" type="udt:RateType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="EmailCommunicationType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="URIID" type="udt:IDType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FaxCommunicationType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="CompleteNumber" type="udt:TextType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FinalDestinationLocationType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="ID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Name" type="udt:TextType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FreightForwarderPartyType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="PrimaryID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AdditionalID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Name" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AccountID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="PostalStructuredAddress" type="ram:StructuredAddressType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="DefinedTradeContact" type="ram:TradeContactType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FreightRateServiceChargeType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="CategoryCode" type="udt:CodeType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="CommodityItemID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="ChargeableWeightMeasure" type="udt:MeasureType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AppliedRate" type="udt:RateType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AppliedAmount" type="udt:AmountType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="HeaderNoteType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ContentCode" type="udt:CodeType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Content" type="udt:TextType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="HouseConsignmentItemType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="SequenceNumeric" type="udt:NumericType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="TypeCode" type="udt:CodeType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="GrossWeightMeasure" type="udt:MeasureType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="GrossVolumeMeasure" type="udt:MeasureType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="TotalChargeAmount" type="udt:AmountType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="PackageQuantity" type="udt:QuantityType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="PieceQuantity" type="udt:QuantityType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="VolumetricFactor" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Information" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="NatureIdentificationTransportCargo" type="ram:TransportCargoType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="OriginCountry" type="ram:OriginCountryType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AssociatedUnitLoadTransportEquipment" type="ram:UnitLoadTransportEquipmentType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="TransportLogisticsPackage" type="ram:LogisticsPackageType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="ApplicableFreightRateServiceCharge" type="ram:FreightRateServiceChargeType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="AssociatedReferenceDocument" type="ram:ReferenceDocumentType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="SpecifiedRateCombinationPointLocation" type="ram:RateCombinationPointLocationType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="HouseConsignmentType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AdditionalID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AssociatedReferenceID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="NilCarriageValueIndicator" type="udt:IndicatorType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="DeclaredValueForCarriageAmount" type="udt:AmountType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="NilCustomsValueIndicator" type="udt:IndicatorType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="DeclaredValueForCustomsAmount" type="udt:AmountType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="NilInsuranceValueIndicator" type="udt:IndicatorType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="InsuranceValueAmount" type="udt:AmountType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="TotalChargePrepaidIndicator" type="udt:IndicatorType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="WeightTotalChargeAmount" type="udt:AmountType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ValuationTotalChargeAmount" type="udt:AmountType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="TaxTotalChargeAmount" type="udt:AmountType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="TotalDisbursementPrepaidIndicator" type="udt:IndicatorType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AgentTotalDisbursementAmount" type="udt:AmountType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="CarrierTotalDisbursementAmount" type="udt:AmountType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="TotalPrepaidChargeAmount" type="udt:AmountType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="TotalCollectChargeAmount" type="udt:AmountType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="IncludedTareGrossWeightMeasure" type="udt:MeasureType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="GrossVolumeMeasure" type="udt:MeasureType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="DensityGroupCode" type="udt:CodeType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ConsignmentItemQuantity" type="udt:QuantityType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="PackageQuantity" type="udt:QuantityType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="TotalPieceQuantity" type="udt:QuantityType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="SummaryDescription" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="FreightRateTypeCode" type="udt:CodeType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="ConsignorParty" type="ram:ConsignorPartyType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="ConsigneeParty" type="ram:ConsigneePartyType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="FreightForwarderParty" type="ram:FreightForwarderPartyType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="AssociatedParty" type="ram:AssociatedPartyType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ApplicableTransportCargoInsurance" type="ram:TransportCargoInsuranceType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="OriginLocation" type="ram:OriginLocationType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="FinalDestinationLocation" type="ram:FinalDestinationLocationType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="SpecifiedLogisticsTransportMovement" type="ram:LogisticsTransportMovementType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="UtilizedLogisticsTransportEquipment" type="ram:LogisticsTransportEquipmentType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="HandlingSPHInstructions" type="ram:SPHInstructionsType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="HandlingSSRInstructions" type="ram:SSRInstructionsType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="HandlingOSIInstructions" type="ram:OSIInstructionsType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="IncludedAccountingNote" type="ram:AccountingNoteType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="IncludedCustomsNote" type="ram:CustomsNoteType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="AssociatedReferenceDocument" type="ram:ReferenceDocumentType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AssociatedConsignmentCustomsProcedure" type="ram:ConsignmentCustomsProcedureType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ApplicableOriginCurrencyExchange" type="ram:OriginCurrencyExchangeType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ApplicableDestinationCurrencyExchange" type="ram:DestinationCurrencyExchangeType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ApplicableLogisticsServiceCharge" type="ram:LogisticsServiceChargeType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="ApplicableLogisticsAllowanceCharge" type="ram:LogisticsAllowanceChargeType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="IncludedHouseConsignmentItem" type="ram:HouseConsignmentItemType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="InsurancePartyType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Role" type="udt:TextType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LogisticsAllowanceChargeType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="ID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Reason" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="ActualAmount" type="udt:AmountType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="PartyTypeCode" type="udt:CodeType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LogisticsPackageType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="ItemQuantity" type="udt:QuantityType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="GrossWeightMeasure" type="udt:MeasureType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="LinearSpatialDimension" type="ram:SpatialDimensionType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LogisticsSealType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ID" type="udt:IDType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LogisticsServiceChargeType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="ServiceTypeCode" type="udt:CodeType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LogisticsTransportEquipmentType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="CharacteristicCode" type="udt:CodeType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Characteristic" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="AffixedLogisticsSeal" type="ram:LogisticsSealType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LogisticsTransportMeansType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Name" type="udt:TextType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LogisticsTransportMovementType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="StageCode" type="udt:CodeType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ModeCode" type="qdt:TransportModeCodeType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Mode" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="SequenceNumeric" type="udt:NumericType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="UsedLogisticsTransportMeans" type="ram:LogisticsTransportMeansType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ArrivalEvent" type="ram:ArrivalEventType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="DepartureEvent" type="ram:DepartureEventType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MasterConsignmentType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="IncludedTareGrossWeightMeasure" type="udt:MeasureType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="TotalPieceQuantity" type="udt:QuantityType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="TransportContractDocument" type="ram:TransportContractDocumentType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="OriginLocation" type="ram:OriginLocationType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="FinalDestinationLocation" type="ram:FinalDestinationLocationType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="IncludedHouseConsignment" type="ram:HouseConsignmentType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MessageHeaderDocumentType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="ID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Name" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="TypeCode" type="qdt:DocumentCodeType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="IssueDateTime" type="udt:DateTimeType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="PurposeCode" type="udt:CodeType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="VersionID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ConversationID" type="udt:IDType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="SenderParty" type="ram:SenderPartyType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="RecipientParty" type="ram:RecipientPartyType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OperatingPartyType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="PrimaryID" type="udt:IDType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OriginCountryType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="ID" type="qdt:CountryIDType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OriginCurrencyExchangeType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="SourceCurrencyCode" type="qdt:CurrencyCodeType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OriginLocationType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="ID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Name" type="udt:TextType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OSIInstructionsType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Description" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="DescriptionCode" type="udt:CodeType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="RateCombinationPointLocationType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="ID" type="udt:IDType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="RecipientPartyType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="PrimaryID" type="udt:IDType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ReferenceDocumentType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="ID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="IssueDateTime" type="udt:DateTimeType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="TypeCode" type="qdt:DocumentCodeType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Name" type="udt:TextType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SenderPartyType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="PrimaryID" type="udt:IDType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SpatialDimensionType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="WidthMeasure" type="udt:MeasureType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="LengthMeasure" type="udt:MeasureType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="HeightMeasure" type="udt:MeasureType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SPHInstructionsType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Description" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="DescriptionCode" type="udt:CodeType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SSRInstructionsType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Description" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="DescriptionCode" type="udt:CodeType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="StructuredAddressType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="PostcodeCode" type="udt:CodeType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="StreetName" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="CityName" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="CountryID" type="qdt:CountryIDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="CountryName" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="CountrySubDivisionName" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="PostOfficeBox" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="CityID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="CountrySubDivisionID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="SpecifiedAddressLocation" type="ram:AddressLocationType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TelephoneCommunicationType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="CompleteNumber" type="udt:TextType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TelexCommunicationType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="CompleteNumber" type="udt:TextType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TradeContactType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="PersonName" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="DepartmentName" type="udt:TextType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="DirectTelephoneCommunication" type="ram:TelephoneCommunicationType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="FaxCommunication" type="ram:FaxCommunicationType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="URIEmailCommunication" type="ram:EmailCommunicationType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="TelexCommunication" type="ram:TelexCommunicationType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TransportCargoInsuranceType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="CoverageInsuranceParty" type="ram:InsurancePartyType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TransportCargoType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Identification" type="udt:TextType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TransportContractDocumentType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="ID" type="udt:IDType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="UnitLoadTransportEquipmentType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="ID" type="udt:IDType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="TareWeightMeasure" type="udt:MeasureType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="LoadedPackageQuantity" type="udt:QuantityType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="CharacteristicCode" type="udt:CodeType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="OperatingParty" type="ram:OperatingPartyType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
