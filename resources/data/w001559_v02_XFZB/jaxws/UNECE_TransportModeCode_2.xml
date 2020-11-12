@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" version="1.0">
+	<bindings  scd="x-schema::tns" xmlns:tns="urn:un:unece:uncefact:codelist:standard:UNECE:TransportModeCode:2">
+		<schemaBindings>
+			<package name="com.afklm.soa.stubs.w001559.v2.standard.unece.transportmode"/>
+		</schemaBindings>
+	</bindings>
+</bindings>

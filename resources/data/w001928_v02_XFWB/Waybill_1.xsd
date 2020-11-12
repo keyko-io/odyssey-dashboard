@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Uploaded in SOA repository on 2018-05-18 11:14:56.431--><!--SOA repository reference: W001928-v2.0.0--><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:8" xmlns:ram="iata:datamodel:3" xmlns:rsm="iata:waybill:1" xmlns:ccts="urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:2" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="iata:waybill:1" version="3.00">
+  <!--previous value UnqualifiedDataType_8p0.xsd updated--><xsd:import namespace="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:8" schemaLocation="UnqualifiedDataType_8p0.xsd"/>
+  <!--previous value ReusableAggregateBusinessInformationEntity_3.xsd updated--><xsd:import namespace="iata:datamodel:3" schemaLocation="ReusableAggregateBusinessInformationEntity_3.xsd"/>
+  <xsd:element name="Waybill" type="rsm:WaybillType"/>
+  <xsd:complexType name="WaybillType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="MessageHeaderDocument" type="ram:MessageHeaderDocumentType"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="BusinessHeaderDocument" type="ram:BusinessHeaderDocumentType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="MasterConsignment" type="ram:MasterConsignmentType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
