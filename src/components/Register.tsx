@@ -10,10 +10,9 @@ interface Props {
   navigation: any
 }
 type Inputs = {
-    example: string,
-    exampleRequired: string,
+    name: string,
+    description: string,
   };
-
 
 
 export function Register() {
@@ -23,11 +22,11 @@ export function Register() {
     return (
     <View style={{ flex: 1,  alignItems: 'center', justifyContent: 'center' }}>
         <form onSubmit={handleSubmit(onSubmit)}>
-            <input name="example" defaultValue="test" ref={register} />
+            <input name="name" defaultValue="test" ref={register({ required: true })} />
+            <br/> 
+            {errors.name && <span>This field is required</span>}
             <br/>    
-            <input name="exampleRequired" ref={register({ required: true })} />
-            <br/>    
-            {errors.exampleRequired && <span>This field is required</span>}
+            <input name="description" ref={register} />
             <br/>    
             <input type="submit" />
 

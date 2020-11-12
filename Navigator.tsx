@@ -2,11 +2,11 @@ import React from 'react'
 import 'react-native-gesture-handler';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Dashboard } from './Dashboard'
-import { DetailsList } from './DetailsList'
-import { DetailsItem } from './DetailsItem'
-import { Register } from './Register'
-import { LogoTitle } from './Header'
+import { Dashboard } from './src/components/Dashboard'
+import { DetailsList } from './src/components/DetailsList'
+import { DetailsItem } from './src/components/DetailsItem'
+import { Register } from './src/components/Register'
+import { LogoTitle } from './src/components/Header'
 
 const MainStack = createStackNavigator();
 function Navigator() {
