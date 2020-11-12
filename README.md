@@ -8,20 +8,21 @@
 
 
 
-* [Odyssey Provenance Dashboard](#odyssey-provenance-dashboard)
-   * [Introduction](#introduction)
-      * [Main Problems](#main-problems)
-      * [What do we need to do to improve that?](#what-do-we-need-to-do-to-improve-that)
-      * [Benefits](#benefits)
-   * [Odyssey Demo](#odyssey-demo)
-      * [MSD demo](#msd-demo)
-      * [DHL demo](#dhl-demo)
-      * [KLM demo](#klm-demo)
-      * [Final recipient](#final-recipient)
-   * [Bad Handover scenarios](#bad-handover-scenarios)
-      * [Scenario 1 - Failed due diligence](#scenario-1---failed-due-diligence)
-   * [Dev quickstart](#dev-quickstart)
-   * [Links](#links)
+- [Odyssey Provenance Dashboard](#odyssey-provenance-dashboard)
+  - [Introduction](#introduction)
+    - [Main Problems](#main-problems)
+    - [What do we need to do to improve that?](#what-do-we-need-to-do-to-improve-that)
+    - [Benefits](#benefits)
+  - [Odyssey Demo](#odyssey-demo)
+    - [MSD demo](#msd-demo)
+    - [DHL demo](#dhl-demo)
+    - [KLM demo](#klm-demo)
+    - [Final recipient](#final-recipient)
+  - [Odyssey Demo Provenance Contract](#odyssey-demo-provenance-contract)
+  - [Bad Handover scenarios](#bad-handover-scenarios)
+    - [Scenario 1 - Failed due diligence](#scenario-1---failed-due-diligence)
+  - [Dev quickstart](#dev-quickstart)
+  - [Links](#links)
 
 
 
@@ -154,6 +155,133 @@ The flow of the demo using the John Doe user is:
    - List of files associated with the good (product specs, quality report)
    - Each file will show a fingerprint (like the md5sum but abbreviated)
 1. The user scroll down and can see the map with the complete journey of the cargo
+
+## Odyssey Demo Provenance Contract
+
+
+**Agents:**
+- MSD
+- DHL
+- KLM
+- John Doe
+
+**Entities:**
+- Cargo asset DID (e.g. `did:nv:055bac4b255452fa6c0c2974aa2b009ffd281e55c9a38f557796844d04bac85d`)
+
+1. MSD generates the entity starting the provenance chain:
+```js
+wasGeneratedBy(
+   "did:nv:055bac4b255452fa6c0c2974aa2b009ffd281e55c9a38f557796844d04bac85d", //did of the entity
+   MSD, // agentId address
+   GENERATED, // activity
+   [], // list of delegates
+   "", // attributes: string
+   MSD, // owner address
+)
+```
+
+2. MSD assigns responsibility for manufacturing:
+```js
+wasAssociatedWith(
+   "did:nv:055bac4b255452fa6c0c2974aa2b009ffd281e55c9a38f557796844d04bac85d", //did of the entity
+   MSD, // agentId address
+   MANUFACTURING, // activity
+   [], // list of delegates
+   "", // attributes: string
+   MSD, // owner address
+   [], // list of signatures
+)
+```
+
+3. MSD delegates to DHL for ground transportation:
+```js
+actedOnBehalfOf(
+   DHL, // delegateAgent adress
+   MSD, // responsibleAgentId
+   "did:nv:055bac4b255452fa6c0c2974aa2b009ffd281e55c9a38f557796844d04bac85d", //did of the entity
+   MSD, // agentId address
+   TRANSPORTATION, // activity
+   MSD, // owner address
+   [], // list of signatures
+   "", // attributes: string
+)
+```
+
+4. DHL assigns responsibility for transportation:
+```js
+wasAssociatedWith(
+   "did:nv:055bac4b255452fa6c0c2974aa2b009ffd281e55c9a38f557796844d04bac85d", //did of the entity
+   DHL, // agentId address
+   TRANSPORTATION, // activity
+   [], // list of delegates
+   "", // attributes: string
+   DHL, // owner address
+   [], // list of signatures
+)
+```
+
+5. DHL begins transportation
+```js
+used(
+   DHL, // agentId address
+   TRANSPORTATION, // activity
+   "did:nv:055bac4b255452fa6c0c2974aa2b009ffd281e55c9a38f557796844d04bac85d", //did of the entity
+   "", // attributes: string
+   DHL, // owner address
+)
+```
+
+6. DHL delegates to KLM for ground transportation:
+```js
+actedOnBehalfOf(
+   KLM, // delegateAgent adress
+   DHL, // responsibleAgentId
+   "did:nv:055bac4b255452fa6c0c2974aa2b009ffd281e55c9a38f557796844d04bac85d", //did of the entity
+   DHL, // agentId address
+   TRANSPORTATION, // activity
+   DHL, // owner address
+   [], // list of signatures
+   "", // attributes: string
+)
+```
+
+6. KLM assigns responsibility for transportation:
+```js
+wasAssociatedWith(
+   "did:nv:055bac4b255452fa6c0c2974aa2b009ffd281e55c9a38f557796844d04bac85d", //did of the entity
+   KML, // agentId address
+   TRANSPORTATION, // activity
+   [], // list of delegates
+   "", // attributes: string
+   KLM, // owner address
+   [], // list of signatures
+)
+```
+
+7. KML begins transportation
+```js
+used(
+   KLM, // agentId address
+   TRANSPORTATION, // activity
+   "did:nv:055bac4b255452fa6c0c2974aa2b009ffd281e55c9a38f557796844d04bac85d", //did of the entity
+   "", // attributes: string
+   KLM, // owner address
+)
+```
+
+8. KLM delivers to John Doe:
+```js
+actedOnBehalfOf(
+   John Doe, // delegateAgent adress
+   KLM, // responsibleAgentId
+   "did:nv:055bac4b255452fa6c0c2974aa2b009ffd281e55c9a38f557796844d04bac85d", //did of the entity
+   KLM, // agentId address
+   DELIVERY, // activity
+   KLM, // owner address
+   [], // list of signatures
+   "", // attributes: string
+)
+```
 
 
 ## Bad Handover scenarios
