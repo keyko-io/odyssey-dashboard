@@ -7,7 +7,7 @@ interface Props {
 export class Dashboard extends React.Component<Props> {
     render() {
       return (
-        <View style={{ flex: 10, alignItems: 'center', justifyContent: 'center' }}>
+        <View>
           <Button title="Start" onPress={() => this.props.navigation.navigate('detailsList')}></Button>
           <br></br>
           <Button title="DHL" onPress={()=> this.props.navigation.navigate('detailsList')}></Button>
