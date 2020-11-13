@@ -11,15 +11,15 @@ const Mapbox = ReactMapboxGl({
     'pk.eyJ1IjoiZXJ1aXpnYXIiLCJhIjoiY2toZzZlejJ5MDR1dTMzbzE1ZGNncm1lcyJ9.X0KlUylvR7uU1c-AD7OYhQ'
 })
 
-export function Map({latitude, longitude}: MapProps) {
+export function Map({latitude, longitude, height}: MapProps) {
   return (
     <View>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnLRtCs2wyvMkbJPPsS4mBWOvU1SJh1OQ&callback=initMap" type="text/javascript"></script>
       <Mapbox
         style="mapbox://styles/mapbox/streets-v9"
         containerStyle={{
-          height: '50vh',
-          width: '50vw'
+          height: !isNaN(height as any) ? `${height}px` : height || '50vh',
+          width: '100%'
         }}
         center={[latitude, longitude]}>
 

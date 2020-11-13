@@ -3,4 +3,5 @@ export interface MapProps {
   longitude: number
   latitudeDelta?: number
   longitudeDelta?: number
+  height?: number | string
 }
