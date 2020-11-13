@@ -19,3 +19,48 @@ In future it would be great to find a way to get the blockchain reference in the
 So we can use that reference to call the block chain for verification of the shipment throughout the supply chain.
 
 Good luck for the last weeks/days!
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Forwarder makes the booking with KLM
+- Forwarder & Consigner are the same
+  - 4 hours prior to departure, KLM gets the information
+    - Can be manually verified for an extra fee
+  - MSD is the consigner
+  
+Airway Bill
+- Contract between Freight Forwarder and KLM
+
+House Way Bill
+  - IATA Standards
+    - Compliance Checks
+  - KLM sents to customs
+    - Customs has time limits
+    - Security and Compliance check before -> **IMPORTANT FOR ODYSSEY**
+    - Also filing for taxes
+  - Identify shipments
+      - Shipper name
+      - Description
+  - Authentication
+    - KLM is interested in this
+    - Vaccine has Code
+    - Check on the shipment
+        - Storage
+        - Indentification in the message
+        - Special handling codes 
+          - i.e. Covid code
+        - IATA codes -> look them up
+        
+Use HS Code
+  - These are Customs Codes
+    - Vaccines are 6 digits + 2
+      - 32002000
+      - 320020 -> Code for Vaccine
+      - 00 (last 2 digits) -> Country Code
+      
+
+
+    
+ 
+    
