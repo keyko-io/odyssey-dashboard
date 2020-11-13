@@ -7,6 +7,11 @@
 > [keyko.io](https://keyko.io)
 
 
+[![Discord](https://img.shields.io/discord/775670012446507028.svg?color=7289da&label=Discord&logo=discord&style=flat-square)](https://discord.gg/H7gUwekcSt)
+
+> Join the Odyssey Hackthon conversation in Nevermined Discord server (#odyssey)
+
+---
 
 * [Odyssey Provenance Dashboard](#odyssey-provenance-dashboard)
    * [Introduction](#introduction)
