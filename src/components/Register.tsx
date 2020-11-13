@@ -24,10 +24,11 @@ type Inputs = {
 const generateDid = () => `did:nvm:${Array.from({length: 5}).map(() => Math.floor(Math.random() * 2 ** 32).toString(16)).join('').substr(0, 40)}`
 
 export function Register() {
-  const { control, register, handleSubmit, errors, setValue } = useForm<Inputs>()
+  const {control, register, handleSubmit, errors, setValue, getValues} = useForm<Inputs>({mode: 'onChange', criteriaMode: 'all'})
+  const {name, description} = getValues()
 
   //TODO change to register using nevermined-sdk
-  const onSubmit = (data:any) =>
+  const onSubmit = (data: any) =>
     listItems.push({
       ...data,
       state:DeliveryState.Registered,
@@ -40,7 +41,6 @@ export function Register() {
     setValue('did', generateDid())
   }, [register])
 
-
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container}>
@@ -49,8 +49,8 @@ export function Register() {
         <Controller
           name="did"
           control={control}
-          defaultValue={""}
-          render={({ onChange, onBlur, value }) => (
+          defaultValue=""
+          render={({onChange, onBlur, value}) => (
             <TextInput
               style={styles.input}
               label="DID"
@@ -64,9 +64,9 @@ export function Register() {
         <Controller
           name="name"
           control={control}
-          rules={{ required: true }}
+          rules={{required: true}}
           defaultValue=""
-          render={({ onChange, onBlur, value }) => (
+          render={({onChange, onBlur, value}) => (
             <TextInput
               style={styles.input}
               label="Name"
@@ -81,7 +81,7 @@ export function Register() {
           defaultValue=""
           control={control}
           rules={{ required: true }}
-          render={({ onChange, onBlur, value }) => (
+          render={({onChange, onBlur, value}) => (
             <TextInput
               style={styles.input}
               label="Description"
@@ -93,7 +93,11 @@ export function Register() {
 
       </ScrollView>
 
-      <Button icon="plus" onPress={handleSubmit(onSubmit)}>
+      <Button
+        icon="plus"
+        onPress={handleSubmit(onSubmit)}
+        disabled={!!Object.keys(errors).length || !name || !description}>
+
         Register package
       </Button>
     </View>
