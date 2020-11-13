@@ -27,8 +27,8 @@
     - [DHL demo](#dhl-demo)
     - [KLM demo](#klm-demo)
     - [Final recipient](#final-recipient)
-  - [Odyssey Demo Provenance Contract](#odyssey-demo-provenance-contract)
     - [Customs Agent](#customs-agent)
+  - [Odyssey Demo Provenance Contract](#odyssey-demo-provenance-contract)
   - [Bad Handover scenarios](#bad-handover-scenarios)
     - [Scenario 1 - Failed due diligence](#scenario-1---failed-due-diligence)
   - [Dev quickstart](#dev-quickstart)
@@ -172,6 +172,41 @@ The flow of the demo using the John Doe user is:
    - Each file will show a fingerprint (like the md5sum but abbreviated)
 1. The user scroll down and can see the map with the complete journey of the cargo
 
+### Customs Agent
+
+The flow of the demo using the Customs Agent user is:
+
+1. We open the application as a Customs Agent user
+1. We show the user home page with all the goods needing clearance by the user and the in transit state
+1. The Customs Agent wants to know who the Consignee is for a package so he presses the "Request Consginee Info" button
+1. The Consignee, in this case *MSD*, gets a push notification that Customs is requesting additional information
+1. The Consignee can select the "Accept Request" button, or the "Deny Request" button
+    - If the Consignee selects "Accept", their infomation is signed and pushed the Customs Agent
+    - If the Consignee selects "Deny", a "Request Denied" message is pushed to the Customs Agent
+1. A response is received by the Customs Agent from the Consignee
+1. The Customs Agent wants to know who the Consigner is for a package so he presses the "Request Consigner Info" button
+1. The Consigner, in this case *John Doe*, gets a push notification that Customs is requesting additional information
+1. The Consigner can select the "Accept Request" button, or the "Deny Request" button
+    - If the Consigner selects "Accept", their infomation is signed and pushed the Customs Agent
+    - If the Consigner selects "Deny", a "Request Denied" message is pushed to the Customs Agent
+1. A response is received by the Customs Agent from the Consigner
+1. The Customs Agent can then scroll down to two buttons: "Pre-Clear Shipment" or "Deny Pre-Clearance"
+1. The Customs Agent selects either "Pre-Clear Shipment" or "Deny Pre-Clearance"
+    - If "Pre-Clear Shipment" is selected, both the Consignee and the Consigner get a push notification that shipment has been pre-cleared by customs
+    - If "Deny Pre-Clearance" is selected, both the Consignee and the Consigner get a push notification that shipment failed pre-clearance and additional information is required
+1. The Customs Agent gets a notification that *KLM* is ready with a shipment and information about the shipment
+1. The Customs Agent scrolls down to two buttons, one that says "Shipment Cleared" and what that says "Request Additional Information"
+    - If the shipment matches a shipment that has been pre-cleared, the user selects the "Shipment Cleared" button
+    - If the shipment does not match a shipment that has been pre-cleared, the user can request the Consignee and Consigner information (see same flow above)
+      - The user selects either "Approve Shipment" or "Deny Shipment"
+      - If "Approve Shipment" is selected, the Consignee, the Consigner and *KLM* get push notifications that shipment has been "Approved for Shipping" by customs
+      - If "Deny Shipment" is selected, the Consignee, the Consigner and *KLM* get a push notification that shipment failed clearance and additional information is required
+
+
+![Dashboard](resources/images/dashboard.png)
+
+
+
 ## Odyssey Demo Provenance Contract
 
 
@@ -299,39 +334,6 @@ actedOnBehalfOf(
 )
 ```
 
-
-### Customs Agent
-
-The flow of the demo using the Customs Agent user is:
-
-1. We open the application as a Customs Agent user
-1. We show the user home page with all the goods needing clearance by the user and the in transit state
-1. The Customs Agent wants to know who the Consignee is for a package so he presses the "Request Consginee Info" button
-1. The Consignee, in this case *MSD*, gets a push notification that Customs is requesting additional information
-1. The Consignee can select the "Accept Request" button, or the "Deny Request" button
-    - If the Consignee selects "Accept", their infomation is signed and pushed the Customs Agent
-    - If the Consignee selects "Deny", a "Request Denied" message is pushed to the Customs Agent
-1. A response is received by the Customs Agent from the Consignee
-1. The Customs Agent wants to know who the Consigner is for a package so he presses the "Request Consigner Info" button
-1. The Consigner, in this case *John Doe*, gets a push notification that Customs is requesting additional information
-1. The Consigner can select the "Accept Request" button, or the "Deny Request" button
-    - If the Consigner selects "Accept", their infomation is signed and pushed the Customs Agent
-    - If the Consigner selects "Deny", a "Request Denied" message is pushed to the Customs Agent
-1. A response is received by the Customs Agent from the Consigner
-1. The Customs Agent can then scroll down to two buttons: "Pre-Clear Shipment" or "Deny Pre-Clearance"
-1. The Customs Agent selects either "Pre-Clear Shipment" or "Deny Pre-Clearance"
-    - If "Pre-Clear Shipment" is selected, both the Consignee and the Consigner get a push notification that shipment has been pre-cleared by customs
-    - If "Deny Pre-Clearance" is selected, both the Consignee and the Consigner get a push notification that shipment failed pre-clearance and additional information is required
-1. The Customs Agent gets a notification that *KLM* is ready with a shipment and information about the shipment
-1. The Customs Agent scrolls down to two buttons, one that says "Shipment Cleared" and what that says "Request Additional Information"
-    - If the shipment matches a shipment that has been pre-cleared, the user selects the "Shipment Cleared" button
-    - If the shipment does not match a shipment that has been pre-cleared, the user can request the Consignee and Consigner information (see same flow above)
-      - The user selects either "Approve Shipment" or "Deny Shipment"
-      - If "Approve Shipment" is selected, the Consignee, the Consigner and *KLM* get push notifications that shipment has been "Approved for Shipping" by customs
-      - If "Deny Shipment" is selected, the Consignee, the Consigner and *KLM* get a push notification that shipment failed clearance and additional information is required
-
-
-![Dashboard](resources/images/dashboard.png)
 
 
 ## Bad Handover scenarios
