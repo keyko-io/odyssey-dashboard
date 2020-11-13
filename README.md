@@ -8,6 +8,10 @@
 
 
 [![Discord](https://img.shields.io/discord/775670012446507028.svg?color=7289da&label=Discord&logo=discord&style=flat-square)](https://discord.gg/H7gUwekcSt)
+![Build](https://github.com/keyko-io/odyssey-dashboard/workflows/Build/badge.svg)
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/keykoio/odyssey-dashboard)
+![License](https://img.shields.io/github/license/keyko-io/odyssey-dashboard)
+
 
 > Join the Odyssey Hackthon conversation in Nevermined Discord server (#odyssey)
 
