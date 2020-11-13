@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { Subheading } from 'react-native-paper';
 
 import { Title } from '../ui';
+import { cutDid } from '../shared';
 import { DeliveryState } from '../shared/types';
 
 //Get this data calling on chain or to the metadata-api
@@ -31,10 +32,6 @@ interface Props {
 
 export class DetailsList extends React.Component<Props> {
 
-  cutDid(did: string) {
-    return did.replace(/^(\w+:\w+:[a-f0-9]{8}).+([a-f0-9]{8})$/i, '$1...$2')
-  }
-
   getStateStyle(state: DeliveryState) {
     switch (state) {
       case DeliveryState.Ok: return styles.statusOk
@@ -56,7 +53,7 @@ export class DetailsList extends React.Component<Props> {
 
               <View style={styles.item}>
                 <View>
-                  <Text style={styles.textMono}>DID: {this.cutDid(item.did)}</Text>
+                  <Text style={styles.textMono}>DID: {cutDid(item.did)}</Text>
                   <Subheading>{item.description}</Subheading>
                   <Subheading style={styles.textSubAlt}>
                     State: {' '}

@@ -5,7 +5,7 @@ import { TextInput, Caption } from 'react-native-paper';
 import { useForm, Controller } from 'react-hook-form'
 
 import { Title, Button } from '../ui';
-import { DeliveryState } from '../shared/types';
+import { DeliveryState } from '../shared';
 
 import { listItems } from './DetailsList'
 
