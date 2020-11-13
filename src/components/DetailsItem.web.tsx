@@ -29,15 +29,18 @@ export class DetailsItem extends React.Component<Props> {
               <div>
                 <QRCode value={this.props.route.params.did}/>
               </div>
+              {this.props.route.params.x}
+              {this.props.route.params.y}
               <Map
                 style="mapbox://styles/mapbox/streets-v9"
                 containerStyle={{
                   height: '50vh',
                   width: '50vw'
                 }}
+                center={[this.props.route.params.x,this.props.route.params.y]}
               >
                 <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
-                  <Feature coordinates={[-0.481747846041145, 51.3233379650232]} />
+                  <Feature coordinates={[this.props.route.params.x, this.props.route.params.y]} />
                 </Layer>
               </Map>
              </div>
@@ -45,15 +48,3 @@ export class DetailsItem extends React.Component<Props> {
       );
     }
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  mapStyle: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
-  },
-})
