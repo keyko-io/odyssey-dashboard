@@ -7,6 +7,11 @@
 > [keyko.io](https://keyko.io)
 
 
+[![Discord](https://img.shields.io/discord/775670012446507028.svg?color=7289da&label=Discord&logo=discord&style=flat-square)](https://discord.gg/H7gUwekcSt)
+
+> Join the Odyssey Hackthon conversation in Nevermined Discord server (#odyssey)
+
+---
 
 - [Odyssey Provenance Dashboard](#odyssey-provenance-dashboard)
   - [Introduction](#introduction)
@@ -19,11 +24,14 @@
     - [KLM demo](#klm-demo)
     - [Final recipient](#final-recipient)
   - [Odyssey Demo Provenance Contract](#odyssey-demo-provenance-contract)
+    - [Customs Agent](#customs-agent)
   - [Bad Handover scenarios](#bad-handover-scenarios)
     - [Scenario 1 - Failed due diligence](#scenario-1---failed-due-diligence)
   - [Dev quickstart](#dev-quickstart)
+  - [Nevermined integration](#nevermined-integration)
+    - [Services](#services)
+    - [Accounts](#accounts)
   - [Links](#links)
-
 
 
 
@@ -284,6 +292,36 @@ actedOnBehalfOf(
 ```
 
 
+### Customs Agent
+
+The flow of the demo using the Customs Agent user is:
+
+1. We open the application as a Customs Agent user
+1. We show the user home page with all the goods needing clearance by the user and the in transit state
+1. The Customs Agent wants to know who the Consignee is for a package so he presses the "Request Consginee Info" button
+1. The Consignee, in this case *MSD*, gets a push notification that Customs is requesting additional information
+1. The Consignee can select the "Accept Request" button, or the "Deny Request" button
+    - If the Consignee selects "Accept", their infomation is signed and pushed the Customs Agent
+    - If the Consignee selects "Deny", a "Request Denied" message is pushed to the Customs Agent
+1. A response is received by the Customs Agent from the Consignee
+1. The Customs Agent wants to know who the Consigner is for a package so he presses the "Request Consigner Info" button
+1. The Consigner, in this case *John Doe*, gets a push notification that Customs is requesting additional information
+1. The Consigner can select the "Accept Request" button, or the "Deny Request" button
+    - If the Consigner selects "Accept", their infomation is signed and pushed the Customs Agent
+    - If the Consigner selects "Deny", a "Request Denied" message is pushed to the Customs Agent
+1. A response is received by the Customs Agent from the Consigner
+1. The Customs Agent can then scroll down to two buttons: "Pre-Clear Shipment" or "Deny Pre-Clearance"
+1. The Customs Agent selects either "Pre-Clear Shipment" or "Deny Pre-Clearance"
+    - If "Pre-Clear Shipment" is selected, both the Consignee and the Consigner get a push notification that shipment has been pre-cleared by customs
+    - If "Deny Pre-Clearance" is selected, both the Consignee and the Consigner get a push notification that shipment failed pre-clearance and additional information is required
+1. The Customs Agent gets a notification that *KLM* is ready with a shipment and information about the shipment
+1. The Customs Agent scrolls down to two buttons, one that says "Shipment Cleared" and what that says "Request Additional Information"
+    - If the shipment matches a shipment that has been pre-cleared, the user selects the "Shipment Cleared" button
+    - If the shipment does not match a shipment that has been pre-cleared, the user can request the Consignee and Consigner information (see same flow above)
+      - The user selects either "Approve Shipment" or "Deny Shipment"
+      - If "Approve Shipment" is selected, the Consignee, the Consigner and *KLM* get push notifications that shipment has been "Approved for Shipping" by customs
+      - If "Deny Shipment" is selected, the Consignee, the Consigner and *KLM* get a push notification that shipment failed clearance and additional information is required
+
 ## Bad Handover scenarios
 
 Since the handover seems to be the most important part of the supply chain it is important to go through some of the failure scenarios that can happen during the handover and detail how our solution behaves in this case. The users of this solution don't want just to see an ❌ but we want to also know what was the reason for the handover to fail.
@@ -327,6 +365,33 @@ Depending on what is recorded in the provenance contract in this scenario we cou
 - Start web livereload app with `expo start --web`
 
 
+## Nevermined integration
+
+We are using Rinkeby network
+
+To run the provenance flow demo:
+```bash
+$ npm install -g ts-node
+$ ts-node demo/ProvenanceDemo.ts
+```
+
+### Services
+
+* Keeper (Infura) - https://rinkeby.infura.io/v3/1c75f192257c497e91f30832666d179e
+* Gateway - https://gateway.keyko.rocks/
+* Metadata API - https://metadata.keyko.rocks/
+
+### Accounts
+
+Owner               | Address                                      | Path     
+--------------------|----------------------------------------------|----------
+MSD                 | `0xe2DD09d719Da89e5a3D0F2549c7E24566e947260` | 0          
+DHL                 | `0xBE5449a6A97aD46c8558A3356267Ee5D2731ab5e` | 1
+KLM                 | `0xA78deb2Fa79463945C247991075E2a0e98Ba7A09` | 2
+John Doe            | `0x02354A1F160A3fd7ac8b02ee91F04104440B28E7` | 3
+Customs             | `0xe17D2A07EFD5b112F4d675ea2d122ddb145d117B` | 4
+
+The mnemonic is: `taxi music thumb unique chat sand crew more leg another off lamp`
 
 
 ## Links

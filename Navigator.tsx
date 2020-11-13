@@ -7,6 +7,7 @@ import { DetailsList } from './src/components/DetailsList'
 import { DetailsItem } from './src/components/DetailsItem'
 import { Register } from './src/components/Register'
 import { LogoTitle } from './src/components/Header'
+import { CameraView } from './Camera/CameraView'
 
 const MainStack = createStackNavigator();
 function Navigator() {
@@ -17,6 +18,7 @@ function Navigator() {
         <MainStack.Screen name="detailsList" component={DetailsList} options={{headerTitle: props => <LogoTitle/>}}/>
         <MainStack.Screen name="detailsItem" component={DetailsItem} options={{headerTitle: props => <LogoTitle/>}}/>
         <MainStack.Screen name="register" component={Register} options={{headerTitle: props => <LogoTitle/>}}/>
+        <MainStack.Screen name="camera" component={CameraView} />
       </MainStack.Navigator>
     </NavigationContainer>
   );
