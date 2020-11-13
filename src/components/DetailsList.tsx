@@ -36,6 +36,7 @@ export class DetailsList extends React.Component<Props> {
       case DeliveryState.Ok: return styles.statusOk
       case DeliveryState.Error: return styles.statusError
       case DeliveryState.Active: return styles.statusActive
+      case DeliveryState.Registered: return styles.statusRegistered
     }
   }
 
@@ -98,6 +99,9 @@ const styles = StyleSheet.create({
     color: '#FF0C3E',
   },
   statusActive: {
-    color: '#7C02F3',
+    color: '#D7B7FD',
   },
+  statusRegistered: {
+    color: '#7C02F3',
+  }
 })
