@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Text, View, Image } from 'react-native';
+import { Button, View } from 'react-native';
 
 interface Props {
   navigation: any
@@ -21,3 +21,4 @@ export class Dashboard extends React.Component<Props> {
       );
     }
 } 
+

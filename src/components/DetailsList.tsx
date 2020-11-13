@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Text, View, Image } from 'react-native';
+import { View } from 'react-native';
 
 //Get this data calling on chain or to the metadata-api
 export const listItems = [  {
