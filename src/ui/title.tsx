@@ -21,7 +21,7 @@ export class Title extends React.Component<Props> {
       </View>
     );
   }
-} 
+}
 
 const styles = StyleSheet.create({
   container: {
