@@ -249,14 +249,15 @@ We are using Rinkeby network
 
 ### Accounts
 
-Owner               | Address                                      | Info
---------------------|----------------------------------------------|--------------
-MSD                 | `0xe2DD09d719Da89e5a3D0F2549c7E24566e947260` | 0.1          
-DHL                 | `0xBE5449a6A97aD46c8558A3356267Ee5D2731ab5e` | 0.1          
-KLM                 | `0xA78deb2Fa79463945C247991075E2a0e98Ba7A09` | 0.1          
-John Doe            | `0x02354A1F160A3fd7ac8b02ee91F04104440B28E7` | 0.1          
-Customs             | `0xe17D2A07EFD5b112F4d675ea2d122ddb145d117B` | 0.1          
+Owner               | Address                                      | Path     
+--------------------|----------------------------------------------|----------
+MSD                 | `0xe2DD09d719Da89e5a3D0F2549c7E24566e947260` | 0          
+DHL                 | `0xBE5449a6A97aD46c8558A3356267Ee5D2731ab5e` | 1
+KLM                 | `0xA78deb2Fa79463945C247991075E2a0e98Ba7A09` | 2
+John Doe            | `0x02354A1F160A3fd7ac8b02ee91F04104440B28E7` | 3
+Customs             | `0xe17D2A07EFD5b112F4d675ea2d122ddb145d117B` | 4
 
+The mnemonic is: `taxi music thumb unique chat sand crew more leg another off lamp`
 
 
 ## Links
