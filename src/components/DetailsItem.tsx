@@ -1,10 +1,8 @@
 import React from 'react'
 import { Text, View, StyleSheet, ScrollView } from 'react-native'
-import QRCode from 'qrcode.react'
-import MapView from 'react-native-maps'
-
 import { Map } from '../ui';
-import { cutDid, getStateStyle } from '../shared';
+import { cutDid, getStateStyle } from '../shared'
+import { Qr } from '../ui';
 
 interface Props {
   route: any,
@@ -32,17 +30,14 @@ export class DetailsItem extends React.Component<Props> {
               </View>
               <QRCode height="100" width="100" value={did}/>
             </View>
-
-            <Map
-              {...{
-                latitude: x,
-                longitude: y,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421,
-                height: 200,
-              }} />
+            <Qr size={100} value={did} />
           </View>
         </ScrollView>
+        <Map
+          latitude={x}
+          longitude={y}
+          latitudeDelta={0.0922}
+          longitudeDelta={0.0421}/>
       </View>
     );
   }

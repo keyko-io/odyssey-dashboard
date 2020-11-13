@@ -8,6 +8,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@nevermined-io/nevermined-sdk-js": "0.5.1",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/native": "^5.8.6",
     "@react-navigation/stack": "^5.12.3",
@@ -31,12 +32,13 @@
     "react-native-gesture-handler": "~1.7.0",
     "react-native-maps": "0.27.1",
     "react-native-paper": "^4.3.1",
+    "react-native-qrcode-generator": "1.2.2",
     "react-native-reanimated": "~1.13.0",
     "react-native-screens": "~2.10.1",
     "react-native-unimodules": "~0.11.0",
     "react-native-web": "~0.13.12",
-    "web3": "^1.3.0",
-    "@nevermined-io/nevermined-sdk-js": "0.5.1"
+    "react-native-webview": "10.7.0",
+    "web3": "^1.3.0"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",

@@ -50,7 +50,7 @@ export default class ContextProvider extends Component<ContextProviderProps, Con
         }
         localStorage.setItem('logType', 'BurnerWallet')
         // const provider = new HDWalletProvider(mnemonic, 'http://localhost:8545', 0, 1)
-        const provider = new HDWalletProvider('actual renew label term slender day around member obtain toss fantasy link', 'http://localhost:8545', 0, 1)
+        const provider = new HDWalletProvider('taxi music thumb unique chat sand crew more leg another off lamp', 'http://localhost:8545', 0, 1)
         const web3 = new Web3(provider as any)
         try {
             const accounts = await web3.eth.getAccounts()
