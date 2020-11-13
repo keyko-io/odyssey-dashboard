@@ -175,7 +175,7 @@ wasGeneratedBy(
    MSD, // agentId address
    GENERATED, // activity
    [], // list of delegates
-   "", // attributes: string
+   "0.67416,23.47314,position", // attributes: string
    MSD, // owner address
 )
 ```
@@ -187,7 +187,7 @@ wasAssociatedWith(
    MSD, // agentId address
    MANUFACTURING, // activity
    [], // list of delegates
-   "", // attributes: string
+   "0.67416,23.47314,position", // attributes: string
    MSD, // owner address
    [], // list of signatures
 )
@@ -203,7 +203,7 @@ actedOnBehalfOf(
    TRANSPORTATION, // activity
    MSD, // owner address
    [], // list of signatures
-   "", // attributes: string
+   "0.67416,23.47314,position", // attributes: string
 )
 ```
 
@@ -214,7 +214,7 @@ wasAssociatedWith(
    DHL, // agentId address
    TRANSPORTATION, // activity
    [], // list of delegates
-   "", // attributes: string
+   "0.67416,23.47314,position", // attributes: string
    DHL, // owner address
    [], // list of signatures
 )
@@ -226,7 +226,7 @@ used(
    DHL, // agentId address
    TRANSPORTATION, // activity
    "did:nv:055bac4b255452fa6c0c2974aa2b009ffd281e55c9a38f557796844d04bac85d", //did of the entity
-   "", // attributes: string
+   "0.67416,23.47314,position", // attributes: string
    DHL, // owner address
 )
 ```
@@ -241,7 +241,7 @@ actedOnBehalfOf(
    TRANSPORTATION, // activity
    DHL, // owner address
    [], // list of signatures
-   "", // attributes: string
+   "0.67416,23.47314,position", // attributes: string
 )
 ```
 
@@ -252,7 +252,7 @@ wasAssociatedWith(
    KML, // agentId address
    TRANSPORTATION, // activity
    [], // list of delegates
-   "", // attributes: string
+   "0.67416,23.47314,position", // attributes: string
    KLM, // owner address
    [], // list of signatures
 )
@@ -264,7 +264,7 @@ used(
    KLM, // agentId address
    TRANSPORTATION, // activity
    "did:nv:055bac4b255452fa6c0c2974aa2b009ffd281e55c9a38f557796844d04bac85d", //did of the entity
-   "", // attributes: string
+   "0.67416,23.47314,position", // attributes: string
    KLM, // owner address
 )
 ```
@@ -279,7 +279,7 @@ actedOnBehalfOf(
    DELIVERY, // activity
    KLM, // owner address
    [], // list of signatures
-   "", // attributes: string
+   "0.67416,23.47314,position", // attributes: string
 )
 ```
 
