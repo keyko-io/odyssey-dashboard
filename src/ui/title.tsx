@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
   wrapper: {
   },
   text: {
+    fontSize: 20,
     color: '#7C02F3',
     paddingBottom: 8,
     fontWeight: '600',

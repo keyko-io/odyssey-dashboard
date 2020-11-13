@@ -3,12 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { Subheading } from 'react-native-paper';
 
 import { Title } from '../ui';
-
-enum DeliveryState {
-  Active = 'In Transit',
-  Ok = 'Delivered',
-  Error = 'Problem Detected',
-}
+import { DeliveryState } from '../shared/types';
 
 //Get this data calling on chain or to the metadata-api
 export const listItems = [
@@ -82,7 +77,6 @@ export class DetailsList extends React.Component<Props> {
     );
   }
 }
-
 
 const styles = StyleSheet.create({
   item: {

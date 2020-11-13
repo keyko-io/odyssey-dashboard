@@ -7,6 +7,7 @@ interface Props {
   route: any,
   navigation: any
 }
+
 export class DetailsItem extends React.Component<Props> {
   render() {
     return (
