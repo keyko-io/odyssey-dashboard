@@ -1,3 +1,5 @@
+*Pertains to XSDS.zip and Data Dump.xml*
+
 Hereby the specifications of the AWB (CargoXML FWB) and HWB (CargoXML XFZB) and a small dataset for the hackathon.
 
 In the zip file, the files Waybill_1.xsd and HouseWaybill_1.xsd will give an overview of the messages.
