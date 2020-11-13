@@ -4,7 +4,7 @@
 
 > A unique and trusted source of truth for supply chain
 
-> [keyko.io](https://keyko.io)
+> [Air Cargo Dashboard](https://dashboard.keyko.rocks/)
 
 
 [![Discord](https://img.shields.io/discord/775670012446507028.svg?color=7289da&label=Discord&logo=discord&style=flat-square)](https://discord.gg/H7gUwekcSt)
@@ -251,7 +251,9 @@ Depending on what is recorded in the provenance contract in this scenario we cou
 
 ## Nevermined integration
 
-We are using Rinkeby network
+The dashboard is available here: https://dashboard.keyko.rocks/
+
+We are using Rinkeby Ethereum network for keeping track of the provenance record:
 
 ### Services
 
