@@ -13,24 +13,24 @@
 
 ---
 
-* [Odyssey Provenance Dashboard](#odyssey-provenance-dashboard)
-   * [Introduction](#introduction)
-      * [Main Problems](#main-problems)
-      * [What do we need to do to improve that?](#what-do-we-need-to-do-to-improve-that)
-      * [Benefits](#benefits)
-   * [Odyssey Demo](#odyssey-demo)
-      * [MSD demo](#msd-demo)
-      * [DHL demo](#dhl-demo)
-      * [KLM demo](#klm-demo)
-      * [Final recipient](#final-recipient)
-      * [Customs Agent](#customs-agent)
-   * [Bad Handover scenarios](#bad-handover-scenarios)
-      * [Scenario 1 - Failed due diligence](#scenario-1---failed-due-diligence)
-   * [Dev quickstart](#dev-quickstart)
-   * [Nevermined integration](#nevermined-integration)
-      * [Services](#services)
-      * [Accounts](#accounts)
-   * [Links](#links)
+- [Odyssey Provenance Dashboard](#odyssey-provenance-dashboard)
+  - [Introduction](#introduction)
+    - [Main Problems](#main-problems)
+    - [What do we need to do to improve that?](#what-do-we-need-to-do-to-improve-that)
+    - [Benefits](#benefits)
+  - [Odyssey Demo](#odyssey-demo)
+    - [MSD demo](#msd-demo)
+    - [DHL demo](#dhl-demo)
+    - [KLM demo](#klm-demo)
+    - [Final recipient](#final-recipient)
+    - [Customs Agent](#customs-agent)
+  - [Bad Handover scenarios](#bad-handover-scenarios)
+    - [Scenario 1 - Failed due diligence](#scenario-1---failed-due-diligence)
+  - [Dev quickstart](#dev-quickstart)
+  - [Nevermined integration](#nevermined-integration)
+    - [Services](#services)
+    - [Accounts](#accounts)
+  - [Links](#links)
 
 
 
@@ -240,6 +240,12 @@ Depending on what is recorded in the provenance contract in this scenario we cou
 ## Nevermined integration
 
 We are using Rinkeby network
+
+To run the provenance flow demo:
+```bash
+$ npm install -g ts-node
+$ ts-node demo/ProvenanceDemo.ts
+```
 
 ### Services
 
