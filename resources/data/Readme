@@ -1,0 +1,19 @@
+Hereby the specifications of the AWB (CargoXML FWB) and HWB (CargoXML XFZB) and a small dataset for the hackathon.
+
+In the zip file, the files Waybill_1.xsd and HouseWaybill_1.xsd will give an overview of the messages.
+
+The other files are additions, if you would like to see more specifications.
+
+ 
+
+The AWB and HWB messages contain the necessary shipment data that we need to transport a shipment.
+
+The AWB is the contract between KLM and the forwarder (so no customer/ shipper information is in this).
+
+The HWB is the contract between the forwarder and the customer/shipper.
+
+In future it would be great to find a way to get the blockchain reference in the AWB and HWB.
+
+So we can use that reference to call the block chain for verification of the shipment throughout the supply chain.
+
+Good luck for the last weeks/days!
