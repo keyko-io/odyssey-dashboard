@@ -9,7 +9,7 @@
 
 [![Discord](https://img.shields.io/discord/775670012446507028.svg?color=7289da&label=Discord&logo=discord&style=flat-square)](https://discord.gg/H7gUwekcSt)
 
-> Join the Odyssey Hackthon conversation in Nevermined Discord server (#odyssey)
+> Join the Odyssey Hackathon conversation in Nevermined Discord server (#odyssey)
 
 ---
 
@@ -48,6 +48,9 @@ COVID-19 has revealed the crucial role of the supply-chain within the global eco
 
 Within the context of COVID-19, effective data sharing and transparency are the way forward to improve collaboration within the supply chain. If you want to be fast while mitigating risks, you need to be a team-player. You cannot afford to wait a week to release your data, even towards a competitor.
 
+![Supply Chain Process](resources/images/supply_chain_scenario.png)
+
+
 ### Main Problems
 
 Some of the main problems identified in a typical air cargo flow are:
@@ -84,6 +87,7 @@ What are the main benefits of it?
 * It allows an automatic way of sharing digital assets and metadata related with the cargo (like quality control checks, receipts, customs clearance documents, etc.)
 * Analytics and federated learning across all the parties data
 
+![Supply Chain Process with Nevermined](resources/images/supply_chain_scenario_with_nevermined.png)
 
 ## Odyssey Demo
 
@@ -322,6 +326,10 @@ The flow of the demo using the Customs Agent user is:
       - If "Approve Shipment" is selected, the Consignee, the Consigner and *KLM* get push notifications that shipment has been "Approved for Shipping" by customs
       - If "Deny Shipment" is selected, the Consignee, the Consigner and *KLM* get a push notification that shipment failed clearance and additional information is required
 
+
+![Dashboard](resources/images/dashboard.png)
+
+
 ## Bad Handover scenarios
 
 Since the handover seems to be the most important part of the supply chain it is important to go through some of the failure scenarios that can happen during the handover and detail how our solution behaves in this case. The users of this solution don't want just to see an ❌ but we want to also know what was the reason for the handover to fail.
@@ -368,12 +376,6 @@ Depending on what is recorded in the provenance contract in this scenario we cou
 ## Nevermined integration
 
 We are using Rinkeby network
-
-To run the provenance flow demo:
-```bash
-$ npm install -g ts-node
-$ ts-node demo/ProvenanceDemo.ts
-```
 
 ### Services
 
