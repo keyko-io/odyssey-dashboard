@@ -9,16 +9,25 @@ import { Register } from './src/components/Register'
 import { LogoTitle } from './src/components/Header'
 import { CameraView } from './src/components/CameraView'
 
+const screens = [
+  {name: 'dashboard', component: Dashboard},
+  {name: 'detailsList', component: DetailsList},
+  {name: 'detailsItem', component: DetailsItem},
+  {name: 'register', component: Register},
+  {name: 'camera', component: CameraView},
+]
+
 const MainStack = createStackNavigator();
+
 function Navigator() {
   return (
     <NavigationContainer>
-      <MainStack.Navigator headerMode='float'>
-        <MainStack.Screen name="dashboard" component={Dashboard} options={{headerTitle: props => <LogoTitle/>}}/>
-        <MainStack.Screen name="detailsList" component={DetailsList} options={{headerTitle: props => <LogoTitle/>}}/>
-        <MainStack.Screen name="detailsItem" component={DetailsItem} options={{headerTitle: props => <LogoTitle/>}}/>
-        <MainStack.Screen name="register" component={Register} options={{headerTitle: props => <LogoTitle/>}}/>
-        <MainStack.Screen name="camera" component={CameraView} />
+      <MainStack.Navigator headerMode='float' screenOptions={{cardStyle: {backgroundColor: '#ffffff'}}}>
+        {screens.map(props => (
+          <MainStack.Screen
+            {...props}
+            options={{headerTitle: props => <LogoTitle/>}} />
+        ))}
       </MainStack.Navigator>
     </NavigationContainer>
   );
