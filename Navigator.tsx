@@ -7,7 +7,7 @@ import { DetailsList } from './src/components/DetailsList'
 import { DetailsItem } from './src/components/DetailsItem'
 import { Register } from './src/components/Register'
 import { LogoTitle } from './src/components/Header'
-import { CameraView } from './Camera/CameraView'
+import { CameraView } from './src/components/CameraView'
 
 const screens = [
   {name: 'dashboard', component: Dashboard},
@@ -16,6 +16,7 @@ const screens = [
   {name: 'register', component: Register},
   {name: 'camera', component: CameraView},
 ]
+
 
 const MainStack = createStackNavigator();
 

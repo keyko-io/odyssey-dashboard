@@ -11,12 +11,16 @@ export const listItems = [
     did: 'did:nvm:0123456789012345678901234567890123456789',
     description: 'Robin delivery',
     state: DeliveryState.Active,
+    x: 13.421375,
+    y: 52.492450,
     destination: 'Berlin'
   },
   {
     did: 'did:nvm:1111111111111111111111111111111111111111',
     description: 'Dave delivery',
     state: DeliveryState.Ok,
+    x: -4.435115,
+    y: 36.7197404,
     destination: 'Malaga'
   },
 ];
@@ -62,9 +66,9 @@ export class DetailsList extends React.Component<Props> {
                   </Subheading>
                 </View>
                 <View>
-                  <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4.83331 22.6962L15.1347 12.9773L4.83331 3.25827L8.0047 0.272705L21.5 12.9773L8.0047 25.6818L4.83331 22.6962Z" fill="black" fillOpacity="0.54"/>
-                  </svg>
+                  </svg> */}
                 </View>
               </View>
             </TouchableOpacity>
