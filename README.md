@@ -173,7 +173,7 @@ The flow of the demo using the John Doe user is:
    - Each file will show a fingerprint (like the md5sum but abbreviated)
 1. The user scroll down and can see the map with the complete journey of the cargo
 
-### Transit Temperature Acceptance 
+### Transit Temperature Acceptance (Add to KLM Demo)
 
 The flow of the demo for this user story is:
 
