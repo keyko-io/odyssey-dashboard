@@ -7,7 +7,7 @@ import { DetailsList } from './src/components/DetailsList'
 import { DetailsItem } from './src/components/DetailsItem'
 import { Register } from './src/components/Register'
 import { LogoTitle } from './src/components/Header'
-import { CameraView } from './Camera/CameraView'
+import { CameraView } from './src/components/CameraView'
 
 const MainStack = createStackNavigator();
 function Navigator() {

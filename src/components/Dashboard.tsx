@@ -8,6 +8,8 @@ export class Dashboard extends React.Component<Props> {
   render() {
     return (
       <View>
+        <Button title="Camera" onPress={() => this.props.navigation.navigate('camera')}></Button>
+        <br></br>
         <Button title="Start" onPress={() => this.props.navigation.navigate('detailsList')}></Button>
         <br></br>
         <Button title="DHL" onPress={()=> this.props.navigation.navigate('detailsList')}></Button>
