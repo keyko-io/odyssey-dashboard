@@ -180,7 +180,7 @@ The flow of the demo for this user story is:
 1. KLM receives the House Way Bill from the Freight Forwarder (i.e. DHL) and scans the shipment's QR code
 1. A digital copy of the House Way Bill is received upon scanning [assumption]
     - The Codes for Pharmaceutical, COVID (COV), Temperature Control (assumed) and HS Code for Vaccine and are flagged
-1. The recipient is prompted to "Analyze Shipment Temperature"
+1. The recipient is prompted to "Analyze Shipment Temperature?"
     - Selections to prompt are "Yes" and "No"
     - If "No" is selected, KLM takes receipt and signs transfer handshake
     - If "Yes" is selected, the following takes place:
@@ -188,7 +188,7 @@ The flow of the demo for this user story is:
     - KLM access request is made to Merck 
     - Payment for data access is made
     - KLM query (shipment ID, temperature threshold value) is sent to run on Merck data set
-    - Query is run by Merck against temperature data dataset
+    - Query is run by Merck against temperature dataset
 1. Based on query result, "True" or "False" response is returned to KLM (i.e. no source data is returned)
 1. A prompt is displayed asking "Accept Shipment?"
     - Two option buttons are "Yes" and "No"
