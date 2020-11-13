@@ -6,12 +6,16 @@ export const listItems = [  {
   did: 'did:nvm:0123456789',
   description: 'Robin',
   state: 'In Transit',
+  x: 13.421375,
+  y: 52.492450,
   destination: 'Berlin'
 },
 {
   did: 'did:nvm:11111111111',
   description: 'Dave',
   state: 'Delivered',
+  x: -4.435115,
+  y: 36.7197404,
   destination: 'Malaga'
 },
 ];
