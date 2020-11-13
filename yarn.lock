@@ -3933,7 +3933,7 @@ create-hmac@^1.1.0, create-hmac@^1.1.4, create-hmac@^1.1.7:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-create-react-class@^15.6.2:
+create-react-class@^15.6.2, create-react-class@^15.6.3:
   version "15.7.0"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.7.0.tgz#7499d7ca2e69bb51d13faf59bd04f0c65a1d6c1e"
   integrity sha512-QZv4sFWG9S5RUvkTYWbflxeZX+JG7Cz0Tn33rQBJ+WFQTqTfUTjMjiv9tnfXazjsO5r0KhPs+AqCjyrQX6h2ng==
@@ -4454,6 +4454,11 @@ escape-html@~1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
   integrity sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
+
+escape-string-regexp@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
+  integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
 
 escape-string-regexp@^1.0.5:
   version "1.0.5"
@@ -8787,7 +8792,7 @@ prompts@^2.0.1, prompts@^2.2.1:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -8854,7 +8859,7 @@ punycode@^2.1.0, punycode@^2.1.1:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
-qr.js@0.0.0:
+qr.js@0.0.0, qr.js@^0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/qr.js/-/qr.js-0.0.0.tgz#cace86386f59a0db8050fa90d9b6b0e88a1e364f"
   integrity sha1-ys6GOG9ZoNuAUPqQ2baw6IoeNk8=
@@ -9026,6 +9031,15 @@ react-native-paper@^4.3.1:
     color "^3.1.2"
     react-native-safe-area-view "^0.14.9"
 
+react-native-qrcode-generator@1.2.2:
+  version "1.2.2"
+  resolved "https://registry.npmjs.org/react-native-qrcode-generator/-/react-native-qrcode-generator-1.2.2.tgz#5e475ba2bbe4496eb78bc37c2f5b0c1c8ff7f247"
+  integrity sha512-M75uyU3zL8yuL1ppL6OJsKBhL+VDZE3jNI5PAvDv+BCKa3MiSTTpXbGEqu7Y4xlhvFUozes/C0Ia7aS3mQ5w6Q==
+  dependencies:
+    create-react-class "^15.6.3"
+    prop-types "^15.5.10"
+    qr.js "^0.0.0"
+
 react-native-ratings@^7.3.0:
   version "7.3.0"
   resolved "https://registry.yarnpkg.com/react-native-ratings/-/react-native-ratings-7.3.0.tgz#32e11e4ed944ba8adbbc995d601df3f131619b6f"
@@ -9107,6 +9121,14 @@ react-native-web@~0.13.12:
     normalize-css-color "^1.0.2"
     prop-types "^15.6.0"
     react-timer-mixin "^0.13.4"
+
+react-native-webview@10.7.0:
+  version "10.7.0"
+  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-10.7.0.tgz#b96e152ffdae4eeffaa74f43671a35733885b52d"
+  integrity sha512-4TSYwJqMBUTKB9+xqGbPwx+eLXbp6RRD7lQ2BumT8eSTfuuqr2rXNqcrlKU1VRla7QGGYowmYmxl2aXIx5k9wA==
+  dependencies:
+    escape-string-regexp "2.0.0"
+    invariant "2.2.4"
 
 react-native@~0.63.3:
   version "0.63.3"
