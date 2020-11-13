@@ -25,6 +25,7 @@ function Navigator() {
       <MainStack.Navigator headerMode='float' screenOptions={{cardStyle: {backgroundColor: '#ffffff'}}}>
         {screens.map(props => (
           <MainStack.Screen
+            key={props.name}
             {...props}
             options={{headerTitle: props => <LogoTitle/>}} />
         ))}
