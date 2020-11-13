@@ -5,6 +5,6 @@ import { QrProps } from './qr-common'
 
 export function Qr({size, bgColor, fgColor, value}: QrProps) {
   return (
-    <QRCode size={size} bgColor={bgColor || '#ffffff'} fgColor={fgColor || '#000000'} value={value}/>
+    <QRCode size={size} bgColor={bgColor || '#000000'} fgColor={fgColor || '#ffffff'} value={value}/>
   )
 }

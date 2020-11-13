@@ -28,16 +28,16 @@ export class DetailsItem extends React.Component<Props> {
                 </Text>
                 <Text style={styles.text}>Destination: {destination}</Text>
               </View>
-              <QRCode height="100" width="100" value={did}/>
+              <Qr size={100} value={did} />
             </View>
-            <Qr size={100} value={did} />
+            <Map
+              latitude={x}
+              longitude={y}
+              latitudeDelta={0.0922}
+              longitudeDelta={0.0421}
+              height="200"/>
           </View>
         </ScrollView>
-        <Map
-          latitude={x}
-          longitude={y}
-          latitudeDelta={0.0922}
-          longitudeDelta={0.0421}/>
       </View>
     );
   }
