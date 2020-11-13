@@ -4,7 +4,7 @@ import QRCode from 'qrcode.react'
 import MapView from 'react-native-maps'
 
 import { Map } from '../ui';
-import { cutDid } from '../shared';
+import { cutDid, getStateStyle } from '../shared';
 
 interface Props {
   route: any,
@@ -21,7 +21,12 @@ export class DetailsItem extends React.Component<Props> {
             <View style={styles.infoText}>
               <Text style={styles.header}>{name || description}</Text>
               <Text style={styles.text}>DID: {cutDid(did)}</Text>
-              <Text style={styles.text}>State: {state}</Text>
+              <Text style={styles.text}>
+                State: {' '}
+                <Text style={getStateStyle(state)}>
+                  {state}
+                </Text>
+              </Text>
               <Text style={styles.text}>Destination: {destination}</Text>
             </View>
             <QRCode height="120" width="120" value={did}/>

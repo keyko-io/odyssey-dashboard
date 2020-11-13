@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { Subheading } from 'react-native-paper';
 
 import { Title } from '../ui';
-import { cutDid } from '../shared';
+import { cutDid, getStateStyle } from '../shared';
 import { DeliveryState } from '../shared/types';
 
 //Get this data calling on chain or to the metadata-api
@@ -12,16 +12,16 @@ export const listItems = [
     did: 'did:nvm:0123456789012345678901234567890123456789',
     description: 'Robin delivery',
     state: DeliveryState.Active,
-  x: 13.421375,
-  y: 52.492450,
+    x: 13.421375,
+    y: 52.492450,
     destination: 'Berlin'
   },
   {
     did: 'did:nvm:1111111111111111111111111111111111111111',
     description: 'Dave delivery',
     state: DeliveryState.Ok,
-  x: -4.435115,
-  y: 36.7197404,
+    x: -4.435115,
+    y: 36.7197404,
     destination: 'Malaga'
   },
 ];
@@ -31,15 +31,6 @@ interface Props {
 }
 
 export class DetailsList extends React.Component<Props> {
-
-  getStateStyle(state: DeliveryState) {
-    switch (state) {
-      case DeliveryState.Ok: return styles.statusOk
-      case DeliveryState.Error: return styles.statusError
-      case DeliveryState.Active: return styles.statusActive
-      case DeliveryState.Registered: return styles.statusRegistered
-    }
-  }
 
   render() {
     return (
@@ -57,7 +48,7 @@ export class DetailsList extends React.Component<Props> {
                   <Subheading>{item.description}</Subheading>
                   <Subheading style={styles.textSubAlt}>
                     State: {' '}
-                    <Text style={this.getStateStyle(item.state)}>
+                    <Text style={getStateStyle(item.state)}>
                       {item.state}
                     </Text>
                   </Subheading>
@@ -92,17 +83,4 @@ const styles = StyleSheet.create({
     color: 'color: rgba(0, 0, 0, 0.6)',
     lineHeight: 20,
   },
-
-  statusOk: {
-    color: '#2A9D8F',
-  },
-  statusError: {
-    color: '#FF0C3E',
-  },
-  statusActive: {
-    color: '#D7B7FD',
-  },
-  statusRegistered: {
-    color: '#7C02F3',
-  }
 })
