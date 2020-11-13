@@ -173,8 +173,29 @@ The flow of the demo using the John Doe user is:
    - Each file will show a fingerprint (like the md5sum but abbreviated)
 1. The user scroll down and can see the map with the complete journey of the cargo
 
+### Transit Temperature Acceptance 
 
-### Customs Agent
+The flow of the demo for this user story is:
+
+1. KLM receives the House Way Bill from the Freight Forwarder (i.e. DHL) and scans the shipment's QR code
+1. A digital copy of the House Way Bill is received upon scanning [assumption]
+    - The Codes for Pharmaceutical, COVID (COV), Temperature Control (assumed) and HS Code for Vaccine and are flagged
+1. The recipient is prompted to "Analyze Shipment Temperature"
+    - Selections to prompt are "Yes" and "No"
+    - If "No" is selected, KLM takes receipt and signs transfer handshake
+    - If "Yes" is selected, the following takes place:
+1. KLM makes a request to Merck for access to their temperature unit data to determine if the temperature rose above X (KLM sets value) during any period prior to handoff
+    - KLM access request is made to Merck 
+    - Payment for data access is made
+    - KLM query (shipment ID, temperature threshold value) is sent to run on Merck data set
+    - Query is run by Merck against temperature data dataset
+1. Based on query result, "True" or "False" response is returned to KLM (i.e. no source data is returned)
+1. A prompt is displayed asking "Accept Shipment"
+    - Two option buttons are "Yes" and "No"
+    - If "Yes" is selected, KLM takes receipt and signs transfer handshake
+    - If "No" is selected, the package is returned to the freight forwarder
+
+### Customs Agent (Nice to Have)
 
 The flow of the demo using the Customs Agent user is:
 
