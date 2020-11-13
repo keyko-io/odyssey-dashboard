@@ -1,7 +1,6 @@
 export interface QrProps {
-    size: number
-    bgColor: string
-    fgColor: string
-    value: string
-  }
-  
+  size: number
+  value: string
+  bgColor?: string
+  fgColor?: string
+}

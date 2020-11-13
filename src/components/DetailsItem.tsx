@@ -27,21 +27,14 @@ export class DetailsItem extends React.Component<Props> {
               </Text>
               <Text style={styles.text}>Destination: {destination}</Text>
             </View>
-            <Qr {...{
-              size:120, 
-              bgColor:'black', 
-              fgColor:'white', 
-              value: did
-              }}/>
+            <Qr size={100} value={did} />
           </View>
         </ScrollView>
         <Map
-          {...{
-            latitude: x,
-            longitude: y,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          }} />
+          latitude={x}
+          longitude={y}
+          latitudeDelta={0.0922}
+          longitudeDelta={0.0421}/>
       </View>
     );
   }

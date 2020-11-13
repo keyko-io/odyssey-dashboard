@@ -3,8 +3,8 @@ import QRCode from 'react-native-qrcode-generator'
 
 import { QrProps } from './qr-common'
 
-export function Qr(props: QrProps) {
+export function Qr({size, bgColor, fgColor, value}: QrProps) {
   return (
-    <QRCode size={props.size}  bgColor={props.bgColor} fgColor={props.fgColor} value={props.value}/>
+    <QRCode size={size} bgColor={bgColor || '#ffffff'} fgColor={fgColor || '#000000'} value={value}/>
   )
 }
