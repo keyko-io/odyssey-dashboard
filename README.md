@@ -189,7 +189,7 @@ The flow of the demo for this user story is:
     - Payment for data access is made
     - KLM query (shipment ID, temperature threshold value) is sent to run on Merck data set
     - Query is run by Merck against temperature dataset
-1. Based on query result, "True" or "False" response is returned to KLM (i.e. no source data is returned)
+1. Based on query result, "Pass" or "Failed" response is returned to KLM (i.e. no source data is returned)
 1. A prompt is displayed asking "Accept Shipment?"
     - Two option buttons are "Yes" and "No"
     - If "Yes" is selected, KLM takes receipt and signs transfer handshake
