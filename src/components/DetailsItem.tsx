@@ -1,8 +1,10 @@
 import React from 'react'
 import { Text, View, StyleSheet, ScrollView } from 'react-native'
-import { Map } from '../ui';
+
+import { Map, Qr } from '../ui';
 import { cutDid, getStateStyle } from '../shared'
-import { Qr } from '../ui';
+
+import { DetailsItemStep } from './DetailsItemStep'
 
 interface Props {
   route: any,
@@ -11,7 +13,7 @@ interface Props {
 
 export class DetailsItem extends React.Component<Props> {
   render() {
-    const {did, name,  description, state, destination, x, y} = this.props.route.params
+    const {did, name,  description, state, destination, steps, x, y} = this.props.route.params
     return (
       <View style={styles.container}>
         <ScrollView style={[styles.container]}>
@@ -36,6 +38,16 @@ export class DetailsItem extends React.Component<Props> {
               latitudeDelta={0.0922}
               longitudeDelta={0.0421}
               height="200"/>
+            <View>
+              {steps.map(({id, completed, by}, i) => (
+                <DetailsItemStep
+                  key={id}
+                  first={i === 0}
+                  last={i === steps.length - 1}
+                  recipient={by}
+                  completed={completed} />
+              ))}
+            </View>
           </View>
         </ScrollView>
       </View>

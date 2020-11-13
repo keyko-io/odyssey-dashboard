@@ -13,7 +13,13 @@ export const listItems = [
     state: DeliveryState.Active,
     x: 13.421375,
     y: 52.492450,
-    destination: 'Berlin'
+    destination: 'Berlin',
+    steps: [
+      {id: 0, completed: true},
+      {id: 1, completed: false, by: 'Checkpoint #1'},
+      {id: 2, completed: false, by: 'Checkpoint #2'},
+      {id: 3, completed: false, by: 'Final Recipient'},
+    ],
   },
   {
     did: 'did:nvm:1111111111111111111111111111111111111111',
@@ -21,7 +27,13 @@ export const listItems = [
     state: DeliveryState.Ok,
     x: -4.435115,
     y: 36.7197404,
-    destination: 'Malaga'
+    destination: 'Malaga',
+    steps: [
+      {id: 0, completed: true},
+      {id: 1, completed: true, by: 'Checkpoint #1'},
+      {id: 2, completed: false, by: 'Checkpoint #2'},
+      {id: 3, completed: false, by: 'Final Recipient'},
+    ],
   },
 ];
 
