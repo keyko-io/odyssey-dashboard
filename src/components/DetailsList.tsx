@@ -59,14 +59,21 @@ export class DetailsList extends React.Component<Props> {
               onPress={() => this.props.navigation.navigate('detailsItem', item)}>
 
               <View style={styles.item}>
-                <Text style={styles.textMono}>DID: {this.cutDid(item.did)}</Text>
-                <Subheading>{item.description}</Subheading>
-                <Subheading style={styles.textSubAlt}>
-                  State: {' '}
-                  <Text style={this.getStateStyle(item.state)}>
-                    {item.state}
-                  </Text>
-                </Subheading>
+                <View>
+                  <Text style={styles.textMono}>DID: {this.cutDid(item.did)}</Text>
+                  <Subheading>{item.description}</Subheading>
+                  <Subheading style={styles.textSubAlt}>
+                    State: {' '}
+                    <Text style={this.getStateStyle(item.state)}>
+                      {item.state}
+                    </Text>
+                  </Subheading>
+                </View>
+                <View>
+                  <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.83331 22.6962L15.1347 12.9773L4.83331 3.25827L8.0047 0.272705L21.5 12.9773L8.0047 25.6818L4.83331 22.6962Z" fill="black" fillOpacity="0.54"/>
+                  </svg>
+                </View>
               </View>
             </TouchableOpacity>
           ))}
@@ -80,6 +87,9 @@ export class DetailsList extends React.Component<Props> {
 const styles = StyleSheet.create({
   item: {
     padding: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   textMono: {
     fontFamily: 'monospace',
