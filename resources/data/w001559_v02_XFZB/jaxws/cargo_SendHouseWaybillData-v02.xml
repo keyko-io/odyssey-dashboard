@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://java.sun.com/xml/ns/jaxws">
+	<package name="com.afklm.soa.stubs.w001559.v2"/>
+	<enableWrapperStyle>true</enableWrapperStyle>
+	<enableAsyncMapping>false</enableAsyncMapping>
+</bindings>
