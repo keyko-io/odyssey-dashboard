@@ -27,8 +27,10 @@
    * [Bad Handover scenarios](#bad-handover-scenarios)
       * [Scenario 1 - Failed due diligence](#scenario-1---failed-due-diligence)
    * [Dev quickstart](#dev-quickstart)
+   * [Nevermined integration](#nevermined-integration)
+      * [Services](#services)
+      * [Accounts](#accounts)
    * [Links](#links)
-
 
 
 
@@ -234,6 +236,26 @@ Depending on what is recorded in the provenance contract in this scenario we cou
 - Install packages (inside folder) `yarn`
 - Start web livereload app with `expo start --web`
 
+
+## Nevermined integration
+
+We are using Rinkeby network
+
+### Services
+
+* Keeper (Infura) - https://rinkeby.infura.io/v3/1c75f192257c497e91f30832666d179e
+* Gateway - https://gateway.keyko.rocks/
+* Metadata API - https://metadata.keyko.rocks/
+
+### Accounts
+
+Owner               | Address                                      | Info
+--------------------|----------------------------------------------|--------------
+MSD                 | `0xe2DD09d719Da89e5a3D0F2549c7E24566e947260` | 0.1          
+DHL                 | `0xBE5449a6A97aD46c8558A3356267Ee5D2731ab5e` | 0.1          
+KLM                 | `0xA78deb2Fa79463945C247991075E2a0e98Ba7A09` | 0.1          
+John Doe            | `0x02354A1F160A3fd7ac8b02ee91F04104440B28E7` | 0.1          
+Customs             | `0xe17D2A07EFD5b112F4d675ea2d122ddb145d117B` | 0.1          
 
 
 
