@@ -5,6 +5,6 @@ export const Context = createContext({
     isLoading: false,
     account: '',
     network: '',
-    web3: {},
+    // web3: {},
     message: ''
 })
