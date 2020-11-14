@@ -7,7 +7,7 @@ import { useForm, Controller } from 'react-hook-form'
 import { Title, Button } from '../ui';
 import { DeliveryState } from '../shared/types';
 
-import { listItems } from './DetailsList'
+import { listItems, newSteps } from './DetailsList'
 
 //Get this data calling on chain or to the metadata-api
 interface Props {
@@ -76,12 +76,7 @@ export function Register(props: Props) {
       ...data,
       longitude,
       latitude,
-      steps: [
-        {id: 0, completed: true, location: {latitude, longitude}},
-        {id: 1, completed: false, by: 'Checkpoint #1'},
-        {id: 2, completed: false, by: 'Checkpoint #2'},
-        {id: 3, completed: false, by: 'Final Recipient'},
-      ],
+      steps: newSteps(longitude, latitude),
       state: DeliveryState.Registered,
     }
     listItems.push(item)

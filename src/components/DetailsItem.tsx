@@ -56,7 +56,7 @@ export class DetailsItem extends React.Component<Props> {
         </ScrollView>
 
         <Button
-          icon="plus"
+          icon="magnify"
           onPress={() => this.props.navigation.navigate('register', {did, name, description})} >
 
           Inspect package
