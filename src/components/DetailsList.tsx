@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { Subheading } from 'react-native-paper';
 import { Context } from '../../context';
 
-import { Title } from '../ui';
+import { Title, Button } from '../ui';
 import { DeliveryState, cutDid, getStateStyle } from '../shared';
 
 //Get this data calling on chain or to the metadata-api
@@ -48,44 +48,72 @@ export class DetailsList extends React.Component<Props> {
   public static contextType = Context
 
   render() {
+    const {company} = this.context
 
     console.log(this.context)
 
     return (
-      <View>
-        <Title>Your packages</Title>
-        <View>
-          {listItems.map(item => (
-            <TouchableOpacity
-              key={item.did}
-              onPress={() => this.props.navigation.navigate('detailsItem', item)}>
+      <View style={styles.container}>
+        <ScrollView style={[styles.container]}>
+          <View style={[styles.container, styles.scroll]}>
+            <Title>Your packages</Title>
+            <View>
+              {listItems.map(item => (
+                <TouchableOpacity
+                  key={item.did}
+                  onPress={() => this.props.navigation.navigate('detailsItem', item)}>
 
-              <View style={styles.item}>
-                <View>
-                  <Text style={styles.textMono}>DID: {cutDid(item.did)}</Text>
-                  <Subheading>{item.description}</Subheading>
-                  <Subheading style={styles.textSubAlt}>
-                    State: {' '}
-                    <Text style={getStateStyle(item.state)}>
-                      {item.state}
-                    </Text>
-                  </Subheading>
-                </View>
-                <View>
-                  <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.83331 22.6962L15.1347 12.9773L4.83331 3.25827L8.0047 0.272705L21.5 12.9773L8.0047 25.6818L4.83331 22.6962Z" fill="black" fillOpacity="0.54"/>
-                  </svg>
-                </View>
-              </View>
-            </TouchableOpacity>
-          ))}
-        </View>
+                  <View style={styles.item}>
+                    <View>
+                      <Text style={styles.textMono}>DID: {cutDid(item.did)}</Text>
+                      <Subheading>{item.description}</Subheading>
+                      <Subheading style={styles.textSubAlt}>
+                        State: {' '}
+                        <Text style={getStateStyle(item.state)}>
+                          {item.state}
+                        </Text>
+                      </Subheading>
+                    </View>
+                    <View>
+                      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.83331 22.6962L15.1347 12.9773L4.83331 3.25827L8.0047 0.272705L21.5 12.9773L8.0047 25.6818L4.83331 22.6962Z" fill="black" fillOpacity="0.54"/>
+                      </svg>
+                    </View>
+                  </View>
+                </TouchableOpacity>
+              ))}
+            </View>
+          </View>
+        </ScrollView>
+
+        {company === 'MSD'
+          ? (
+            <Button
+              icon="plus"
+              onPress={() => this.props.navigation.navigate('register')} >
+
+              Register package
+            </Button>)
+          : (
+            <Button
+              icon="magnify"
+              onPress={() => this.props.navigation.navigate('camera')} >
+
+              Inspect package
+            </Button>
+          )}
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    height: '100%',
+  },
+  scroll: {
+    justifyContent: 'flex-start',
+  },
   item: {
     padding: 16,
     flexDirection: 'row',
