@@ -4,7 +4,7 @@
 
 Assuming the following supply chain:
 ```
-MSD -> DHL -> KLM -> DHL -> Recipient
+MSD -> DHL -> KLM -> Recipient
 ```
 - MSD creates the DDO (important information in this step is the `houseWaybill`)
 - MSD handsover to DHL (important information in this step is the `DHLairWaybill`)
