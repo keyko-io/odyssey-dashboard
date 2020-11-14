@@ -17,6 +17,7 @@ const screens = [
   {name: 'camera', component: CameraView},
 ]
 
+
 const MainStack = createStackNavigator();
 
 function Navigator() {

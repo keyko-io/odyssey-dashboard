@@ -9,15 +9,10 @@ export class Dashboard extends React.Component<Props> {
     return (
       <View>
         <Button title="Camera" onPress={() => this.props.navigation.navigate('camera')}></Button>
-        <br></br>
         <Button title="Start" onPress={() => this.props.navigation.navigate('detailsList')}></Button>
-        <br></br>
         <Button title="DHL" onPress={()=> this.props.navigation.navigate('detailsList')}></Button>
-        <br></br>
         <Button title="KLM" onPress={()=> this.props.navigation.navigate('detailsList')}></Button>
-        <br></br>
         <Button title="John Doe" onPress={()=> this.props.navigation.navigate('detailsList')}></Button>
-        <br></br>
         <Button title="Register" onPress={()=> this.props.navigation.navigate('register')}></Button>
       </View>
     );
