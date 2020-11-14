@@ -7,11 +7,11 @@ Assuming the following supply chain:
 MSD -> DHL -> KLM -> DHL -> Recipient
 ```
 - MSD creates the DDO (important information in this step is the `houseWaybill`)
-- MSD handsover to DHL (important information in this step is the `DHLairWaybill1`)
+- MSD handsover to DHL (important information in this step is the `DHLairWaybill`)
 - DHL handsover to KLM (important information in this step is the `KLMairWaybill`)
-- KLM handsover to DHL (important information in this step is the `DHLairWaybill2`)
+- KLM handsover to Recipient
 
-For each supply chain scenario we will have a ddo containing 4 xml files (one `HouseWaybill` and 3 `AirWaybill` one for each of the transporters in supply chain):
+For each supply chain scenario we will have a ddo containing 3 xml files (one `HouseWaybill` and 2 `AirWaybill` one for each of the transporters in supply chain):
 
 **HouseWaybill**: Master document containing information about the shipment
 - ID: identifier

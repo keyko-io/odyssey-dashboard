@@ -35,16 +35,6 @@
                 "checksumType": "MD5",
                 "contentLength": "12057507",
                 "url": "https://raw.githubusercontent.com/keyko-io/odyssey-dashboard/2c72ef7baf8972f058803031f466e6f445bab114/resources/data/mock-data/klm_airwaybill_1.xml"
-            },
-            {
-                "index": 3,
-                "contentType": "text/xml",
-                "encoding": "UTF-8",
-                "compression": "none",
-                "checksum": "354d19c0733c47ef3a6cce5b633116b0",
-                "checksumType": "MD5",
-                "contentLength": "928",
-                "url": "https://raw.githubusercontent.com/keyko-io/odyssey-dashboard/2c72ef7baf8972f058803031f466e6f445bab114/resources/data/mock-data/dhl_airwaybill_2.xml"
             }
         ],
         "type": "dataset"
@@ -87,7 +77,7 @@
             }
 
         },
-        "DHLairWaybill1": {
+        "DHLairWaybill": {
             "id": "074-39541983_P5PE4U7NfdqVKWjKzPb",
             "consigner": {
                 "name": "MSD",
@@ -174,51 +164,12 @@
                 "country": "DE",
                 "gps": "52.364654,13.511249"
             },
-            "handlingInstructions": [
-                "HEA",
-                "SPX",
-                "COV"
-            ],
-            "chargeAmount": "4940.00",
-            "flightInformation": {
-                "carrierCode": "KL",
-                "flightNumber": "835" 
-            }
-        },
-        "DHLairWaybill2": {
-            "id": "074-39541983_P5PE4U7NfdqVKWjKzPb",
-            "consigner": {
-                "name": "KLM Royal Dutch Airlines ",
-                "post": "1117",
-                "street": "P.O. Box 7700",
-                "city": "Schiphol",
-                "country": "NL" 
-            },
-            "consignee": {
-                "name": "DHL Global Forwarding Management",
-                "post": "1117",
-                "street": "P.O. Box 7700",
-                "city": "Schiphol",
-                "country": "NL" 
-            },
-            "freightForwarder": {
-                "name": "DHL Global Forwarding Management",
-                "post": "1117",
-                "street": "P.O. Box 7700",
-                "city": "Schiphol",
-                "country": "NL" 
-            },
-            "item": {
-                "weight": 1235,
-                "quantity": 1000,
-                "description": "Covid-19 vaccines"
-            },
             "origin": {
-                "post": "12529",
-                "street": "Willy-Brandt-Platz",
-                "city": "Berlin",
-                "country": "DE",
-                "gps": "52.364654,13.511249"
+                "post": "11371",
+                "street": "East Elmhurst",
+                "city": "New York",
+                "country": "US",
+                "gps": "40.777021,-73.877121"
             },
             "destination": {
                 "post": "10997",
@@ -232,7 +183,11 @@
                 "SPX",
                 "COV"
             ],
-            "chargeAmount": "4940.00"
+            "chargeAmount": "4940.00",
+            "flightInformation": {
+                "carrierCode": "KL",
+                "flightNumber": "835" 
+            }
         }
     }
 }
