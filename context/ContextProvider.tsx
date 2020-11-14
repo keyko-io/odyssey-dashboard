@@ -13,6 +13,8 @@ interface ContextProviderState {
     isLoading: boolean
     nevermined: any
     message: string
+    company: string
+    setCompany: (company:string) => void
 }
 
 export default class ContextProvider extends Component<ContextProviderProps, ContextProviderState> {
@@ -20,7 +22,11 @@ export default class ContextProvider extends Component<ContextProviderProps, Con
     public state = {
         isLoading: true,
         nevermined: {} as any,
-        message: 'Connecting...'
+        message: 'Connecting...',
+        company: 'MSD',
+        setCompany: (company:string) => {
+            this.setState({company})
+        }
     }
 
     public async componentDidMount() {
