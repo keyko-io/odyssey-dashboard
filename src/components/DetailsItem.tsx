@@ -55,7 +55,7 @@ export class DetailsItem extends React.Component<Props> {
         </ScrollView>
         <Button
         icon="plus"
-        onPress={onSubmit}
+        onPress={() => this.props.navigation.navigate('register',{did, state, description})}
         // disabled={!!Object.keys(errors).length || !name || !description}
         >
 

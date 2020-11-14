@@ -46,9 +46,15 @@ function success(pos:any) {
 function error(err: any) {
   console.warn(`ERROR(${err.code}): ${err.message}`)
 }
+interface params {
+  route: {
+    params: any
+  }
+}
 
 navigator.geolocation.getCurrentPosition(success, error, options)
-export function Register() {
+export function Register(params: params) {
+  console.log(params.route.params)
   const {control, register, handleSubmit, errors, setValue, getValues} = useForm<Inputs>({mode: 'onChange', criteriaMode: 'all'})
   const {name, description} = getValues()
   //TODO change to register using nevermined-sdk
@@ -123,12 +129,21 @@ export function Register() {
 
       </ScrollView>
 
-      <Button
+      {params.route.params && <Button
+        icon="plus"
+        onPress={handleSubmit(onSubmit)}
+        >
+        Inspect package
+      </Button> 
+      }
+      
+      {!params.route.params && <Button
         icon="plus"
         onPress={handleSubmit(onSubmit)}
         disabled={!!Object.keys(errors).length || !name || !description}>
         Register package
       </Button>
+      }     
     </View>
   );
 }
