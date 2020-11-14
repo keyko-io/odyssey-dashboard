@@ -37,6 +37,7 @@ export class DetailsItem extends React.Component<Props> {
             <Map
               latitude={x}
               longitude={y}
+              coordinatesRoute={[[13.421375,52.492450], [ 13.433375,52.498450], [ 13.433375,52.898450]]}
               latitudeDelta={0.0922}
               longitudeDelta={0.0421}
               height="200"/>
