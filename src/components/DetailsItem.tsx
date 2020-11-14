@@ -54,7 +54,7 @@ export class DetailsItem extends React.Component<Props> {
 
         <Button
           icon="plus"
-          onPress={() => this.props.navigation.navigate('register',{did, name, description})} >
+          onPress={() => this.props.navigation.navigate('register', {did, name, description})} >
 
           Inspect package
         </Button>

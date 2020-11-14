@@ -6,14 +6,14 @@ interface Props {
   completed?: boolean
   first?: boolean
   recipient?: string
-  final?: string
+  last?: string
 }
 
 export class DetailsItemStep extends React.Component<Props> {
   render() {
-    const {completed, first, recipient, final} = this.props
+    const {completed, first, recipient, last} = this.props
     const [color, backgroundColor] = completed ? ['#ffffff', 'transparent'] : ['#130F28', '#888888']
-    const icon = completed ? 'check' : final ? 'thumb-up' : 'calendar'
+    const icon = completed ? 'check' : last ? 'thumb-up' : 'calendar'
     return (
       <View style={[styles.container, completed ? styles.containerCompleted : {}]}>
         <IconButton

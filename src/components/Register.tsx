@@ -46,16 +46,16 @@ function success(pos:any) {
 function error(err: any) {
   console.warn(`ERROR(${err.code}): ${err.message}`)
 }
-interface params {
-  route: {
-    params: any
-  }
+
+interface Props {
+  route: any
 }
 
 navigator.geolocation.getCurrentPosition(success, error, options)
-export function Register(params: params) {
-  console.log(params.route.params)
+export function Register(props: Props) {
   const {control, register, handleSubmit, errors, setValue, getValues} = useForm<Inputs>({mode: 'onChange', criteriaMode: 'all'})
+  const {params} = props?.route
+  const isInspect = !!params
   const {name, description} = getValues()
   //TODO change to register using nevermined-sdk
   const onSubmit = (data: any) =>
@@ -66,31 +66,37 @@ export function Register(params: params) {
       steps: [
         {id: 0, completed: true},
         {id: 1, completed: false, by: 'Checkpoint #1'},
+        {id: 2, completed: false, by: 'Checkpoint #2'},
+        {id: 3, completed: false, by: 'Final Recipient'},
       ],
-      state:DeliveryState.Registered,
+      state: DeliveryState.Registered,
     })
 
   useEffect(() => {
     register('did')
     register('name', {required: true})
     register('description', {required: true})
+    setValue('did', isInspect ? params.did : generateDid())
+    if (isInspect) {
+      setValue('name', params.name)
+      setValue('description', params.description)
+    }
   }, [register])
 
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container}>
-        {!params.route?.params && <Title>Register Package</Title> }
-        {params.route.params && <Title>Inspect Package</Title> }
+        <Title>{isInspect ? 'Inspect Package' : 'Register Package'}</Title>
         <Controller
           name="did"
           control={control}
-          defaultValue={params.route?.params?.did || ""}
+          defaultValue=""
           render={({onChange, onBlur, value}) => (
             <TextInput
               style={styles.input}
               label="DID"
-              disabled={params.route?.params?.name}
               onBlur={onBlur}
+              disabled
               onChangeText={value => onChange(value)}
               value={value}/>
           )} />
@@ -100,12 +106,12 @@ export function Register(params: params) {
           name="name"
           control={control}
           rules={{required: true}}
-          defaultValue={params.route?.params?.name || ""}
+          defaultValue=""
           render={({onChange, onBlur, value}) => (
             <TextInput
               style={styles.input}
               label="Name"
-              disabled={params.route?.params?.name}
+              disabled={isInspect}
               onBlur={onBlur}
               onChangeText={value => onChange(value)}
               value={value}/>
@@ -114,14 +120,14 @@ export function Register(params: params) {
 
         <Controller
           name="description"
-          defaultValue={params.route?.params?.description || ""}
+          defaultValue=""
           control={control}
           rules={{ required: true }}
           render={({onChange, onBlur, value}) => (
             <TextInput
               style={styles.input}
               label="Description"
-              disabled={params.route?.params?.description}
+              disabled={isInspect}
               onBlur={onBlur}
               onChangeText={value => onChange(value)}
               value={value}/>
@@ -130,21 +136,22 @@ export function Register(params: params) {
 
       </ScrollView>
 
-      {params.route.params && <Button
-        icon="plus"
-        onPress={handleSubmit(onSubmit)}
-        >
-        Inspect package
-      </Button> 
-      }
-      
-      {!params.route.params && <Button
-        icon="plus"
-        onPress={handleSubmit(onSubmit)}
-        disabled={!!Object.keys(errors).length || !name || !description}>
-        Register package
-      </Button>
-      }     
+      {isInspect
+        ? (
+          <Button
+            icon="plus"
+            onPress={handleSubmit(onSubmit)}>
+
+            Inspect package
+          </Button>)
+        : (
+          <Button
+            icon="plus"
+            onPress={handleSubmit(onSubmit)}
+            disabled={!!Object.keys(errors).length || !name || !description}>
+
+            Register package
+          </Button>)}
     </View>
   );
 }
