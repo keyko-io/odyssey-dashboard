@@ -12,7 +12,7 @@ interface Props {
 
 export class DetailsItem extends React.Component<Props> {
   render() {
-    const {did, name,  description, state, destination, steps, x, y} = this.props.route.params
+    const {did, name,  description, state, destination, steps, latitude, longitude} = this.props.route.params
 
     return (
       <View style={styles.container}>
@@ -33,14 +33,14 @@ export class DetailsItem extends React.Component<Props> {
               <Qr size={100} value={did} />
             </View>
             <Map
-              latitude={x}
-              longitude={y}
+              latitude={latitude}
+              longitude={longitude}
               coordinatesRoute={[[13.421375,52.492450], [ 13.433375,52.498450], [ 13.433375,52.898450]]}
               latitudeDelta={0.0922}
               longitudeDelta={0.0421}
               height="200"/>
             <View>
-              {steps.map(({id, completed, by}, i) => (
+              {steps.map(({id, completed, by}: any, i: number) => (
                 <DetailsItemStep
                   key={id}
                   first={i === 0}

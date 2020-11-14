@@ -49,28 +49,44 @@ function error(err: any) {
 
 interface Props {
   route: any
+  navigation: any
 }
 
 navigator.geolocation.getCurrentPosition(success, error, options)
+
 export function Register(props: Props) {
   const {control, register, handleSubmit, errors, setValue, getValues} = useForm<Inputs>({mode: 'onChange', criteriaMode: 'all'})
   const {params} = props?.route
   const isInspect = !!params
   const {name, description} = getValues()
   //TODO change to register using nevermined-sdk
-  const onSubmit = (data: any) =>
-    listItems.push({
+
+  const inspect = () => {
+    const item = listItems.find(({did}) => did === params.did)
+    const step = item?.steps.find(({completed}) => !completed) || {} as any
+    step.completed = true
+    step.location = {latitude, longitude}
+    if (item) {
+      props.navigation.navigate('detailsItem', item)
+    }
+  }
+
+  const onSubmit = (data: any) => {
+    const item = {
       ...data,
-      x: longitude,
-      y: latitude,
+      longitude,
+      latitude,
       steps: [
-        {id: 0, completed: true},
+        {id: 0, completed: true, location: {latitude, longitude}},
         {id: 1, completed: false, by: 'Checkpoint #1'},
         {id: 2, completed: false, by: 'Checkpoint #2'},
         {id: 3, completed: false, by: 'Final Recipient'},
       ],
       state: DeliveryState.Registered,
-    })
+    }
+    listItems.push(item)
+    props.navigation.navigate('detailsItem', item)
+  }
 
   useEffect(() => {
     register('did')
@@ -140,7 +156,7 @@ export function Register(props: Props) {
         ? (
           <Button
             icon="plus"
-            onPress={handleSubmit(onSubmit)}>
+            onPress={() => inspect()}>
 
             Inspect package
           </Button>)

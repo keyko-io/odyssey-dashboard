@@ -13,8 +13,8 @@ export const listItems = [
     name: 'Food',
     description: 'Robin delivery',
     state: DeliveryState.Active,
-    x: 13.421375,
-    y: 52.492450,
+    latitude: 13.421375,
+    longitude: 52.492450,
     destination: 'Berlin',
     steps: [
       {id: 0, completed: true},
@@ -28,8 +28,8 @@ export const listItems = [
     name: 'Covid vaccines',
     description: 'Dave delivery',
     state: DeliveryState.Ok,
-    x: -4.435115,
-    y: 36.7197404,
+    latitude: -4.435115,
+    longitude: 36.7197404,
     destination: 'Malaga',
     steps: [
       {id: 0, completed: true},

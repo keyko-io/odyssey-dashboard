@@ -6,7 +6,7 @@ interface Props {
   completed?: boolean
   first?: boolean
   recipient?: string
-  last?: string
+  last?: boolean
 }
 
 export class DetailsItemStep extends React.Component<Props> {
