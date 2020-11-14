@@ -1,9 +1,10 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { Subheading } from 'react-native-paper';
+import { Context } from '../../context';
 
 import { Title } from '../ui';
-import { DeliveryState } from '../shared/types';
+import { DeliveryState, cutDid, getStateStyle } from '../shared';
 
 //Get this data calling on chain or to the metadata-api
 export const listItems = [
@@ -44,21 +45,12 @@ interface Props {
 }
 
 export class DetailsList extends React.Component<Props> {
-
-  cutDid(did: string) {
-    return did.replace(/^(\w+:\w+:[a-f0-9]{8}).+([a-f0-9]{8})$/i, '$1...$2')
-  }
-
-  getStateStyle(state: DeliveryState) {
-    switch (state) {
-      case DeliveryState.Ok: return styles.statusOk
-      case DeliveryState.Error: return styles.statusError
-      case DeliveryState.Active: return styles.statusActive
-      case DeliveryState.Registered: return styles.statusRegistered
-    }
-  }
+  public static contextType = Context
 
   render() {
+
+    console.log(this.context)
+
     return (
       <View>
         <Title>Your packages</Title>
@@ -70,11 +62,11 @@ export class DetailsList extends React.Component<Props> {
 
               <View style={styles.item}>
                 <View>
-                  <Text style={styles.textMono}>DID: {this.cutDid(item.did)}</Text>
+                  <Text style={styles.textMono}>DID: {cutDid(item.did)}</Text>
                   <Subheading>{item.description}</Subheading>
                   <Subheading style={styles.textSubAlt}>
                     State: {' '}
-                    <Text style={this.getStateStyle(item.state)}>
+                    <Text style={getStateStyle(item.state)}>
                       {item.state}
                     </Text>
                   </Subheading>

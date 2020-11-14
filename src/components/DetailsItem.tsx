@@ -3,7 +3,6 @@ import { Text, View, StyleSheet, ScrollView } from 'react-native'
 
 import { Map, Qr, Button } from '../ui';
 import { cutDid, getStateStyle } from '../shared'
-
 import { DetailsItemStep } from './DetailsItemStep'
 
 interface Props {
@@ -14,7 +13,6 @@ interface Props {
 export class DetailsItem extends React.Component<Props> {
   render() {
     const {did, name,  description, state, destination, steps, x, y} = this.props.route.params
-    const onSubmit = (data: any) => console.log(data)
 
     return (
       <View style={styles.container}>
@@ -53,14 +51,13 @@ export class DetailsItem extends React.Component<Props> {
             </View>
           </View>
         </ScrollView>
-        <Button
-        icon="plus"
-        onPress={() => this.props.navigation.navigate('register',{did, name, description})}
-        // disabled={!!Object.keys(errors).length || !name || !description}
-        >
 
-        Inspect package
-      </Button>
+        <Button
+          icon="plus"
+          onPress={() => this.props.navigation.navigate('register',{did, name, description})} >
+
+          Inspect package
+        </Button>
       </View>
     );
   }
