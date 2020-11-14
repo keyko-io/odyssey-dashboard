@@ -64,7 +64,7 @@ export class Dashboard extends React.Component<Props, {}> {
             </View>
             <View style={styles.textWrapper}>
               <Text style={styles.text}>
-                Final {"\n"} <Text style={styles.companySubtitle}>Recpient</Text>
+                Final {"\n"} <Text style={styles.companySubtitle}>Recipient</Text>
               </Text>
             </View>
           </View>
