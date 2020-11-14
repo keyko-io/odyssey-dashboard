@@ -23,14 +23,44 @@ type Inputs = {
 
 const generateDid = () => `did:nvm:${Array.from({length: 5}).map(() => Math.floor(Math.random() * 2 ** 32).toString(16)).join('').substr(0, 40)}`
 
+var options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+}
+
+let latitude: any
+let longitude: any
+
+function success(pos:any) {
+  var crd = pos.coords
+
+  console.log('Your current position is:')
+  console.log(`Latitude : ${crd.latitude}`)
+  console.log(`Longitude: ${crd.longitude}`)
+  console.log(`More or less ${crd.accuracy} meters.`)
+  latitude = crd.latitude
+  longitude = crd.longitude
+}
+
+function error(err: any) {
+  console.warn(`ERROR(${err.code}): ${err.message}`)
+}
+
+navigator.geolocation.getCurrentPosition(success, error, options)
 export function Register() {
   const {control, register, handleSubmit, errors, setValue, getValues} = useForm<Inputs>({mode: 'onChange', criteriaMode: 'all'})
   const {name, description} = getValues()
-
   //TODO change to register using nevermined-sdk
   const onSubmit = (data: any) =>
     listItems.push({
       ...data,
+      x: longitude,
+      y: latitude,
+      steps: [
+        {id: 0, completed: true},
+        {id: 1, completed: false, by: 'Checkpoint #1'},
+      ],
       state:DeliveryState.Registered,
     })
 
@@ -97,7 +127,6 @@ export function Register() {
         icon="plus"
         onPress={handleSubmit(onSubmit)}
         disabled={!!Object.keys(errors).length || !name || !description}>
-
         Register package
       </Button>
     </View>
