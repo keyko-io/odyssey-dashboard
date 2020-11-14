@@ -2032,7 +2032,7 @@
   resolved "https://registry.yarnpkg.com/@nevermined-io/contracts/-/contracts-0.5.0.tgz#406e2f939f594240c9cca0b390815345a0e9b345"
   integrity sha512-KcEKpIam9zjZepRRz5UGBHqwLGrJuBirvMpHNb/GQ/0EMqTa4B8kBNn/5+WPGljscTxK/qNh6Jm8/dWy5OaWjg==
 
-"@nevermined-io/nevermined-sdk-js@0.5.1":
+"@nevermined-io/nevermined-sdk-js@^0.5.1":
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/@nevermined-io/nevermined-sdk-js/-/nevermined-sdk-js-0.5.1.tgz#14dfedca2719b276f6ea8087a72240f5ebb3e5bd"
   integrity sha512-4OQm3fHezvigR0bQCY4606M6jgJprr7wWpBR1+Wimxm1jdvTn5b7TCWdjDIfAKZN3AHkeaTrFdK68ixKCP9xqA==

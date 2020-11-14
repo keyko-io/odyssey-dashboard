@@ -50,8 +50,6 @@ export class DetailsList extends React.Component<Props> {
   render() {
     const {company} = this.context
 
-    console.log(this.context)
-
     return (
       <View style={styles.container}>
         <ScrollView style={[styles.container]}>
