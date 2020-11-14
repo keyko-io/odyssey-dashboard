@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Image, View, StyleSheet, TouchableHighlight } from 'react-native';
+import { Text, View, StyleSheet, TouchableHighlight } from 'react-native';
 import { Context } from '../../context';
 import MSDLogo from '../../resources/images/msd'
 import KLMLogo from '../../resources/images/klm'
