@@ -13,6 +13,9 @@ interface Props {
 export class DetailsItem extends React.Component<Props> {
   render() {
     const {did, name,  description, state, destination, steps, latitude, longitude} = this.props.route.params
+    const route = steps
+      .filter(({location}: any) => !!location)
+      .map(({location: {latitude, longitude}}: any) => [longitude, latitude])
 
     return (
       <View style={styles.container}>
@@ -35,7 +38,7 @@ export class DetailsItem extends React.Component<Props> {
             <Map
               latitude={latitude}
               longitude={longitude}
-              coordinatesRoute={[[13.421375,52.492450], [ 13.433375,52.498450], [ 13.433375,52.898450]]}
+              coordinatesRoute={route}
               latitudeDelta={0.0922}
               longitudeDelta={0.0421}
               height="200"/>

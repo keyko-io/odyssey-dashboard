@@ -2,7 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 import ReactMapboxGl, { Layer, Feature, Marker } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { GeoJSONLayer } from "react-mapbox-gl";
+import { GeoJSONLayer } from 'react-mapbox-gl';
 
 
 import { MapProps } from './map-common'
@@ -14,16 +14,14 @@ const Mapbox = ReactMapboxGl({
 
 const geojson = (coordinates:any) => {
   return {
-  "type":"FeatureCollection",
-  "features":[
-     {
-        "geometry":{
-           "type":"LineString",
-           "coordinates":coordinates                  
-        }
-     }
-  ]
-}
+    type: 'FeatureCollection',
+    features: [{
+      geometry: {
+        type: 'LineString',
+        coordinates,
+      }
+    }]
+  }
 }
 
 export function Map({latitude, longitude, height, coordinatesRoute}: MapProps) {
@@ -36,10 +34,10 @@ export function Map({latitude, longitude, height, coordinatesRoute}: MapProps) {
           height: !isNaN(height as any) ? `${height}px` : height || '50vh',
           width: '100%'
         }}
-        center={[latitude, longitude]}>
+        center={[longitude, latitude]}>
         <GeoJSONLayer
           data={geojson(coordinatesRoute)}
-          circlePaint={{"circle-color":"red"}}
+          circlePaint={{"circle-color": "red"}}
           linePaint={{"line-color": "black"}}/>
       </Mapbox>
     </View>
