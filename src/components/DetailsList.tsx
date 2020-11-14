@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { Subheading } from 'react-native-paper';
-
+import { Context } from '../../context';
 import { Title } from '../ui';
 import { DeliveryState } from '../shared/types';
 
+/*
 //Get this data calling on chain or to the metadata-api
 export const listItems = [
   {
@@ -36,15 +37,79 @@ export const listItems = [
     ],
   },
 ];
+*/
+
+interface State {
+  packages: any[]
+}
 
 interface Props {
   navigation: any
 }
 
-export class DetailsList extends React.Component<Props> {
+export class DetailsList extends React.Component<Props, State> {
+  public static contextType = Context
+  state = {
+    packages:[]
+  }
 
   cutDid(did: string) {
     return did.replace(/^(\w+:\w+:[a-f0-9]{8}).+([a-f0-9]{8})$/i, '$1...$2')
+  }
+
+  componentDidMount() {
+    this.loadPackages()
+  }
+
+  loadPackages = async() => {
+    const events = await this.context.nevermined.keeper.provenanceRegistry.contract.getPastEvents("allEvents", {
+      fromBlock: 0,
+      toBlock: 'latest'
+    })
+    const packagesRequest = await fetch("https://metadata.keyko.rocks/api/v1/metadata/assets", {
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+    })
+    const listOfPackages = await packagesRequest.json()
+    const packages: any[] = []
+    for(const id of listOfPackages.ids){
+      let addIn = false
+      const packageData = await fetch("https://metadata.keyko.rocks/api/v1/metadata/assets/ddo/"+id, {
+        headers: {'Accept': 'application/json','Content-Type': 'application/json'}
+      })
+      const ddo = await packageData.json()
+      const pack: any = {
+        name: 'No info',
+        did: '',
+        events: []
+      }
+      if(ddo.service[0].attributes.main.name){
+        pack.name = ddo.service[0].attributes.main.name
+      }
+      if(ddo.id){
+        pack.did = ddo.id
+      }
+      for(const event of events){
+        if(
+          event.returnValues._entityDid && event.returnValues._entityDid.substr(2) === ddo.id.substr(7) ||
+          event.returnValues._did && event.returnValues._did.substr(2) === ddo.id.substr(7)
+        ){
+          if(event.returnValues._attributes && event.returnValues._attributes.indexOf(",") >= 0){
+            const attributes = event.returnValues._attributes.split(",")
+            pack.events.push({
+              event: event.event,
+              company: attributes[0],
+              lat: attributes[1],
+              lng: attributes[2]
+            })
+            addIn = true
+          }
+        }
+      }
+      if(addIn){
+        packages.push(pack)
+      }
+    }
+    this.setState({ packages })
   }
 
   getStateStyle(state: DeliveryState) {
@@ -61,7 +126,7 @@ export class DetailsList extends React.Component<Props> {
       <View>
         <Title>Your packages</Title>
         <View>
-          {listItems.map(item => (
+          {this.state.packages.map((item:any) => (
             <TouchableOpacity
               key={item.did}
               onPress={() => this.props.navigation.navigate('detailsItem', item)}>
@@ -69,7 +134,7 @@ export class DetailsList extends React.Component<Props> {
               <View style={styles.item}>
                 <View>
                   <Text style={styles.textMono}>DID: {this.cutDid(item.did)}</Text>
-                  <Subheading>{item.description}</Subheading>
+                  <Subheading>{item.name}</Subheading>
                   <Subheading style={styles.textSubAlt}>
                     State: {' '}
                     <Text style={this.getStateStyle(item.state)}>
