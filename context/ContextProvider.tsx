@@ -1,76 +1,65 @@
 import React, { Component } from 'react'
-// import Web3 from 'web3'
+import Web3 from 'web3'
 import { Context } from '.'
-// import HDWalletProvider from '@truffle/hdwallet-provider'
-// const bip39 = require('bip39')
+import { Nevermined } from '@nevermined-io/nevermined-sdk-js'
+import { LogLevel } from '@nevermined-io/nevermined-sdk-js/dist/node/utils';
+import { Config } from '@nevermined-io/nevermined-sdk-js';
+import HDWalletProvider from '@truffle/hdwallet-provider'
+const bip39 = require('bip39')
 
 interface ContextProviderProps {}
 
 interface ContextProviderState {
-    isLogged: boolean
     isLoading: boolean
-    account: string
-    network: string
-    tokenContract: any
-    // web3: Web3
+    nevermined: any
     message: string
+    company: string
+    setCompany: (company:string) => void
 }
 
 export default class ContextProvider extends Component<ContextProviderProps, ContextProviderState> {
 
     public state = {
-        isLogged: false,
         isLoading: true,
-        account: '',
-        network: '',
-        tokenContract: null,
-        // web3: {} as any,
-        message: 'Connecting...'
+        nevermined: {} as any,
+        message: 'Connecting...',
+        company: 'MSD',
+        setCompany: (company:string) => {
+            this.setState({company})
+        }
     }
 
     public async componentDidMount() {
         this.bootstrap()
     }
 
-    public isLogged() {
-        if (localStorage.getItem('seedphrase') !== null) {
-            return true
-        }
-        return false
-    }
-
     private bootstrap = async () => {
-        /*
-        let mnemonic
-        if (this.isLogged()) {
-            mnemonic = localStorage.getItem('seedphrase')
-        } else {
-            mnemonic = bip39.generateMnemonic()
-            localStorage.setItem('seedphrase', mnemonic)
-        }
-        localStorage.setItem('logType', 'BurnerWallet')
-        // const provider = new HDWalletProvider(mnemonic, 'http://localhost:8545', 0, 1)
-        const provider = new HDWalletProvider('taxi music thumb unique chat sand crew more leg another off lamp', 'http://localhost:8545', 0, 1)
-        const web3 = new Web3(provider as any)
+        const web3Provider = new HDWalletProvider({
+            mnemonic: 'taxi music thumb unique chat sand crew more leg another off lamp',
+            providerOrUrl: 'https://rinkeby.infura.io/v3/6a91d92ed84f457a9e54f808a60417a1',
+            addressIndex: 0,
+            numberOfAddresses: 5
+        })
         try {
-            const accounts = await web3.eth.getAccounts()
-            const account = accounts[0]
-            const balance = await web3.eth.getBalance(accounts[0])
+            const nevermined = await Nevermined.getInstance({
+                metadataUri: 'http://metadata.keyko.rocks',
+                gatewayUri: 'http://gateway.keyko.rocks/',
+                nodeUri: `https://rinkeby.infura.io/v3/6a91d92ed84f457a9e54f808a60417a1`,
+                gatewayAddress: '0x068Ed00cF0441e4829D9784fCBe7b9e26D4BD8d0',
+                web3Provider,
+                verbose: LogLevel.Error
+            } as Config)
             this.setState({
                 isLoading: false,
                 message: '',
-                account,
-                web3
+                nevermined
             })
-            console.log(account, balance)
-            
         } catch (e) {
             // error in bootstrap process
             // show error connecting
             console.log('Error', e)
             this.setState({ isLoading: false })
         }
-        */
         this.setState({ isLoading: false })
     }
 

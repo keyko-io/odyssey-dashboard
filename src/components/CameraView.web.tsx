@@ -44,6 +44,12 @@ export class CameraView extends Component<Props> {
     },1000)
   }
 
+  componentWillUnmount() {
+    if(this.interval){
+      clearInterval(this.interval)
+    }
+  }
+
   render(){
     return (
       <View style={{ flex: 1 }}>
