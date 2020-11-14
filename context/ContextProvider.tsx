@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Web3 from 'web3'
 import { Context } from '.'
+import { Account } from '@nevermined-io/nevermined-sdk-js'
 import { Nevermined } from '@nevermined-io/nevermined-sdk-js'
 import { LogLevel } from '@nevermined-io/nevermined-sdk-js/dist/node/utils';
 import { Config } from '@nevermined-io/nevermined-sdk-js';
@@ -14,6 +15,7 @@ interface ContextProviderState {
     nevermined: any
     message: string
     company: string
+    accounts: any
     setCompany: (company:string) => void
 }
 
@@ -24,6 +26,7 @@ export default class ContextProvider extends Component<ContextProviderProps, Con
         nevermined: {} as any,
         message: 'Connecting...',
         company: 'MSD',
+        accounts: {} as any,
         setCompany: (company:string) => {
             this.setState({company})
         }
@@ -49,10 +52,23 @@ export default class ContextProvider extends Component<ContextProviderProps, Con
                 web3Provider,
                 verbose: LogLevel.Error
             } as Config)
+            let msd: Account
+            let dhl: Account
+            let klm: Account
+            let johnDoe: Account
+            let customs: Account
+            [msd, dhl, klm, johnDoe, customs] = await nevermined.accounts.list()
             this.setState({
                 isLoading: false,
                 message: '',
-                nevermined
+                nevermined,
+                accounts: {
+                    msd,
+                    dhl,
+                    klm,
+                    johnDoe,
+                    customs
+                }
             })
         } catch (e) {
             // error in bootstrap process

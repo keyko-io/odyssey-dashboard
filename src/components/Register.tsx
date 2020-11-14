@@ -5,12 +5,8 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { TextInput, Caption } from 'react-native-paper';
 import { useForm, Controller } from 'react-hook-form'
 import { Context } from '../../context';
-import { Account } from '@nevermined-io/nevermined-sdk-js'
-
-
 import { Title, Button } from '../ui';
 import { DeliveryState } from '../shared/types';
-
 import { Activities } from '@nevermined-io/nevermined-sdk-js/dist/node/keeper/contracts/ProvenanceRegistry'
 import { listItems, newSteps } from './DetailsList'
 
@@ -58,15 +54,10 @@ interface Props {
 }
 
 navigator.geolocation.getCurrentPosition(success, error, options)
-let msd: Account
-let dhl: Account
-let klm: Account
-let johnDoe: Account
-let customs: Account
 
-export async function Register(props: Props) {
+export function Register(props: Props) {
   const context: any = useContext(Context)
-  ;[msd, dhl, klm, johnDoe, customs] = await context.nevermined.accounts.list()
+  const {msd, dhl, klm, johnDoe, customs} = context.accounts
   const provenanceRegistry = context.nevermined.keeper.provenanceRegistry
 
   const {control, register, handleSubmit, errors, setValue, getValues} = useForm<Inputs>({mode: 'onChange', criteriaMode: 'all'})
@@ -80,8 +71,8 @@ export async function Register(props: Props) {
     step.completed = true
     step.location = {latitude, longitude}
     if(context.company !== 'FR'){
-      let acc1: Account = msd
-      let acc2: Account = dhl
+      let acc1: any = msd
+      let acc2: any = dhl
       if(context.company === 'KLM'){
         acc1 = dhl
         acc2 = klm
