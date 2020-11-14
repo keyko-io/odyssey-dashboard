@@ -1,7 +1,8 @@
 import React from 'react'
 import { Text, View, StyleSheet, ScrollView } from 'react-native'
 
-import { Map, Qr } from '../ui';
+import { Context } from '../../context';
+import { Map, Qr, Button } from '../ui';
 import { cutDid, getStateStyle } from '../shared'
 
 import { DetailsItemStep } from './DetailsItemStep'
@@ -12,8 +13,16 @@ interface Props {
 }
 
 export class DetailsItem extends React.Component<Props> {
+  public static contextType = Context
+
   render() {
     const {did, name, state, destination, events} = this.props.route.params
+
+    const {company} = this.context
+    const nextCompany = events.find(({completed}: any) => !completed)?.owner
+    const route = events
+      .filter(({location}: any) => !!location)
+      .map(({location: {latitude, longitude}}: any) => [longitude, latitude])
     return (
       <View style={styles.container}>
         <ScrollView style={[styles.container]}>
@@ -50,6 +59,14 @@ export class DetailsItem extends React.Component<Props> {
             </View>
           </View>
         </ScrollView>
+
+        <Button
+          icon="magnify"
+          disabled={company !== nextCompany}
+          onPress={() => this.props.navigation.navigate('register', {did, name})} >
+
+          Inspect package
+        </Button>
       </View>
     );
   }

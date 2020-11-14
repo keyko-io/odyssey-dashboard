@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns4:CargoWaybillTypeElement
+  xmlns:ns2="iata:datamodel:3"
+  xmlns:ns3="iata:waybill:1"
+  xmlns:ns4="http://www.af-klm.com/services/cargo/data-v1/xsd">
+  <ns3:Waybill>
+    <ns3:MessageHeaderDocument>
+      <ns2:ID>074-39541983_P5PE4U7NfdqVKWjKzPb</ns2:ID>
+      <ns2:Name>Air Waybill</ns2:Name>
+      <ns2:TypeCode>741</ns2:TypeCode>
+      <ns2:IssueDateTime>2020-10-20T09:39:00.000Z</ns2:IssueDateTime>
+      <ns2:PurposeCode>Creation</ns2:PurposeCode>
+      <ns2:VersionID>3.00</ns2:VersionID>
+      <ns2:SenderParty>
+        <ns2:PrimaryID schemeID="C">AMSFMKL</ns2:PrimaryID>
+      </ns2:SenderParty>
+      <ns2:SenderParty>
+        <ns2:PrimaryID schemeID="T">AMSFMKL</ns2:PrimaryID>
+      </ns2:SenderParty>
+      <ns2:SenderParty>
+        <ns2:PrimaryID schemeID="O">AMSFMKL</ns2:PrimaryID>
+      </ns2:SenderParty>
+      <ns2:RecipientParty>
+        <ns2:PrimaryID schemeID="C">QVIVJAF</ns2:PrimaryID>
+      </ns2:RecipientParty>
+      <ns2:RecipientParty>
+        <ns2:PrimaryID schemeID="T">QVIVJAF</ns2:PrimaryID>
+      </ns2:RecipientParty>
+    </ns3:MessageHeaderDocument>
+    <ns3:BusinessHeaderDocument>
+      <ns2:ID>074-39541983</ns2:ID>
+      <ns2:IncludedHeaderNote>
+        <ns2:ContentCode>C</ns2:ContentCode>
+        <ns2:Content>Consolidation</ns2:Content>
+      </ns2:IncludedHeaderNote>
+      <ns2:SignatoryConsignorAuthentication>
+        <ns2:Signatory>XPO GLOBAL FORWARDIN</ns2:Signatory>
+      </ns2:SignatoryConsignorAuthentication>
+      <ns2:SignatoryCarrierAuthentication>
+        <ns2:ActualDateTime>2020-10-19T00:00:00.000</ns2:ActualDateTime>
+        <ns2:Signatory>ANNABELLE LABAZUY</ns2:Signatory>
+        <ns2:IssueAuthenticationLocation>
+          <ns2:Name>BLAGNAC</ns2:Name>
+        </ns2:IssueAuthenticationLocation>
+      </ns2:SignatoryCarrierAuthentication>
+    </ns3:BusinessHeaderDocument>
+    <ns3:MasterConsignment>
+      <ns2:NilCarriageValueIndicator>true</ns2:NilCarriageValueIndicator>
+      <ns2:NilCustomsValueIndicator>true</ns2:NilCustomsValueIndicator>
+      <ns2:NilInsuranceValueIndicator>true</ns2:NilInsuranceValueIndicator>
+      <ns2:TotalChargePrepaidIndicator>true</ns2:TotalChargePrepaidIndicator>
+      <ns2:TotalDisbursementPrepaidIndicator>true</ns2:TotalDisbursementPrepaidIndicator>
+      <ns2:IncludedTareGrossWeightMeasure unitCode="KGM">1235.0</ns2:IncludedTareGrossWeightMeasure>
+      <ns2:TotalPieceQuantity>3</ns2:TotalPieceQuantity>
+      <ns2:ConsignorParty>
+        <ns2:Name>NAME</ns2:Name>
+        <ns2:PostalStructuredAddress>
+          <ns2:PostcodeCode>99999</ns2:PostcodeCode>
+          <ns2:StreetName>STREET NAME</ns2:StreetName>
+          <ns2:CityName>CITY</ns2:CityName>
+          <ns2:CountryID>FR</ns2:CountryID>
+          <ns2:CountrySubDivisionName>31</ns2:CountrySubDivisionName>
+        </ns2:PostalStructuredAddress>
+        <ns2:DefinedTradeContact>
+          <ns2:DirectTelephoneCommunication>
+            <ns2:CompleteNumber>33561062945</ns2:CompleteNumber>
+          </ns2:DirectTelephoneCommunication>
+        </ns2:DefinedTradeContact>
+      </ns2:ConsignorParty>
+      <ns2:ConsigneeParty>
+        <ns2:Name>NAME</ns2:Name>
+        <ns2:PostalStructuredAddress>
+          <ns2:PostcodeCode>99999</ns2:PostcodeCode>
+          <ns2:StreetName>STREET</ns2:StreetName>
+          <ns2:CityName>CITY</ns2:CityName>
+          <ns2:CountryID>SG</ns2:CountryID>
+        </ns2:PostalStructuredAddress>
+        <ns2:DefinedTradeContact>
+          <ns2:DirectTelephoneCommunication>
+            <ns2:CompleteNumber>9999999</ns2:CompleteNumber>
+          </ns2:DirectTelephoneCommunication>
+        </ns2:DefinedTradeContact>
+      </ns2:ConsigneeParty>
+      <ns2:FreightForwarderParty>
+        <ns2:Name>NAME</ns2:Name>
+        <ns2:CargoAgentID>999999</ns2:CargoAgentID>
+        <ns2:FreightForwarderAddress>
+          <ns2:StreetName>STREET</ns2:StreetName>
+          <ns2:CityName>CITY</ns2:CityName>
+        </ns2:FreightForwarderAddress>
+        <ns2:SpecifiedCargoAgentLocation>
+          <ns2:ID>3175</ns2:ID>
+        </ns2:SpecifiedCargoAgentLocation>
+      </ns2:FreightForwarderParty>
+      <ns2:OriginLocation>
+        <ns2:ID>TLS</ns2:ID>
+      </ns2:OriginLocation>
+      <ns2:FinalDestinationLocation>
+        <ns2:ID>SIN</ns2:ID>
+      </ns2:FinalDestinationLocation>
+      <ns2:SpecifiedLogisticsTransportMovement>
+        <ns2:StageCode>Main-Carriage</ns2:StageCode>
+        <ns2:ID>KL835</ns2:ID>
+        <ns2:SequenceNumeric>1</ns2:SequenceNumeric>
+        <ns2:UsedLogisticsTransportMeans>
+          <ns2:Name>KL</ns2:Name>
+        </ns2:UsedLogisticsTransportMeans>
+        <ns2:ArrivalEvent>
+          <ns2:OccurrenceArrivalLocation>
+            <ns2:ID>SIN</ns2:ID>
+          </ns2:OccurrenceArrivalLocation>
+        </ns2:ArrivalEvent>
+        <ns2:DepartureEvent>
+          <ns2:ScheduledOccurrenceDateTime>2020-10-22T00:00:00.000</ns2:ScheduledOccurrenceDateTime>
+          <ns2:OccurrenceDepartureLocation>
+            <ns2:ID>TLS</ns2:ID>
+          </ns2:OccurrenceDepartureLocation>
+        </ns2:DepartureEvent>
+      </ns2:SpecifiedLogisticsTransportMovement>
+      <ns2:HandlingSPHInstructions>
+        <ns2:DescriptionCode>HEA</ns2:DescriptionCode>
+      </ns2:HandlingSPHInstructions>
+      <ns2:HandlingSPHInstructions>
+        <ns2:DescriptionCode>SPX</ns2:DescriptionCode>
+      </ns2:HandlingSPHInstructions>
+      <ns2:HandlingSPHInstructions>
+        <ns2:DescriptionCode>ECC</ns2:DescriptionCode>
+      </ns2:HandlingSPHInstructions>
+      <ns2:HandlingOSIInstructions>
+        <ns2:Description>DOC  ATTACHED</ns2:Description>
+      </ns2:HandlingOSIInstructions>
+      <ns2:IncludedAccountingNote>
+        <ns2:ContentCode>GEN</ns2:ContentCode>
+        <ns2:Content>EXPEDITION APTE AU TRANSPORT AERIE</ns2:Content>
+      </ns2:IncludedAccountingNote>
+      <ns2:IncludedAccountingNote>
+        <ns2:ContentCode>GEN</ns2:ContentCode>
+        <ns2:Content>REGULATED AGENT FR RA 04018-06 000</ns2:Content>
+      </ns2:IncludedAccountingNote>
+      <ns2:IncludedAccountingNote>
+        <ns2:ContentCode>GEN</ns2:ContentCode>
+        <ns2:Content>EX N 2007009254</ns2:Content>
+      </ns2:IncludedAccountingNote>
+      <ns2:IncludedCustomsNote>
+        <ns2:ContentCode>RA</ns2:ContentCode>
+        <ns2:Content>04018-06</ns2:Content>
+        <ns2:SubjectCode>ISS</ns2:SubjectCode>
+        <ns2:CountryID>FR</ns2:CountryID>
+      </ns2:IncludedCustomsNote>
+      <ns2:IncludedCustomsNote>
+        <ns2:ContentCode>ED</ns2:ContentCode>
+        <ns2:Content>1121</ns2:Content>
+      </ns2:IncludedCustomsNote>
+      <ns2:IncludedCustomsNote>
+        <ns2:ContentCode>SM</ns2:ContentCode>
+        <ns2:Content>EDD</ns2:Content>
+      </ns2:IncludedCustomsNote>
+      <ns2:IncludedCustomsNote>
+        <ns2:ContentCode>SN</ns2:ContentCode>
+        <ns2:Content>ANNABELLE LABAZUY</ns2:Content>
+      </ns2:IncludedCustomsNote>
+      <ns2:IncludedCustomsNote>
+        <ns2:ContentCode>SD</ns2:ContentCode>
+        <ns2:Content>14OCT201305</ns2:Content>
+      </ns2:IncludedCustomsNote>
+      <ns2:AssociatedConsignmentCustomsProcedure>
+        <ns2:GoodsStatusCode>X</ns2:GoodsStatusCode>
+      </ns2:AssociatedConsignmentCustomsProcedure>
+      <ns2:ApplicableOriginCurrencyExchange>
+        <ns2:SourceCurrencyCode>EUR</ns2:SourceCurrencyCode>
+      </ns2:ApplicableOriginCurrencyExchange>
+      <ns2:ApplicableLogisticsServiceCharge>
+        <ns2:TransportPaymentMethodCode>PX</ns2:TransportPaymentMethodCode>
+      </ns2:ApplicableLogisticsServiceCharge>
+      <ns2:ApplicableLogisticsAllowanceCharge>
+        <ns2:ID>SC</ns2:ID>
+        <ns2:PrepaidIndicator>true</ns2:PrepaidIndicator>
+        <ns2:PartyTypeCode>C</ns2:PartyTypeCode>
+        <ns2:ActualAmount currencyID="EUR">32.11</ns2:ActualAmount>
+      </ns2:ApplicableLogisticsAllowanceCharge>
+      <ns2:ApplicableLogisticsAllowanceCharge>
+        <ns2:ID>CG</ns2:ID>
+        <ns2:PrepaidIndicator>true</ns2:PrepaidIndicator>
+        <ns2:PartyTypeCode>C</ns2:PartyTypeCode>
+        <ns2:ActualAmount currencyID="EUR">12.00</ns2:ActualAmount>
+      </ns2:ApplicableLogisticsAllowanceCharge>
+      <ns2:ApplicableLogisticsAllowanceCharge>
+        <ns2:ID>CH</ns2:ID>
+        <ns2:PrepaidIndicator>true</ns2:PrepaidIndicator>
+        <ns2:PartyTypeCode>C</ns2:PartyTypeCode>
+        <ns2:ActualAmount currencyID="EUR">28.00</ns2:ActualAmount>
+      </ns2:ApplicableLogisticsAllowanceCharge>
+      <ns2:ApplicableRating>
+        <ns2:TypeCode>F</ns2:TypeCode>
+        <ns2:TotalChargeAmount currencyID="EUR">4940.00</ns2:TotalChargeAmount>
+        <ns2:IncludedMasterConsignmentItem>
+          <ns2:SequenceNumeric>1</ns2:SequenceNumeric>
+          <ns2:GrossWeightMeasure unitCode="KGM">1235.0</ns2:GrossWeightMeasure>
+          <ns2:PieceQuantity>3</ns2:PieceQuantity>
+          <ns2:NatureIdentificationTransportCargo>
+            <ns2:Identification>CONSOLIDATION AS PER</ns2:Identification>
+          </ns2:NatureIdentificationTransportCargo>
+          <ns2:TransportLogisticsPackage>
+            <ns2:ItemQuantity>3</ns2:ItemQuantity>
+            <ns2:LinearSpatialDimension>
+              <ns2:WidthMeasure unitCode="CMT">96</ns2:WidthMeasure>
+              <ns2:LengthMeasure unitCode="CMT">159</ns2:LengthMeasure>
+              <ns2:HeightMeasure unitCode="CMT">108</ns2:HeightMeasure>
+            </ns2:LinearSpatialDimension>
+          </ns2:TransportLogisticsPackage>
+          <ns2:ApplicableFreightRateServiceCharge>
+            <ns2:CategoryCode>Q</ns2:CategoryCode>
+            <ns2:ChargeableWeightMeasure unitCode="KGM">1235.0</ns2:ChargeableWeightMeasure>
+            <ns2:AppliedRate>4.00</ns2:AppliedRate>
+            <ns2:AppliedAmount currencyID="EUR">4940.00</ns2:AppliedAmount>
+          </ns2:ApplicableFreightRateServiceCharge>
+        </ns2:IncludedMasterConsignmentItem>
+      </ns2:ApplicableRating>
+      <ns2:ApplicableTotalRating>
+        <ns2:TypeCode>F</ns2:TypeCode>
+        <ns2:ApplicablePrepaidCollectMonetarySummation>
+          <ns2:PrepaidIndicator>true</ns2:PrepaidIndicator>
+          <ns2:WeightChargeTotalAmount currencyID="EUR">4940.00</ns2:WeightChargeTotalAmount>
+          <ns2:CarrierTotalDuePayableAmount currencyID="EUR">72.11</ns2:CarrierTotalDuePayableAmount>
+          <ns2:GrandTotalAmount currencyID="EUR">5012.11</ns2:GrandTotalAmount>
+        </ns2:ApplicablePrepaidCollectMonetarySummation>
+      </ns2:ApplicableTotalRating>
+    </ns3:MasterConsignment>
+  </ns3:Waybill>
+  <originalMessage>
+    <type>CIMP</type>
+  </originalMessage>
+  <state>PRIVATE</state>
+  <senderRole>PRIVATE</senderRole>
+  <operationalFlight>
+    <carrierCode>KL</carrierCode>
+    <flightNumber>835</flightNumber>
+  </operationalFlight>
+  <origin>
+    <country>FR</country>
+  </origin>
+  <finalDestination>
+    <country>SG</country>
+  </finalDestination>
+</ns4:CargoWaybillTypeElement>

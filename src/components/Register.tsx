@@ -7,7 +7,7 @@ import { useForm, Controller } from 'react-hook-form'
 import { Title, Button } from '../ui';
 import { DeliveryState } from '../shared/types';
 
-import { listItems } from './DetailsList'
+import { listItems, newSteps } from './DetailsList'
 
 //Get this data calling on chain or to the metadata-api
 interface Props {
@@ -23,29 +23,81 @@ type Inputs = {
 
 const generateDid = () => `did:nvm:${Array.from({length: 5}).map(() => Math.floor(Math.random() * 2 ** 32).toString(16)).join('').substr(0, 40)}`
 
-export function Register() {
-  const {control, register, handleSubmit, errors, setValue, getValues} = useForm<Inputs>({mode: 'onChange', criteriaMode: 'all'})
-  const {name, description} = getValues()
+var options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+}
 
+let latitude: any
+let longitude: any
+
+function success(pos:any) {
+  var crd = pos.coords
+
+  console.log('Your current position is:')
+  console.log(`Latitude : ${crd.latitude}`)
+  console.log(`Longitude: ${crd.longitude}`)
+  console.log(`More or less ${crd.accuracy} meters.`)
+  latitude = crd.latitude
+  longitude = crd.longitude
+}
+
+function error(err: any) {
+  console.warn(`ERROR(${err.code}): ${err.message}`)
+}
+
+interface Props {
+  route: any
+  navigation: any
+}
+
+navigator.geolocation.getCurrentPosition(success, error, options)
+
+export function Register(props: Props) {
+  const {control, register, handleSubmit, errors, setValue, getValues} = useForm<Inputs>({mode: 'onChange', criteriaMode: 'all'})
+  const {params} = props?.route
+  const isInspect = !!params
+  const {name, description} = getValues()
   //TODO change to register using nevermined-sdk
-  const onSubmit = (data: any) =>
-    listItems.push({
+
+  const inspect = () => {
+    const item = listItems.find(({did}) => did === params.did)
+    const step = item?.steps.find(({completed}) => !completed) || {} as any
+    step.completed = true
+    step.location = {latitude, longitude}
+    if (item) {
+      props.navigation.navigate('detailsItem', item)
+    }
+  }
+
+  const onSubmit = (data: any) => {
+    const item = {
       ...data,
-      state:DeliveryState.Registered,
-    })
+      longitude,
+      latitude,
+      steps: newSteps(longitude, latitude),
+      state: DeliveryState.Registered,
+    }
+    listItems.push(item)
+    props.navigation.navigate('detailsItem', item)
+  }
 
   useEffect(() => {
     register('did')
     register('name', {required: true})
     register('description', {required: true})
-    setValue('did', generateDid())
+    setValue('did', isInspect ? params.did : generateDid())
+    if (isInspect) {
+      setValue('name', params.name)
+      setValue('description', params.description)
+    }
   }, [register])
 
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container}>
-        <Title>Register Package</Title>
-
+        <Title>{isInspect ? 'Inspect Package' : 'Register Package'}</Title>
         <Controller
           name="did"
           control={control}
@@ -54,8 +106,8 @@ export function Register() {
             <TextInput
               style={styles.input}
               label="DID"
-              disabled
               onBlur={onBlur}
+              disabled
               onChangeText={value => onChange(value)}
               value={value}/>
           )} />
@@ -70,6 +122,7 @@ export function Register() {
             <TextInput
               style={styles.input}
               label="Name"
+              disabled={isInspect}
               onBlur={onBlur}
               onChangeText={value => onChange(value)}
               value={value}/>
@@ -85,6 +138,7 @@ export function Register() {
             <TextInput
               style={styles.input}
               label="Description"
+              disabled={isInspect}
               onBlur={onBlur}
               onChangeText={value => onChange(value)}
               value={value}/>
@@ -93,13 +147,22 @@ export function Register() {
 
       </ScrollView>
 
-      <Button
-        icon="plus"
-        onPress={handleSubmit(onSubmit)}
-        disabled={!!Object.keys(errors).length || !name || !description}>
+      {isInspect
+        ? (
+          <Button
+            icon="check"
+            onPress={() => inspect()}>
 
-        Register package
-      </Button>
+            Inspect package
+          </Button>)
+        : (
+          <Button
+            icon="plus"
+            onPress={handleSubmit(onSubmit)}
+            disabled={!!Object.keys(errors).length || !name || !description}>
+
+            Register package
+          </Button>)}
     </View>
   );
 }

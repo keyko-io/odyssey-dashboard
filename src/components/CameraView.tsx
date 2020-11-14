@@ -4,7 +4,7 @@ import { Camera } from 'expo-camera';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
 export function CameraView() {
-  const [hasPermission, setHasPermission] = useState(null);
+  const [hasPermission, setHasPermission] = useState<boolean>(null);
 
   useEffect(() => {
     (async () => {

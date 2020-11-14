@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns4:CargoHouseWaybillTypeElement
+  xmlns:ns2="iata:datamodel:3"
+  xmlns:ns3="iata:housewaybill:1"
+  xmlns:ns4="http://www.af-klm.com/services/cargo/data-v2/xsd">
+  <houseWaybill>
+    <ns3:MessageHeaderDocument>
+      <ns2:ID>TLS0J056287_074-39541983_68VhaSb2K3xy9EshpMy</ns2:ID>
+      <ns2:Name>House waybill</ns2:Name>
+      <ns2:TypeCode>703</ns2:TypeCode>
+      <ns2:IssueDateTime>2020-10-20T09:37:00.000Z</ns2:IssueDateTime>
+      <ns2:PurposeCode>Creation</ns2:PurposeCode>
+      <ns2:VersionID>3.00</ns2:VersionID>
+      <ns2:SenderParty>
+        <ns2:PrimaryID schemeID="C">QVIXXAF</ns2:PrimaryID>
+      </ns2:SenderParty>
+      <ns2:SenderParty>
+        <ns2:PrimaryID schemeID="T">QVIXXAF</ns2:PrimaryID>
+      </ns2:SenderParty>
+      <ns2:RecipientParty>
+        <ns2:PrimaryID schemeID="C">QVIXFWB</ns2:PrimaryID>
+      </ns2:RecipientParty>
+      <ns2:RecipientParty>
+        <ns2:PrimaryID schemeID="T">QVIXFWB</ns2:PrimaryID>
+      </ns2:RecipientParty>
+    </ns3:MessageHeaderDocument>
+    <ns3:BusinessHeaderDocument>
+      <ns2:ID>TLS0J056287</ns2:ID>
+      <ns2:SignatoryConsignorAuthentication>
+        <ns2:Signatory>EUROPE GSE</ns2:Signatory>
+      </ns2:SignatoryConsignorAuthentication>
+      <ns2:SignatoryCarrierAuthentication>
+        <ns2:ActualDateTime>2020-10-20T09:37:57.924Z</ns2:ActualDateTime>
+        <ns2:Signatory>UNSIGNED</ns2:Signatory>
+      </ns2:SignatoryCarrierAuthentication>
+    </ns3:BusinessHeaderDocument>
+    <ns3:MasterConsignment>
+      <ns2:IncludedTareGrossWeightMeasure unitCode="KGM">1235</ns2:IncludedTareGrossWeightMeasure>
+      <ns2:TotalPieceQuantity>3</ns2:TotalPieceQuantity>
+      <ns2:TransportContractDocument>
+        <ns2:ID>074-39541983</ns2:ID>
+      </ns2:TransportContractDocument>
+      <ns2:OriginLocation>
+        <ns2:ID>TLS</ns2:ID>
+      </ns2:OriginLocation>
+      <ns2:FinalDestinationLocation>
+        <ns2:ID>SIN</ns2:ID>
+      </ns2:FinalDestinationLocation>
+      <ns2:IncludedHouseConsignment>
+        <ns2:NilCarriageValueIndicator>true</ns2:NilCarriageValueIndicator>
+        <ns2:NilCustomsValueIndicator>true</ns2:NilCustomsValueIndicator>
+        <ns2:NilInsuranceValueIndicator>true</ns2:NilInsuranceValueIndicator>
+        <ns2:TotalChargePrepaidIndicator>true</ns2:TotalChargePrepaidIndicator>
+        <ns2:TotalDisbursementPrepaidIndicator>true</ns2:TotalDisbursementPrepaidIndicator>
+        <ns2:IncludedTareGrossWeightMeasure unitCode="KGM">1235</ns2:IncludedTareGrossWeightMeasure>
+        <ns2:TotalPieceQuantity>3</ns2:TotalPieceQuantity>
+        <ns2:SummaryDescription>ELECTRIC CABLES</ns2:SummaryDescription>
+        <ns2:ConsignorParty>
+          <ns2:Name>NAME</ns2:Name>
+          <ns2:PostalStructuredAddress>
+            <ns2:PostcodeCode>99999</ns2:PostcodeCode>
+            <ns2:StreetName>STREET</ns2:StreetName>
+            <ns2:CityName>CITY</ns2:CityName>
+            <ns2:CountryID>FR</ns2:CountryID>
+            <ns2:CountrySubDivisionID>ON</ns2:CountrySubDivisionID>
+          </ns2:PostalStructuredAddress>
+        </ns2:ConsignorParty>
+        <ns2:ConsigneeParty>
+          <ns2:Name>NAME</ns2:Name>
+          <ns2:PostalStructuredAddress>
+            <ns2:PostcodeCode>999999</ns2:PostcodeCode>
+            <ns2:StreetName>STREET</ns2:StreetName>
+            <ns2:CityName>CITY</ns2:CityName>
+            <ns2:CountryID>SG</ns2:CountryID>
+          </ns2:PostalStructuredAddress>
+        </ns2:ConsigneeParty>
+        <ns2:OriginLocation>
+          <ns2:ID>TLS</ns2:ID>
+        </ns2:OriginLocation>
+        <ns2:FinalDestinationLocation>
+          <ns2:ID>SIN</ns2:ID>
+        </ns2:FinalDestinationLocation>
+        <ns2:ApplicableOriginCurrencyExchange>
+          <ns2:SourceCurrencyCode>EUR</ns2:SourceCurrencyCode>
+        </ns2:ApplicableOriginCurrencyExchange>
+      </ns2:IncludedHouseConsignment>
+    </ns3:MasterConsignment>
+  </houseWaybill>
+  <state>AIRLINE_UPDATE</state>
+  <originalMessage>
+    <type>CIMP</type>
+    <dump>DQoBUUsgUVZJWEZXQg0KLlFWSVhYQUYgMjAwOTM3ICAgDQoCRkhMLzQNCk1CSS8wNzQtMzk1NDE5ODNUTFNTSU4vVDNLMTIzNQ0KSEJTL1RMUzBKMDU2Mjg3L1RMU1NJTi8zL0sxMjM1Ly9FTEVDVFJJQyBDQUJMRVMNClNIUC9FVVJPUEUgR1NFDQovMTAgUlVFIEZFUk5BTkQgRk9VUkNBREUNCi9MRSBQTEVTU0lTIFJPQklOUy9PTg0KL0ZSLzkyMzUwDQpDTkUvQ1cgQUVSTyBTRVJWSUNFUyBQVEUgTFREDQovMSBTRUxFVEFSIEFFUk9TUEFDRSBIRUlHSFRTIFVOSVQNCi9TSU5HQVBPUkUNCi9TRy83OTc1NDcNCkNWRC9FVVIvUFAvTlZEL05DVi9YWFgNCgM=</dump>
+    <text>&#13;
+QK QVIXFWB&#13;
+.QVIXXAF 200937   &#13;
+FHL/4&#13;
+MBI/074-39541983TLSSIN/T3K1235&#13;
+HBS/TLS0J056287/TLSSIN/3/K1235//ELECTRIC CABLES&#13;
+SHP/NAME&#13;
+/STREET&#13;
+/LE PLESSIS ROBINS/ON&#13;
+/FR/92350&#13;
+CNE/NAME&#13;
+/ADDRESS&#13;
+/SINGAPORE&#13;
+/SG/797547&#13;
+CVD/EUR/PP/NVD/NCV/XXX&#13;
+</text>
+  </originalMessage>
+  <senderRole>AIRLINE_UPDATE</senderRole>
+</ns4:CargoHouseWaybillTypeElement>
