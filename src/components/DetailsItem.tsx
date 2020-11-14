@@ -1,9 +1,8 @@
 import React from 'react'
 import { Text, View, StyleSheet, ScrollView } from 'react-native'
 
-import { Map, Qr } from '../ui';
+import { Map, Qr, Button } from '../ui';
 import { cutDid, getStateStyle } from '../shared'
-
 import { DetailsItemStep } from './DetailsItemStep'
 
 interface Props {
@@ -13,7 +12,11 @@ interface Props {
 
 export class DetailsItem extends React.Component<Props> {
   render() {
-    const {did, name,  description, state, destination, steps, x, y} = this.props.route.params
+    const {did, name,  description, state, destination, steps, latitude, longitude} = this.props.route.params
+    const route = steps
+      .filter(({location}: any) => !!location)
+      .map(({location: {latitude, longitude}}: any) => [longitude, latitude])
+
     return (
       <View style={styles.container}>
         <ScrollView style={[styles.container]}>
@@ -33,13 +36,14 @@ export class DetailsItem extends React.Component<Props> {
               <Qr size={100} value={did} />
             </View>
             <Map
-              latitude={x}
-              longitude={y}
+              latitude={latitude}
+              longitude={longitude}
+              coordinatesRoute={route}
               latitudeDelta={0.0922}
               longitudeDelta={0.0421}
               height="200"/>
             <View>
-              {steps.map(({id, completed, by}, i) => (
+              {steps.map(({id, completed, by}: any, i: number) => (
                 <DetailsItemStep
                   key={id}
                   first={i === 0}
@@ -50,6 +54,13 @@ export class DetailsItem extends React.Component<Props> {
             </View>
           </View>
         </ScrollView>
+
+        <Button
+          icon="plus"
+          onPress={() => this.props.navigation.navigate('register', {did, name, description})} >
+
+          Inspect package
+        </Button>
       </View>
     );
   }

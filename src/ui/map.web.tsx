@@ -1,8 +1,9 @@
 import React from 'react'
 import { View } from 'react-native'
-import MapView from 'react-native-maps'
-import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
+import ReactMapboxGl, { Layer, Feature, Marker } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { GeoJSONLayer } from 'react-mapbox-gl';
+
 
 import { MapProps } from './map-common'
 
@@ -11,7 +12,19 @@ const Mapbox = ReactMapboxGl({
     'pk.eyJ1IjoiZXJ1aXpnYXIiLCJhIjoiY2toZzZlejJ5MDR1dTMzbzE1ZGNncm1lcyJ9.X0KlUylvR7uU1c-AD7OYhQ'
 })
 
-export function Map({latitude, longitude, height}: MapProps) {
+const geojson = (coordinates:any) => {
+  return {
+    type: 'FeatureCollection',
+    features: [{
+      geometry: {
+        type: 'LineString',
+        coordinates,
+      }
+    }]
+  }
+}
+
+export function Map({latitude, longitude, height, coordinatesRoute}: MapProps) {
   return (
     <View>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnLRtCs2wyvMkbJPPsS4mBWOvU1SJh1OQ&callback=initMap" type="text/javascript"></script>
@@ -21,11 +34,11 @@ export function Map({latitude, longitude, height}: MapProps) {
           height: !isNaN(height as any) ? `${height}px` : height || '50vh',
           width: '100%'
         }}
-        center={[latitude, longitude]}>
-
-        <Layer type="symbol" id="marker" layout={{'icon-image': 'marker-15'}}>
-          <Feature coordinates={[latitude, longitude]} />
-        </Layer>
+        center={[longitude, latitude]}>
+        <GeoJSONLayer
+          data={geojson(coordinatesRoute)}
+          circlePaint={{"circle-color": "red"}}
+          linePaint={{"line-color": "black"}}/>
       </Mapbox>
     </View>
   )
