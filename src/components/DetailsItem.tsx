@@ -1,8 +1,10 @@
 import React from 'react'
 import { Text, View, StyleSheet, ScrollView } from 'react-native'
 
+import { Context } from '../../context';
 import { Map, Qr, Button } from '../ui';
 import { cutDid, getStateStyle } from '../shared'
+
 import { DetailsItemStep } from './DetailsItemStep'
 
 interface Props {
@@ -11,8 +13,12 @@ interface Props {
 }
 
 export class DetailsItem extends React.Component<Props> {
+  public static contextType = Context
+
   render() {
+    const {company} = this.context
     const {did, name,  description, state, destination, steps, latitude, longitude} = this.props.route.params
+    const nextCompany = steps.find(({completed}: any) => !completed)?.owner
     const route = steps
       .filter(({location}: any) => !!location)
       .map(({location: {latitude, longitude}}: any) => [longitude, latitude])
@@ -56,7 +62,8 @@ export class DetailsItem extends React.Component<Props> {
         </ScrollView>
 
         <Button
-          icon="plus"
+          icon="magnify"
+          disabled={company !== nextCompany}
           onPress={() => this.props.navigation.navigate('register', {did, name, description})} >
 
           Inspect package

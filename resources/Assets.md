@@ -38,10 +38,10 @@ For each supply chain scenario we will have a ddo containing 3 xml files (one `H
 During the demo we are gonna use the following assets:
 
 
-Title                       | Author            | When was created      | Content Type      | Files
-----------------------------|-------------------|-----------------------|-------------------|-----------------------
-Covid Vaccines (box of 1000)  | MSD               | 2020-10-10T17:00:000Z | application/json   | https://raw.githubusercontent.com/keyko-io/odyssey-dashboard/2c72ef7baf8972f058803031f466e6f445bab114/resources/data/mock-data/ddo1.json          
-Covid Vaccines (box of 50)  | MSD               | 2019-11-10T13:24:530Z | application/xml   | None         
+Title                       | Author            | When was created      | Content Type      | Files                 | DID (and url)
+----------------------------|-------------------|-----------------------|-------------------|-----------------------|-----------------------
+Covid Vaccines (box of 1000)  | MSD               | 2020-10-10T17:00:000Z | application/json   | [ddo1.json](https://raw.githubusercontent.com/keyko-io/odyssey-dashboard/2c72ef7baf8972f058803031f466e6f445bab114/resources/data/mock-data/ddo1.json) | [`did:nv:1b31817b8c459eafad9bf407b17222330780e74625d3417bf767ee3e158581e0`]( https://metadata.keyko.rocks/api/v1/metadata/assets/ddo/did:nv:1b31817b8c459eafad9bf407b17222330780e74625d3417bf767ee3e158581e0)         
+Covid Vaccines (box of 50)  | MSD               | 2019-11-10T13:24:530Z | application/xml   | None | None        
 
 
 ## QR codes

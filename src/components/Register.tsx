@@ -11,8 +11,8 @@ import { Account } from '@nevermined-io/nevermined-sdk-js'
 import { Title, Button } from '../ui';
 import { DeliveryState } from '../shared/types';
 
-import { listItems } from './DetailsList'
 import { Activities } from '@nevermined-io/nevermined-sdk-js/dist/node/keeper/contracts/ProvenanceRegistry'
+import { listItems, newSteps } from './DetailsList'
 
 //Get this data calling on chain or to the metadata-api
 interface Props {
@@ -133,12 +133,7 @@ export async function Register(props: Props) {
       ...data,
       longitude,
       latitude,
-      steps: [
-        {id: 0, completed: true, location: {latitude, longitude}},
-        {id: 1, completed: false, by: 'Checkpoint #1'},
-        {id: 2, completed: false, by: 'Checkpoint #2'},
-        {id: 3, completed: false, by: 'Final Recipient'},
-      ],
+      steps: newSteps(longitude, latitude),
       state: DeliveryState.Registered,
     }
 
@@ -230,7 +225,7 @@ export async function Register(props: Props) {
       {isInspect
         ? (
           <Button
-            icon="plus"
+            icon="check"
             onPress={() => inspect()}>
 
             Inspect package

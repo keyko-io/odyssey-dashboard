@@ -7,6 +7,12 @@ import { Title, Button } from '../ui';
 import { DeliveryState, cutDid, getStateStyle } from '../shared';
 
 //Get this data calling on chain or to the metadata-api
+export const newSteps = (longitude: number, latitude: number) => [
+  {id: 0, completed: true, location: {longitude, latitude}},
+  {id: 1, completed: false, by: 'Checkpoint #1', owner: 'DHL'},
+  {id: 2, completed: false, by: 'Checkpoint #2', owner: 'KLM'},
+  {id: 3, completed: false, by: 'Final Recipient', owner: 'FR'},
+]
 export const listItems = [
   {
     did: 'did:nvm:0123456789012345678901234567890123456789',
@@ -16,12 +22,7 @@ export const listItems = [
     longitude: 13.421375,
     latitude: 52.492450,
     destination: 'Berlin',
-    steps: [
-      {id: 0, completed: true, location: {longitude: 13.421375, latitude: 52.492450}},
-      {id: 1, completed: false, by: 'Checkpoint #1'},
-      {id: 2, completed: false, by: 'Checkpoint #2'},
-      {id: 3, completed: false, by: 'Final Recipient'},
-    ],
+    steps: newSteps(13.421375, 52.492450),
   },
   {
     did: 'did:nvm:1111111111111111111111111111111111111111',
@@ -31,12 +32,7 @@ export const listItems = [
     longitude: -4.435115,
     latitude: 36.7197404,
     destination: 'Malaga',
-    steps: [
-      {id: 0, completed: true, location: {longitude: -4.435115, latitude: 36.7197404}},
-      {id: 1, completed: false, by: 'Checkpoint #1'},
-      {id: 2, completed: false, by: 'Checkpoint #2'},
-      {id: 3, completed: false, by: 'Final Recipient'},
-    ],
+    steps: newSteps(-4.435115, 36.7197404),
   },
 ];
 
