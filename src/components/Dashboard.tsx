@@ -1,19 +1,26 @@
 import React from 'react';
 import { Button, View } from 'react-native';
+import { Context } from '../../context';
 
 interface Props {
   navigation: any
 }
-export class Dashboard extends React.Component<Props> {
+
+export class Dashboard extends React.Component<Props, {}> {
+  public static contextType = Context
+
+  openList = (company: string)  => {
+    this.context.setCompany(company)
+    this.props.navigation.navigate('detailsList')
+  }
+
   render() {
     return (
       <View>
-        <Button title="Camera" onPress={() => this.props.navigation.navigate('camera')}></Button>
-        <Button title="Start" onPress={() => this.props.navigation.navigate('detailsList')}></Button>
-        <Button title="DHL" onPress={()=> this.props.navigation.navigate('detailsList')}></Button>
-        <Button title="KLM" onPress={()=> this.props.navigation.navigate('detailsList')}></Button>
-        <Button title="John Doe" onPress={()=> this.props.navigation.navigate('detailsList')}></Button>
-        <Button title="Register" onPress={()=> this.props.navigation.navigate('register')}></Button>
+        <Button title="MSD" onPress={()=> this.openList('MSD')}></Button>
+        <Button title="DHL" onPress={()=> this.openList('DHL')}></Button>
+        <Button title="KLM" onPress={()=> this.openList('KLM')}></Button>
+        <Button title="Final receipt" onPress={()=> this.openList('FR')}></Button>
       </View>
     );
   }
