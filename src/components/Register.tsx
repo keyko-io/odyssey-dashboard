@@ -1,12 +1,13 @@
 import React from 'react';
 import { useEffect } from 'react';
+import { useContext } from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { TextInput, Caption } from 'react-native-paper';
 import { useForm, Controller } from 'react-hook-form'
-
+import { Context } from '../../context';
 import { Title, Button } from '../ui';
 import { DeliveryState } from '../shared/types';
-
+import { Activities } from '@nevermined-io/nevermined-sdk-js/dist/node/keeper/contracts/ProvenanceRegistry'
 import { listItems, newSteps } from './DetailsList'
 
 //Get this data calling on chain or to the metadata-api
@@ -55,23 +56,70 @@ interface Props {
 navigator.geolocation.getCurrentPosition(success, error, options)
 
 export function Register(props: Props) {
+  const context: any = useContext(Context)
+  const {msd, dhl, klm, johnDoe, customs} = context.accounts
+  const provenanceRegistry = context.nevermined.keeper.provenanceRegistry
+
   const {control, register, handleSubmit, errors, setValue, getValues} = useForm<Inputs>({mode: 'onChange', criteriaMode: 'all'})
   const {params} = props?.route
   const isInspect = !!params
   const {name, description} = getValues()
-  //TODO change to register using nevermined-sdk
 
-  const inspect = () => {
+  const inspect = async () => {
     const item = listItems.find(({did}) => did === params.did)
     const step = item?.steps.find(({completed}) => !completed) || {} as any
     step.completed = true
     step.location = {latitude, longitude}
+    if(context.company !== 'FR'){
+      let acc1: any = msd
+      let acc2: any = dhl
+      if(context.company === 'KLM'){
+        acc1 = dhl
+        acc2 = klm
+      }
+      await provenanceRegistry.actedOnBehalfOf(
+        item?.did,
+        acc2.getId(),
+        acc1.getId(),
+        Activities.TRANSPORTATION,
+        [],
+        'groundTransportation',
+        acc1.getId()
+      )
+      await provenanceRegistry.wasAssociatedWith(
+        item?.did,
+        acc2.getId(),
+        Activities.TRANSPORTATION,
+        [],
+        `${context.company},${latitude},${longitude}`,
+        acc2.getId()
+      )
+      await provenanceRegistry.used(
+          item?.did,
+          acc2.getId(),
+          Activities.TRANSPORTATION,
+          'groundTransportation',
+          acc2.getId()
+      )
+    }
+    else {
+      await provenanceRegistry.actedOnBehalfOf(
+        item?.did,
+        johnDoe.getId(),
+        klm.getId(),
+        Activities.DELIVERY,
+        [],
+        'delivery',
+        klm.getId()
+      )
+    }
+
     if (item) {
       props.navigation.navigate('detailsItem', item)
     }
   }
 
-  const onSubmit = (data: any) => {
+  const onSubmit = async(data: any) => {
     const item = {
       ...data,
       longitude,
@@ -79,6 +127,24 @@ export function Register(props: Props) {
       steps: newSteps(longitude, latitude),
       state: DeliveryState.Registered,
     }
+
+    await provenanceRegistry.wasGeneratedBy(
+      data.did,
+      msd.getId(),
+      Activities.GENERATED,
+      [],
+      'acmeStuffManufacturing',
+      msd.getId()
+    )
+    await provenanceRegistry.wasAssociatedWith(
+        data.did,
+        msd.getId(),
+        Activities.MANUFACTURING,
+        [],
+        `${context.company},${latitude},${longitude}`,
+        msd.getId()
+    )
+
     listItems.push(item)
     props.navigation.navigate('detailsItem', item)
   }
