@@ -74,23 +74,22 @@ export function Register(params: params) {
     register('did')
     register('name', {required: true})
     register('description', {required: true})
-    setValue('did', generateDid())
   }, [register])
 
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container}>
-        <Title>Register Package</Title>
-
+        {!params.route?.params && <Title>Register Package</Title> }
+        {params.route.params && <Title>Inspect Package</Title> }
         <Controller
           name="did"
           control={control}
-          defaultValue=""
+          defaultValue={params.route?.params?.did || ""}
           render={({onChange, onBlur, value}) => (
             <TextInput
               style={styles.input}
               label="DID"
-              disabled
+              disabled={params.route?.params?.name}
               onBlur={onBlur}
               onChangeText={value => onChange(value)}
               value={value}/>
@@ -101,11 +100,12 @@ export function Register(params: params) {
           name="name"
           control={control}
           rules={{required: true}}
-          defaultValue=""
+          defaultValue={params.route?.params?.name || ""}
           render={({onChange, onBlur, value}) => (
             <TextInput
               style={styles.input}
               label="Name"
+              disabled={params.route?.params?.name}
               onBlur={onBlur}
               onChangeText={value => onChange(value)}
               value={value}/>
@@ -114,13 +114,14 @@ export function Register(params: params) {
 
         <Controller
           name="description"
-          defaultValue=""
+          defaultValue={params.route?.params?.description || ""}
           control={control}
           rules={{ required: true }}
           render={({onChange, onBlur, value}) => (
             <TextInput
               style={styles.input}
               label="Description"
+              disabled={params.route?.params?.description}
               onBlur={onBlur}
               onChangeText={value => onChange(value)}
               value={value}/>
