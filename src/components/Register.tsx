@@ -150,7 +150,7 @@ export function Register(props: Props) {
       {isInspect
         ? (
           <Button
-            icon="plus"
+            icon="check"
             onPress={() => inspect()}>
 
             Inspect package
