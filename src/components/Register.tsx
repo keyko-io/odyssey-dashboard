@@ -5,6 +5,8 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { TextInput, Caption } from 'react-native-paper';
 import { useForm, Controller } from 'react-hook-form'
 import { Context } from '../../context';
+import { Account } from '@nevermined-io/nevermined-sdk-js'
+
 
 import { Title, Button } from '../ui';
 import { DeliveryState } from '../shared/types';
@@ -64,10 +66,7 @@ let customs: Account
 
 export async function Register(props: Props) {
   const context: any = useContext(Context)
-
   ;[msd, dhl, klm, johnDoe, customs] = await context.nevermined.accounts.list()
-
-
   const provenanceRegistry = context.nevermined.keeper.provenanceRegistry
 
   const {control, register, handleSubmit, errors, setValue, getValues} = useForm<Inputs>({mode: 'onChange', criteriaMode: 'all'})
@@ -81,8 +80,8 @@ export async function Register(props: Props) {
     step.completed = true
     step.location = {latitude, longitude}
     if(context.company !== 'FR'){
-      let acc1 = msd
-      let acc2 = dhl
+      let acc1: Account = msd
+      let acc2: Account = dhl
       if(context.company === 'KLM'){
         acc1 = dhl
         acc2 = klm
