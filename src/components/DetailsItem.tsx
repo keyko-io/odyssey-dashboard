@@ -57,7 +57,7 @@ export class DetailsItem extends React.Component<Props> {
                 <Text style={styles.text}>
                   State: {' '}
                   <Text style={getStateStyle(state)}>
-                    {state}
+                    {company}
                   </Text>
                 </Text>
                 <Text style={styles.text}>Destination: {destination}</Text>
