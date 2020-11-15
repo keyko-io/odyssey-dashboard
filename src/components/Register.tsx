@@ -121,6 +121,7 @@ export function Register(props: Props) {
   }
 
   const onSubmit = async(data: any) => {
+    const context: any = useContext(Context)
     const item = {
       ...data,
       longitude,
@@ -146,8 +147,9 @@ export function Register(props: Props) {
         msd.getId()
     )
 
-    // listItems.push(item)
-    props.navigation.navigate('detailsItem', item)
+    await context.loadPackages()
+    const updatedItem = context.packages.find(({did}:any) => did === params.did)
+    props.navigation.navigate('detailsItem', updatedItem)
   }
 
   useEffect(() => {
