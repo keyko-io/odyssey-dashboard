@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet, TouchableHighlight } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Context } from '../../context';
 import MSDLogo from '../../resources/images/msd'
 import KLMLogo from '../../resources/images/klm'
@@ -31,7 +31,7 @@ export class Dashboard extends React.Component<Props, {}> {
         <Text style={styles.title}>Welcome</Text>
         <View style={styles.tilesWrapper}>
           {dashboardItems.map(({company, logo, title, subtitle}) => (
-            <TouchableHighlight onPress={()=> this.openList(company)}>
+            <TouchableOpacity onPress={()=> this.openList(company)}>
               <View style={styles.tile}>
                 <View style={styles.logoWrapper}>{logo}</View>
                 <View style={styles.textWrapper}>
@@ -40,7 +40,7 @@ export class Dashboard extends React.Component<Props, {}> {
                   </Text>
                 </View>
               </View>
-            </TouchableHighlight>
+            </TouchableOpacity>
           ))}
       </View>
     </View>
