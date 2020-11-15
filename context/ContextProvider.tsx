@@ -37,6 +37,7 @@ export default class ContextProvider extends Component<ContextProviderProps, Con
                 fromBlock: 0,
                 toBlock: 'latest'
               })
+              console.log(events)
               const packagesRequest = await fetch("https://metadata.keyko.rocks/api/v1/metadata/assets", {
                 headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
               })
@@ -59,18 +60,21 @@ export default class ContextProvider extends Component<ContextProviderProps, Con
                     event.returnValues._entityDid && event.returnValues._entityDid.substr(2) === ddo.id.substr(7) ||
                     event.returnValues._did && event.returnValues._did.substr(2) === ddo.id.substr(7)
                   ){
-                    if(event.returnValues._attributes && event.returnValues._attributes.indexOf(",") >= 0){
-                      const attributes = event.returnValues._attributes.split(",")
-                      pack.events.push({
+                    const obj:any = {
                         event: event.event,
-                        activityId: event.returnValues.activityId,
-                        company: attributes[0],
-                        lat: attributes[1],
-                        lng: attributes[2],
                         returnValues: event.returnValues,
-                        returnAttributes: attributes
-                      })
                     }
+                    if(event.returnValues._attributes && event.returnValues._attributes.indexOf(",") >= 0){
+                        const attributes = event.returnValues._attributes.split(",")
+                        obj['company']= attributes[0]
+                        obj['lat']= attributes[1]
+                        obj['lng']= attributes[2]
+                        obj['returnAttributes'] = attributes
+                    }
+                    if(event.returnValues.activityId){
+                        obj.activityId = event.returnValues.activityId
+                    }
+                    pack.events.push(obj)
                   }
                 }
                 packages.push(pack)
