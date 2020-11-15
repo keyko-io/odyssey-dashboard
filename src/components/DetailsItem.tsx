@@ -29,7 +29,7 @@ export class DetailsItem extends React.Component<Props, States> {
   }
 
   showDialoge = () => {
-    this.setState({showDialog:true})
+    this.setState({showDialog:true, loading:true})
     setTimeout(() => this.setState({loading:false}), 5000);
   }
 
