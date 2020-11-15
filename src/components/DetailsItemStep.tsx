@@ -7,6 +7,8 @@ interface Props {
   first?: boolean
   recipient?: string
   last?: boolean
+  navigation: any
+  s: boolean
 }
 
 export class DetailsItemStep extends React.Component<Props> {
@@ -21,7 +23,7 @@ export class DetailsItemStep extends React.Component<Props> {
           icon={icon}
           color={color}
           size={30}
-          disabled />
+          onPress={() => this.props.navigation.navigate('status')} />
         <Subheading style={[styles.text, completed ? styles.textCompleted : {}]}>
           {first ? 'PACKAGE REGISTERED' : `PACKAGED RECEIVED ${recipient}`}
         </Subheading>
