@@ -7,5 +7,6 @@ export const Context = createContext({
     message: '',
     company: 'MSD',
     setCompany: (company: string) => {},
-    accounts: [] as any
+    accounts: [] as any,
+    packages: [] as any
 })

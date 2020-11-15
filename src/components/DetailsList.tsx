@@ -28,49 +28,8 @@ export class DetailsList extends React.Component<Props, State> {
 
   loadPackages = async() => {
     this.setState({loading:true})
-    const events = await this.context.nevermined.keeper.provenanceRegistry.contract.getPastEvents("allEvents", {
-      fromBlock: 0,
-      toBlock: 'latest'
-    })
-    const packagesRequest = await fetch("https://metadata.keyko.rocks/api/v1/metadata/assets", {
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
-    })
-    const listOfPackages = await packagesRequest.json()
-    const packages: any[] = []
-    for(const id of listOfPackages.ids){
-      const packageData = await fetch("https://metadata.keyko.rocks/api/v1/metadata/assets/ddo/"+id, {
-        headers: {'Accept': 'application/json','Content-Type': 'application/json'}
-      })
-      const ddo = await packageData.json()
-      const pack: any = { name: 'No info', did: '', events: [] }
-      if(ddo.service[0].attributes.main.name){
-        pack.name = ddo.service[0].attributes.main.name
-      }
-      if(ddo.id){
-        pack.did = ddo.id
-      }
-      for(const event of events){
-        if(
-          event.returnValues._entityDid && event.returnValues._entityDid.substr(2) === ddo.id.substr(7) ||
-          event.returnValues._did && event.returnValues._did.substr(2) === ddo.id.substr(7)
-        ){
-          if(event.returnValues._attributes && event.returnValues._attributes.indexOf(",") >= 0){
-            const attributes = event.returnValues._attributes.split(",")
-            pack.events.push({
-              event: event.event,
-              activityId: event.returnValues.activityId,
-              company: attributes[0],
-              lat: attributes[1],
-              lng: attributes[2],
-              returnValues: event.returnValues,
-              returnAttributes: attributes
-            })
-          }
-        }
-      }
-      packages.push(pack)
-    }
-    this.setState({ packages, loading:false })
+    await this.context.loadPackages()
+    this.setState({ loading:false })
   }
 
   getActivityStyle(activity: Activities) {
@@ -94,7 +53,7 @@ export class DetailsList extends React.Component<Props, State> {
             <View style={[styles.container, styles.scroll]}>
               <Title>Your packages</Title>
               <View>
-                {this.state.packages.map((item:any) => (
+                {this.context.packages.map((item:any) => (
                   <TouchableOpacity
                     key={item.did}
                     onPress={() => this.props.navigation.navigate('detailsItem', item)}>
@@ -130,7 +89,7 @@ export class DetailsList extends React.Component<Props, State> {
           ? (
             <Button
               icon="plus"
-              onPress={() => this.props.navigation.navigate('register')} >
+              onPress={() => this.props.navigation.navigate('camera')} >
 
               Register package
             </Button>)

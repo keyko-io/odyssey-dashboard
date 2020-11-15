@@ -8,6 +8,7 @@ import { DetailsItem } from './src/components/DetailsItem'
 import { Register } from './src/components/Register'
 import { LogoTitle } from './src/components/Header'
 import { CameraView } from './src/components/CameraView'
+import { StatusView } from './src/components/StatusView'
 
 const screens = [
   {name: 'dashboard', component: Dashboard},
@@ -15,6 +16,7 @@ const screens = [
   {name: 'detailsItem', component: DetailsItem},
   {name: 'register', component: Register},
   {name: 'camera', component: CameraView},
+  {name: 'status', component: StatusView},
 ]
 
 
