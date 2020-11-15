@@ -89,7 +89,7 @@ export class DetailsList extends React.Component<Props, State> {
           ? (
             <Button
               icon="plus"
-              onPress={() => this.props.navigation.navigate('register')} >
+              onPress={() => this.props.navigation.navigate('camera')} >
 
               Register package
             </Button>)

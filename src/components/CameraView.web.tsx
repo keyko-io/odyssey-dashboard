@@ -32,14 +32,15 @@ export class CameraView extends Component<Props> {
       const code = jsQR(this.canvasContext.getImageData(0, 0, 640, 480).data,640,480)
       if(code !== null){
         clearInterval(this.interval)
-        // TODO: resolve data from url
-        const resolvedData = {
-          did: 'did:nvm:11111111111',
-          description: 'Dave',
-          state: 'Delivered',
-          destination: 'Malaga'
+        for(const pkg of this.context.packages){
+          if(pkg.events.length === 0) {
+            if(this.context.company==="MSD"){
+              this.props.navigation.navigate('register', pkg.did)
+            } else {
+              this.props.navigation.navigate('detailsItem', pkg)
+            }
+          }
         }
-        this.props.navigation.navigate('detailsItem', resolvedData)
       }
     },1000)
   }
