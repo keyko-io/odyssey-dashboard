@@ -42,7 +42,6 @@ export class DetailsList extends React.Component<Props, State> {
     const listOfPackages = await packagesRequest.json()
     const packages: any[] = []
     for(const id of listOfPackages.ids){
-      let addIn = false
       const packageData = await fetch("https://metadata.keyko.rocks/api/v1/metadata/assets/ddo/"+id, {
         headers: {'Accept': 'application/json','Content-Type': 'application/json'}
       })
@@ -70,13 +69,11 @@ export class DetailsList extends React.Component<Props, State> {
               returnValues: event.returnValues,
               returnAttributes: attributes
             })
-            addIn = true
           }
         }
       }
-      if(addIn){packages.push(pack)}
+      packages.push(pack)
     }
-    console.log(packages)
     this.setState({ packages, loading:false })
   }
 
