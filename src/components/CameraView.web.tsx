@@ -53,7 +53,7 @@ export class CameraView extends Component<Props> {
   render(){
     return (
       <View style={{ flex: 1 }}>
-          <video ref={this.videoRef} width="640" height="480" autoPlay></video>
+          <video ref={this.videoRef} width="640" height="480" autoPlay style={{width:'100%'}}></video>
           <canvas ref={this.canvasRef} width="640" height="480" style={{width:640,height:480,opacity:0}}></canvas>
       </View>
     );

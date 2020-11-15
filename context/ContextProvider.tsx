@@ -17,6 +17,7 @@ interface ContextProviderState {
     company: string
     accounts: any
     setCompany: (company:string) => void
+    packages: any[]
 }
 
 export default class ContextProvider extends Component<ContextProviderProps, ContextProviderState> {
@@ -29,6 +30,53 @@ export default class ContextProvider extends Component<ContextProviderProps, Con
         accounts: {} as any,
         setCompany: (company:string) => {
             this.setState({company})
+        },
+        packages: [] as any,
+        loadPackages: async () => {
+            const events = await this.state.nevermined.keeper.provenanceRegistry.contract.getPastEvents("allEvents", {
+                fromBlock: 0,
+                toBlock: 'latest'
+              })
+              const packagesRequest = await fetch("https://metadata.keyko.rocks/api/v1/metadata/assets", {
+                headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+              })
+              const listOfPackages = await packagesRequest.json()
+              const packages: any[] = []
+              for(const id of listOfPackages.ids){
+                const packageData = await fetch("https://metadata.keyko.rocks/api/v1/metadata/assets/ddo/"+id, {
+                  headers: {'Accept': 'application/json','Content-Type': 'application/json'}
+                })
+                const ddo = await packageData.json()
+                const pack: any = { name: 'No info', did: '', events: [] }
+                if(ddo.service[0].attributes.main.name){
+                  pack.name = ddo.service[0].attributes.main.name
+                }
+                if(ddo.id){
+                  pack.did = ddo.id
+                }
+                for(const event of events){
+                  if(
+                    event.returnValues._entityDid && event.returnValues._entityDid.substr(2) === ddo.id.substr(7) ||
+                    event.returnValues._did && event.returnValues._did.substr(2) === ddo.id.substr(7)
+                  ){
+                    if(event.returnValues._attributes && event.returnValues._attributes.indexOf(",") >= 0){
+                      const attributes = event.returnValues._attributes.split(",")
+                      pack.events.push({
+                        event: event.event,
+                        activityId: event.returnValues.activityId,
+                        company: attributes[0],
+                        lat: attributes[1],
+                        lng: attributes[2],
+                        returnValues: event.returnValues,
+                        returnAttributes: attributes
+                      })
+                    }
+                  }
+                }
+                packages.push(pack)
+              }
+            console.log(packages)
+            this.setState({packages})
         }
     }
 
