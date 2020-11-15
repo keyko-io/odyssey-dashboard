@@ -4,16 +4,28 @@ import { Text, View, StyleSheet, ScrollView } from 'react-native'
 import { Context } from '../../context';
 import { Map, Qr, Button } from '../ui';
 import { cutDid, getStateStyle } from '../shared'
-
+import { Paragraph, Dialog as RNPDialog, Portal } from 'react-native-paper';
 import { DetailsItemStep } from './DetailsItemStep'
+
+interface States {
+  showDialog: boolean
+}
 
 interface Props {
   route: any,
   navigation: any
 }
 
-export class DetailsItem extends React.Component<Props> {
+export class DetailsItem extends React.Component<Props, States> {
   public static contextType = Context
+
+  state = {
+    showDialog: false
+  }
+
+  hideDialog = () => {
+    this.setState({showDialog: false})
+  }
 
   render() {
     const {did, name, state, destination, events} = this.props.route.params
@@ -112,9 +124,23 @@ export class DetailsItem extends React.Component<Props> {
           icon="magnify"
           // disabled={company !== nextCompany}
           onPress={() => this.props.navigation.navigate('register', {did, name})} >
-
           Inspect package
         </Button>
+
+        {this.context.company === 'KLM'?
+          <Button style={{position:'absolute',left:0, bottom:24}} onPress={()=>this.setState({showDialog:true})}>Temp. Check</Button>
+        :null}
+
+        <RNPDialog style={styles.whiteBackground} visible={this.state.showDialog} onDismiss={this.hideDialog}>
+          <RNPDialog.Title style={[styles.blackText, styles.font24]}>{'Temperature check'}</RNPDialog.Title>
+          <RNPDialog.Content>
+            <Paragraph style={[styles.blackText, styles.font18]}>{'We have successfully processed your request and the result is the following: PASS'}</Paragraph>
+          </RNPDialog.Content>
+          <RNPDialog.Actions>
+            <Button color="black" onPress={this.hideDialog}>Yes</Button>
+            <Button color="black" onPress={this.hideDialog}>Close</Button>
+          </RNPDialog.Actions>
+        </RNPDialog>
       </View>
     );
   }
@@ -144,4 +170,18 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 20,
   },
+  whiteBackground: {
+    backgroundColor: 'white'
+  },
+  blackText: {
+    color: 'black',
+    height: 100,
+    justifyContent: 'center'
+  },
+  font24: {
+    fontSize: 24
+  },
+  font18: {
+    fontSize: 18
+  }
 })
