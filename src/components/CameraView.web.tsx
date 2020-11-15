@@ -38,7 +38,7 @@ export class CameraView extends Component<Props> {
         if(this.context.company==="MSD"){
           for(const pkg of this.context.packages){
             if(pkg.events.length === 0) {
-                this.props.navigation.navigate('register', pkg.did)
+                this.props.navigation.navigate('register', {did: pkg.did})
             }
           }
         }else{

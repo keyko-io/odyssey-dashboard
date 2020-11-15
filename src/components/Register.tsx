@@ -64,7 +64,7 @@ export function Register(props: Props) {
   const {params} = props?.route
   const isInspect = !!params
   const {name, description} = getValues()
-
+  console.log(params)
   const inspect = async () => {
     const item = listItems.find(({did}) => did === params.did)
     const step = item?.steps.find(({completed}) => !completed) || {} as any
