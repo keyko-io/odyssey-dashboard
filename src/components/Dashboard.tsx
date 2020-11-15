@@ -22,17 +22,19 @@ export class Dashboard extends React.Component<Props, {}> {
     return (
       <View>
         <Text style={styles.title}>Welcome</Text>
-        <View style={styles.tilesWrapper}> 
-          <View style={styles.tile}>
-            <View style={styles.logoWrapper}>
-              <MSDLogo />
+        <View style={styles.tilesWrapper}>
+          <TouchableHighlight onPress={()=> this.openList('MSD')}>
+            <View style={styles.tile}>
+              <View style={styles.logoWrapper}>
+                <MSDLogo />
+              </View>
+              <View style={styles.textWrapper}>
+                <Text style={styles.text}>
+                  MSD {"\n"} <Text style={styles.companySubtitle}>Supplier</Text>
+                </Text>
+              </View>
             </View>
-            <View style={styles.textWrapper}>
-              <Text style={styles.text}>
-                MSD {"\n"} <Text style={styles.companySubtitle}>Supplier</Text>
-              </Text>
-            </View>
-          </View>
+          </TouchableHighlight>
           <TouchableHighlight onPress={()=> this.openList('DHL')}>
             <View style={styles.tile}> 
               <View style={styles.logoWrapper}>

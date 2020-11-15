@@ -1,12 +1,14 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, ScrollView, ActivityIndicator } from 'react-native';
 import { Subheading } from 'react-native-paper';
 import { Context } from '../../context';
 import { Title, Button } from '../ui';
 import { DeliveryState, cutDid, getStateStyle } from '../shared';
+import { Activities } from '@nevermined-io/nevermined-sdk-js/dist/node/keeper/contracts/ProvenanceRegistry'
 
 interface State {
   packages: any[]
+  loading: boolean
 }
 
 interface Props {
@@ -16,7 +18,8 @@ interface Props {
 export class DetailsList extends React.Component<Props, State> {
   public static contextType = Context
   state = {
-    packages:[]
+    packages:[],
+    loading: false
   }
 
   cutDid(did: string) {
@@ -28,6 +31,7 @@ export class DetailsList extends React.Component<Props, State> {
   }
 
   loadPackages = async() => {
+    this.setState({loading:true})
     const events = await this.context.nevermined.keeper.provenanceRegistry.contract.getPastEvents("allEvents", {
       fromBlock: 0,
       toBlock: 'latest'
@@ -43,11 +47,7 @@ export class DetailsList extends React.Component<Props, State> {
         headers: {'Accept': 'application/json','Content-Type': 'application/json'}
       })
       const ddo = await packageData.json()
-      const pack: any = {
-        name: 'No info',
-        did: '',
-        events: []
-      }
+      const pack: any = { name: 'No info', did: '', events: [] }
       if(ddo.service[0].attributes.main.name){
         pack.name = ddo.service[0].attributes.main.name
       }
@@ -63,19 +63,21 @@ export class DetailsList extends React.Component<Props, State> {
             const attributes = event.returnValues._attributes.split(",")
             pack.events.push({
               event: event.event,
+              activityId: event.returnValues.activityId,
               company: attributes[0],
               lat: attributes[1],
-              lng: attributes[2]
+              lng: attributes[2],
+              returnValues: event.returnValues,
+              returnAttributes: attributes
             })
             addIn = true
           }
         }
       }
-      if(addIn){
-        packages.push(pack)
-      }
+      if(addIn){packages.push(pack)}
     }
-    this.setState({ packages })
+    console.log(packages)
+    this.setState({ packages, loading:false })
   }
 
   getStateStyle(state: DeliveryState) {
@@ -87,11 +89,23 @@ export class DetailsList extends React.Component<Props, State> {
     }
   }
 
+  getActivityStyle(activity: Activities) {
+    switch (activity) {
+      case Activities.GENERATED: return 'Generated'
+      case Activities.USED: return 'Used'
+      case Activities.ACTED_IN_BEHALF: return 'Acted in behalf'
+      case Activities.MANUFACTURING: return 'Manifacturing'
+      case Activities.TRANSPORTATION: return 'Transportation'
+      case Activities.DELIVERY: return 'Delivery'
+    }
+  }
+
   render() {
     const {company} = this.context
 
     return (
       <View style={styles.container}>
+        {this.state.loading === false ?
         <ScrollView style={[styles.container]}>
           <View style={[styles.container, styles.scroll]}>
             <Title>Your packages</Title>
@@ -123,7 +137,11 @@ export class DetailsList extends React.Component<Props, State> {
             </View>
           </View>
         </ScrollView>
-
+        : 
+        <View style={[styles.loader, styles.horizontal]}>
+          <ActivityIndicator size="large" color="#000"></ActivityIndicator>
+        </View>
+        }
         {company === 'MSD'
           ? (
             <Button
@@ -148,6 +166,15 @@ export class DetailsList extends React.Component<Props, State> {
 const styles = StyleSheet.create({
   container: {
     height: '100%',
+  },
+  loader: {
+    flex: 1,
+    justifyContent: "center"
+  },
+  horizontal: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    padding: 10
   },
   scroll: {
     justifyContent: 'flex-start',
