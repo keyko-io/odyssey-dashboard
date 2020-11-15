@@ -126,7 +126,6 @@ export function Register(props: Props) {
       ...data,
       longitude,
       latitude,
-      // steps: newSteps(longitude, latitude),
       state: DeliveryState.Registered,
     }
 
@@ -146,7 +145,6 @@ export function Register(props: Props) {
         `${context.company},${latitude},${longitude}`,
         msd.getId()
     )
-
     await context.loadPackages()
     const updatedItem = context.packages.find(({did}:any) => did === params.did)
     props.navigation.navigate('detailsItem', updatedItem)
