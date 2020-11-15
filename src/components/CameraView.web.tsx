@@ -32,14 +32,14 @@ export class CameraView extends Component<Props> {
       const code = jsQR(this.canvasContext.getImageData(0, 0, 640, 480).data,640,480)
       if(code !== null){
         clearInterval(this.interval)
-        for(const pkg of this.context.packages){
-          if(pkg.events.length === 0) {
-            if(this.context.company==="MSD"){
-              this.props.navigation.navigate('register', pkg.did)
-            } else {
-              this.props.navigation.navigate('detailsItem', pkg)
+        if(this.context.company==="MSD"){
+          for(const pkg of this.context.packages){
+            if(pkg.events.length === 0) {
+                this.props.navigation.navigate('register', pkg.did)
             }
           }
+        }else{
+          this.props.navigation.navigate('detailsItem', this.context.packages[2])
         }
       }
     },1000)
