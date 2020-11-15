@@ -42,7 +42,7 @@ export class CameraView extends Component<Props> {
             }
           }
         }else{
-          this.props.navigation.navigate('detailsItem', this.context.packages[2])
+          this.props.navigation.navigate('register', this.context.packages[0])
         }
       }
     },1000)

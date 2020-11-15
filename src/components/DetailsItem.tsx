@@ -9,6 +9,7 @@ import { DetailsItemStep } from './DetailsItemStep'
 interface States {
   showDialog: boolean
   loading: boolean
+  yellow: boolean
 }
 
 interface Props {
@@ -21,7 +22,8 @@ export class DetailsItem extends React.Component<Props, States> {
 
   state = {
     showDialog: false,
-    loading: true
+    loading: true,
+    yellow: false
   }
 
   hideDialog = () => {
@@ -30,7 +32,7 @@ export class DetailsItem extends React.Component<Props, States> {
 
   showDialoge = () => {
     this.setState({showDialog:true, loading:true})
-    setTimeout(() => this.setState({loading:false}), 5000);
+    setTimeout(() => this.setState({loading:false, yellow: true}), 5000);
   }
 
   render() {
@@ -110,6 +112,7 @@ export class DetailsItem extends React.Component<Props, States> {
                   last={false}
                   recipient={'by KLM'}
                   completed={completed3 || completed4 || false}
+                  yellow={this.state.yellow}
                   navigation= {this.props.navigation} />
             <DetailsItemStep
                   key={3}
@@ -142,7 +145,7 @@ export class DetailsItem extends React.Component<Props, States> {
         <RNPDialog style={styles.whiteBackground} visible={this.state.showDialog} onDismiss={this.hideDialog}>
           <RNPDialog.Title style={[styles.blackText, styles.font24]}>{'Temperature check'}</RNPDialog.Title>
           <RNPDialog.Content>
-            <Paragraph style={[styles.blackText, styles.font18]}>{this.state.loading === true ? <ActivityIndicator/> : 'We have successfully processed your request and the result is the following: PASS'}</Paragraph>
+            <Paragraph style={[styles.blackText, styles.font18]}>{this.state.loading === true ? <ActivityIndicator/> : 'We have successfully processed your request and the result is the following: FAIL'}</Paragraph>
           </RNPDialog.Content>
           <RNPDialog.Actions>
             <Button color="black" onPress={this.hideDialog}>Yes</Button>

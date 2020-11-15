@@ -8,6 +8,7 @@ interface Props {
   recipient?: string
   last?: boolean
   navigation: any
+  yellow?: boolean
 }
 
 export class DetailsItemStep extends React.Component<Props> {
@@ -16,7 +17,7 @@ export class DetailsItemStep extends React.Component<Props> {
     const [color, backgroundColor] = completed ? ['#ffffff', 'transparent'] : ['#130F28', '#888888']
     const icon = completed ? 'check' : last ? 'thumb-up' : 'calendar'
     return (
-      <View style={[styles.container, completed ? styles.containerCompleted : {}]}>
+      <View style={[styles.container, completed ? styles.containerCompleted : {}, this.props.yellow === true ? styles.yellow : {}]}>
         <IconButton
           style={[{backgroundColor}, styles.icon]}
           icon={icon}
@@ -46,6 +47,9 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingLeft: 16,
     fontSize: 16,
+  },
+  yellow: {
+    backgroundColor: "#FFF200"
   },
   textCompleted: {
     color: '#ffffff',
