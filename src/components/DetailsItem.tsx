@@ -1,6 +1,5 @@
 import React from 'react'
-import { Text, View, StyleSheet, ScrollView } from 'react-native'
-
+import { Text, View, StyleSheet, ScrollView, ActivityIndicator } from 'react-native'
 import { Context } from '../../context';
 import { Map, Qr, Button } from '../ui';
 import { cutDid, getStateStyle } from '../shared'
@@ -9,6 +8,7 @@ import { DetailsItemStep } from './DetailsItemStep'
 
 interface States {
   showDialog: boolean
+  loading: boolean
 }
 
 interface Props {
@@ -20,11 +20,17 @@ export class DetailsItem extends React.Component<Props, States> {
   public static contextType = Context
 
   state = {
-    showDialog: false
+    showDialog: false,
+    loading: true
   }
 
   hideDialog = () => {
     this.setState({showDialog: false})
+  }
+
+  showDialoge = () => {
+    this.setState({showDialog:true})
+    setTimeout(() => this.setState({loading:false}), 5000);
   }
 
   render() {
@@ -126,15 +132,13 @@ export class DetailsItem extends React.Component<Props, States> {
           onPress={() => this.props.navigation.navigate('register', {did, name})} >
           Inspect package
         </Button>
-
         {this.context.company === 'KLM'?
-          <Button style={{position:'absolute',left:0, bottom:24}} onPress={()=>this.setState({showDialog:true})}>Temp. Check</Button>
+          <Button style={{position:'absolute', bottom:80}} onPress={()=>this.showDialoge()}>Temperature Check</Button>
         :null}
-
         <RNPDialog style={styles.whiteBackground} visible={this.state.showDialog} onDismiss={this.hideDialog}>
           <RNPDialog.Title style={[styles.blackText, styles.font24]}>{'Temperature check'}</RNPDialog.Title>
           <RNPDialog.Content>
-            <Paragraph style={[styles.blackText, styles.font18]}>{'We have successfully processed your request and the result is the following: PASS'}</Paragraph>
+            <Paragraph style={[styles.blackText, styles.font18]}>{this.state.loading === true ? <ActivityIndicator/> : 'We have successfully processed your request and the result is the following: PASS'}</Paragraph>
           </RNPDialog.Content>
           <RNPDialog.Actions>
             <Button color="black" onPress={this.hideDialog}>Yes</Button>
@@ -176,7 +180,7 @@ const styles = StyleSheet.create({
   blackText: {
     color: 'black',
     height: 100,
-    justifyContent: 'center'
+    textAlign: 'center'
   },
   font24: {
     fontSize: 24
