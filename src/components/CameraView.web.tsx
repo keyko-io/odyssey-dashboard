@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import jsQR from "jsqr";
+import { Context } from '../../context';
 
 interface Props {
   navigation: any
 }
 
 export class CameraView extends Component<Props> {
+  public static contextType = Context
+
   videoRef: any
   canvasRef: any
   canvasContext: any
