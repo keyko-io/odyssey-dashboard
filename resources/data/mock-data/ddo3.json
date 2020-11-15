@@ -1,0 +1,193 @@
+{
+    "main": {
+        "name": "MSD Test Shipment3",
+        "dateCreated": "2020-11-13T14:00:00Z",
+        "author": "MSD",
+        "license": "Private",
+        "price": "0",
+        "files": [
+            {
+                "index": 0,
+                "contentType": "application/xml",
+                "encoding": "UTF-8",
+                "compression": "zip",
+                "checksum": "2bf9d229d110d1976cdf85e9f3256c7f",
+                "checksumType": "MD5",
+                "contentLength": "12057507",
+                "url": "https://raw.githubusercontent.com/keyko-io/odyssey-dashboard/2c72ef7baf8972f058803031f466e6f445bab114/resources/data/mock-data/msd_housewaybill.xml"
+            },
+            {
+                "index": 1,
+                "contentType": "text/xml",
+                "encoding": "UTF-8",
+                "compression": "none",
+                "checksum": "354d19c0733c47ef3a6cce5b633116b0",
+                "checksumType": "MD5",
+                "contentLength": "928",
+                "url": "https://raw.githubusercontent.com/keyko-io/odyssey-dashboard/2c72ef7baf8972f058803031f466e6f445bab114/resources/data/mock-data/dhl_airwaybill_1.xml"
+            },
+            {
+                "index": 2,
+                "contentType": "application/xml",
+                "encoding": "UTF-8",
+                "compression": "zip",
+                "checksum": "2bf9d229d110d1976cdf85e9f3256c7f",
+                "checksumType": "MD5",
+                "contentLength": "12057507",
+                "url": "https://raw.githubusercontent.com/keyko-io/odyssey-dashboard/2c72ef7baf8972f058803031f466e6f445bab114/resources/data/mock-data/klm_airwaybill_1.xml"
+            }
+        ],
+        "type": "dataset"
+    },
+    "additionalInformation": {
+        "houseWaybill": {
+            "id": "074-39541983_P5PE4U7NfdqVKWjKzPb",
+            "consigner": {
+                "name": "MSD",
+                "post": "07033",
+                "street": "Galloping Hill Road",
+                "city": "New Jersey",
+                "country": "US" 
+            },
+            "consignee": {
+                "name": "Jeff 'The Dude' Lebowski",
+                "post": "10997",
+                "street": "Gorlitzer Str.",
+                "city": "Berlin",
+                "country": "DE" 
+            },
+            "item": {
+                "weight": 1235,
+                "quantity": 1000,
+                "description": "Covid-19 vaccines"
+            },
+            "origin": {
+                "post": "07033",
+                "street": "Galloping Hill Road",
+                "city": "New Jersey",
+                "country": "US",
+                "gps": "40.676606,-74.274473"
+            },
+            "destination": {
+                "post": "10997",
+                "street": "Gorlitzer Str.",
+                "city": "Berlin",
+                "country": "DE",
+                "gps": "52.496351,13.438103"
+            }
+
+        },
+        "DHLairWaybill": {
+            "id": "074-39541983_P5PE4U7NfdqVKWjKzPb",
+            "consigner": {
+                "name": "MSD",
+                "post": "07033",
+                "street": "Galloping Hill Road",
+                "city": "New Jersey",
+                "country": "US" 
+            },
+            "consignee": {
+                "name": "DHL Global Forwarding Management",
+                "post": "1117",
+                "street": "P.O. Box 7700",
+                "city": "Schiphol",
+                "country": "NL" 
+            },
+            "freightForwarder": {
+                "name": "DHL Global Forwarding Management",
+                "post": "1117",
+                "street": "P.O. Box 7700",
+                "city": "Schiphol",
+                "country": "NL" 
+            },
+            "item": {
+                "weight": 1235,
+                "quantity": 1000,
+                "description": "Covid-19 vaccines"
+            },
+            "origin": {
+                "post": "07033",
+                "street": "Galloping Hill Road",
+                "city": "New Jersey",
+                "country": "US",
+                "gps": "40.676606,-74.274473"
+            },
+            "destination": {
+                "post": "11371",
+                "street": "East Elmhurst",
+                "city": "New York",
+                "country": "US",
+                "gps": "40.777021,-73.877121"
+            },
+            "handlingInstructions": [
+                "HEA",
+                "SPX",
+                "COV"
+            ],
+            "chargeAmount": "4940.00"
+        },
+        "KLMairWaybill": {
+            "id": "074-39541983_P5PE4U7NfdqVKWjKzPb",
+            "consigner": {
+                "name": "DHL Global Forwarding Management",
+                "post": "1117",
+                "street": "P.O. Box 7700",
+                "city": "Schiphol",
+                "country": "NL" 
+            },
+            "consignee": {
+                "name": "KLM Royal Dutch Airlines ",
+                "post": "1117",
+                "street": "P.O. Box 7700",
+                "city": "Schiphol",
+                "country": "NL" 
+            },
+            "freightForwarder": {
+                "name": "KLM Royal Dutch Airlines ",
+                "post": "1117",
+                "street": "P.O. Box 7700",
+                "city": "Schiphol",
+                "country": "NL" 
+            },
+            "item": {
+                "weight": 1235,
+                "quantity": 1000,
+                "description": "Covid-19 vaccines"
+            },
+            "originAirport": {
+                "airport": "LGA",
+                "country": "US",
+                "gps": "40.777021,-73.877121"
+            },
+            "destinationAirport": {
+                "airport": "BER",
+                "country": "DE",
+                "gps": "52.364654,13.511249"
+            },
+            "origin": {
+                "post": "11371",
+                "street": "East Elmhurst",
+                "city": "New York",
+                "country": "US",
+                "gps": "40.777021,-73.877121"
+            },
+            "destination": {
+                "post": "10997",
+                "street": "Gorlitzer Str.",
+                "city": "Berlin",
+                "country": "DE",
+                "gps": "52.496351,13.438103"
+            },
+            "handlingInstructions": [
+                "HEA",
+                "SPX",
+                "COV"
+            ],
+            "chargeAmount": "4940.00",
+            "flightInformation": {
+                "carrierCode": "KL",
+                "flightNumber": "835" 
+            }
+        }
+    }
+}
