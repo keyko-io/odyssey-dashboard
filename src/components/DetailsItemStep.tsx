@@ -8,7 +8,6 @@ interface Props {
   recipient?: string
   last?: boolean
   navigation: any
-  s: boolean
 }
 
 export class DetailsItemStep extends React.Component<Props> {

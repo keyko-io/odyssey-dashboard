@@ -11,12 +11,12 @@ import { CameraView } from './src/components/CameraView'
 import { ItemStatus } from './src/components/ItemStatus'
 
 const screens = [
-  {name: 'status', component: ItemStatus},
   {name: 'dashboard', component: Dashboard},
   {name: 'detailsList', component: DetailsList},
   {name: 'detailsItem', component: DetailsItem},
   {name: 'register', component: Register},
   {name: 'camera', component: CameraView},
+  {name: 'status', component: ItemStatus},
 ]
 
 

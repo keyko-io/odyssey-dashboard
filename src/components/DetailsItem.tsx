@@ -95,25 +95,29 @@ export class DetailsItem extends React.Component<Props, States> {
                   first={true}
                   last={false}
                   recipient={'by'}
-                  completed={completed1 || completed2 || completed3} />
+                  completed={completed1 || completed2 || completed3} 
+                  navigation= {this.props.navigation}/>
             <DetailsItemStep
                   key={1}
                   first={false}
                   last={false}
                   recipient={'by DHL'}
-                  completed={completed2 || completed3|| false} />
+                  completed={completed2 || completed3|| false}
+                  navigation= {this.props.navigation} />
             <DetailsItemStep
                   key={2}
                   first={false}
                   last={false}
                   recipient={'by KLM'}
-                  completed={completed3 || completed4 || false} />
+                  completed={completed3 || completed4 || false}
+                  navigation= {this.props.navigation} />
             <DetailsItemStep
                   key={3}
                   first={false}
                   last={true}
                   recipient={'by'}
-                  completed={completed4} />
+                  completed={completed4}
+                  navigation= {this.props.navigation} />
               {/* {events.map((event:any, i:number) => (
                 <DetailsItemStep
                   key={i}
