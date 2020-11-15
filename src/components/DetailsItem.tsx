@@ -80,7 +80,7 @@ export class DetailsItem extends React.Component<Props, States> {
                     {company}
                   </Text>
                 </Text>
-                <Text style={styles.text}>Destination: {destination}</Text>
+                <Text style={styles.text}>Destination: Singapore</Text>
               </View>
               <Qr size={100} value={did} />
             </View>

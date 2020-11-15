@@ -24,7 +24,7 @@ const Signature = (props) => {
 
 const signatures = [
 	{title: 'DHL Digital Signature', IconComponent: DoneIcon},
-	{title: 'KLM Digital Signature', IconComponent: DoneIcon}
+	// {title: 'KLM Digital Signature', IconComponent: DoneIcon}
 ]
 const values = [
 	{prop: 'State', value: 'PACKAGE RECIEVEED'},
@@ -55,11 +55,11 @@ export function ItemStatus() {
 					<Text style={[styles.width20]}>DHL</Text>
 					<Text style={[styles.width20]}>12/12/12</Text>
 				</View>
-				<View style={styles.fileItem}>
+				{/* <View style={styles.fileItem}>
 					<Text style={[styles.width20, styles.underline]}>Air Waybill</Text>
 					<Text style={[styles.width20]}>KLM</Text>
 					<Text style={[styles.width20]}>12/12/12</Text>
-				</View>
+				</View> */}
 			</View>
 		</View>
   );
