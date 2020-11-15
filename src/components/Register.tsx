@@ -68,9 +68,9 @@ export function Register(props: Props) {
   console.log(params)
   const inspect = async () => {
     const item = context.packages.find(({did}) => did === params.did)
-    const step = item?.steps.find(({completed}) => !completed) || {} as any
-    step.completed = true
-    step.location = {latitude, longitude}
+    // const step = item?.steps.find(({completed}) => !completed) || {} as any
+    // step.completed = true
+    // step.location = {latitude, longitude}
     if(context.company !== 'FR'){
       let acc1: any = msd
       let acc2: any = dhl

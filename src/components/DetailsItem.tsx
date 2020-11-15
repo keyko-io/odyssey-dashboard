@@ -62,7 +62,7 @@ export class DetailsItem extends React.Component<Props> {
                 <DetailsItemStep
                   key={i}
                   first={i === 0}
-                  // last={i === events.length - 1}
+                  last={i === events.length - 1}
                   recipient={'by'}
                   completed={true} />
               ))}
