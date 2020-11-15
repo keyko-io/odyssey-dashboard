@@ -8,7 +8,7 @@ import { Context } from '../../context';
 import { Title, Button } from '../ui';
 import { DeliveryState } from '../shared/types';
 import { Activities } from '@nevermined-io/nevermined-sdk-js/dist/node/keeper/contracts/ProvenanceRegistry'
-import { listItems, newSteps } from './DetailsList'
+// import { listItems, newSteps } from './DetailsList'
 
 //Get this data calling on chain or to the metadata-api
 interface Props {
@@ -22,7 +22,7 @@ type Inputs = {
   description: string,
 }
 
-const generateDid = () => `did:nvm:${Array.from({length: 5}).map(() => Math.floor(Math.random() * 2 ** 32).toString(16)).join('').substr(0, 40)}`
+// const generateDid = () => `did:nvm:${Array.from({length: 5}).map(() => Math.floor(Math.random() * 2 ** 32).toString(16)).join('').substr(0, 40)}`
 
 var options = {
   enableHighAccuracy: true,
@@ -62,14 +62,15 @@ export function Register(props: Props) {
 
   const {control, register, handleSubmit, errors, setValue, getValues} = useForm<Inputs>({mode: 'onChange', criteriaMode: 'all'})
   const {params} = props?.route
-  const isInspect = !!params
+  const isInspect = context.company !== 'MSD'
+  // const isInspect = !!params
   const {name, description} = getValues()
-
+  console.log(params)
   const inspect = async () => {
-    const item = listItems.find(({did}) => did === params.did)
-    const step = item?.steps.find(({completed}) => !completed) || {} as any
-    step.completed = true
-    step.location = {latitude, longitude}
+    const item = context.packages.find(({did}) => did === params.did)
+    // const step = item?.steps.find(({completed}) => !completed) || {} as any
+    // step.completed = true
+    // step.location = {latitude, longitude}
     if(context.company !== 'FR'){
       let acc1: any = msd
       let acc2: any = dhl
@@ -124,7 +125,6 @@ export function Register(props: Props) {
       ...data,
       longitude,
       latitude,
-      steps: newSteps(longitude, latitude),
       state: DeliveryState.Registered,
     }
 
@@ -132,8 +132,8 @@ export function Register(props: Props) {
       data.did,
       msd.getId(),
       Activities.GENERATED,
-      [],
-      'acmeStuffManufacturing',
+      [dhl.getId(), klm.getId(), johnDoe.getId()],
+      `${context.company},${latitude},${longitude}`,
       msd.getId()
     )
     await provenanceRegistry.wasAssociatedWith(
@@ -144,16 +144,16 @@ export function Register(props: Props) {
         `${context.company},${latitude},${longitude}`,
         msd.getId()
     )
-
-    listItems.push(item)
-    props.navigation.navigate('detailsItem', item)
+    await context.loadPackages()
+    const updatedItem = context.packages.find(({did}:any) => did === params.did)
+    props.navigation.navigate('detailsItem', updatedItem)
   }
 
   useEffect(() => {
     register('did')
     register('name', {required: true})
     register('description', {required: true})
-    setValue('did', isInspect ? params.did : generateDid())
+    setValue('did', params.did )
     if (isInspect) {
       setValue('name', params.name)
       setValue('description', params.description)

@@ -70,6 +70,7 @@ export default class ContextProvider extends Component<ContextProviderProps, Con
                         obj['lat']= attributes[1]
                         obj['lng']= attributes[2]
                         obj['returnAttributes'] = attributes
+                        pack.company = attributes[0]
                     }
                     if(event.returnValues.activityId){
                         obj.activityId = event.returnValues.activityId

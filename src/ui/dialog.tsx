@@ -20,7 +20,6 @@ export const Dialog = (props) => {
             <Paragraph style={[styles.blackText, styles.font18]}>{paragraph}</Paragraph>
           </RNPDialog.Content>
           <RNPDialog.Actions>
-            <Button color="black" onPress={hideDialog}>Yes</Button>
             <Button color="black" onPress={hideDialog}>No</Button>
           </RNPDialog.Actions>
         </RNPDialog>
