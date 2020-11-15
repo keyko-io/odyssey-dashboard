@@ -8,8 +8,10 @@ import { DetailsItem } from './src/components/DetailsItem'
 import { Register } from './src/components/Register'
 import { LogoTitle } from './src/components/Header'
 import { CameraView } from './src/components/CameraView'
+import { ItemStatus } from './src/components/ItemStatus'
 
 const screens = [
+  {name: 'status', component: ItemStatus},
   {name: 'dashboard', component: Dashboard},
   {name: 'detailsList', component: DetailsList},
   {name: 'detailsItem', component: DetailsItem},
