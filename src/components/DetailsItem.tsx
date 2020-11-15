@@ -39,15 +39,15 @@ export class DetailsItem extends React.Component<Props, States> {
     let completed3
     let completed4
     if (company === 'MSD'){
-      coordinates = [[4.7683,52.3105]]
+      coordinates = [[4.9041,52.3675]]
       completed1 = true
     }
     if (company === 'DHL') {
-      coordinates = [[4.7683,52.3105], [4.8683,52.3105]]
+      coordinates = [[4.9041, 52.3675], [4.9041, 52.3676]]
       completed2 = true
     }
     if (company === 'KLM') {
-      coordinates = [[4.7683,52.3105], [4.8683,52.3105]]
+      coordinates = [[4.7683,52.3105], [4.9041, 52.3676]]
       completed3 = true
     }
     if (company === 'Final') {
@@ -77,8 +77,8 @@ export class DetailsItem extends React.Component<Props, States> {
               <Qr size={100} value={did} />
             </View>
             <Map
-              latitude={52.3105}
-              longitude={4.7683}
+              latitude={52.3676}
+              longitude={4.9041}
               coordinatesRoute={coordinates}
               latitudeDelta={0.0922}
               longitudeDelta={0.0421}
