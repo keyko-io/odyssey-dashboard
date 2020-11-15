@@ -19,10 +19,18 @@ export class DetailsItem extends React.Component<Props> {
     const {did, name, state, destination, events} = this.props.route.params
 
     const {company} = this.context
-    const nextCompany = events.find(({completed}: any) => !completed)?.owner
-    const route = events
-      .filter(({location}: any) => !!location)
-      .map(({location: {latitude, longitude}}: any) => [longitude, latitude])
+    
+    let coordinates 
+    if (company === 'MSD'){
+      coordinates = [[4.7683,52.3105]]
+    }
+    else {
+      coordinates = [[4.7683,52.3105], [4.8683,52.3105]]
+    }
+    // const nextCompany = events.find(({completed}: any) => !completed)?.owner
+    // const route = events
+    //   .filter(({location}: any) => !!location)
+    //   .map(({location: {latitude, longitude}}: any) => [longitude, latitude])
     return (
       <View style={styles.container}>
         <ScrollView style={[styles.container]}>
@@ -42,8 +50,9 @@ export class DetailsItem extends React.Component<Props> {
               <Qr size={100} value={did} />
             </View>
             <Map
-              latitude={events[0].lat}
-              longitude={events[0].lng}
+              latitude={52.3105}
+              longitude={4.7683}
+              coordinatesRoute={coordinates}
               latitudeDelta={0.0922}
               longitudeDelta={0.0421}
               height="200"/>
@@ -62,7 +71,7 @@ export class DetailsItem extends React.Component<Props> {
 
         <Button
           icon="magnify"
-          disabled={company !== nextCompany}
+          // disabled={company !== nextCompany}
           onPress={() => this.props.navigation.navigate('register', {did, name})} >
 
           Inspect package
