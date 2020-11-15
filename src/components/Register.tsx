@@ -121,7 +121,6 @@ export function Register(props: Props) {
   }
 
   const onSubmit = async(data: any) => {
-    const context: any = useContext(Context)
     const item = {
       ...data,
       longitude,
