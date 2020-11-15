@@ -17,6 +17,7 @@ export class DetailsItem extends React.Component<Props> {
 
   render() {
     const {did, name, state, destination, events} = this.props.route.params
+    console.log(this.props.route.params)
 
     const {company} = this.context
     

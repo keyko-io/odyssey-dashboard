@@ -64,8 +64,8 @@ export class DetailsList extends React.Component<Props, State> {
                         <Subheading>{item.name}</Subheading>
                         <Subheading style={styles.textSubAlt}>
                           State: {' '}
-                          <Text style={getStateStyle(item.state)}>
-                            {item.state}
+                          <Text style={getStateStyle(item.company)}>
+                            {item.company || 'Pending'}
                           </Text>
                         </Subheading>
                       </View>
