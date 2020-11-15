@@ -22,11 +22,25 @@ export class DetailsItem extends React.Component<Props> {
     const {company} = this.context
     
     let coordinates 
+    let completed1
+    let completed2
+    let completed3
+    let completed4
     if (company === 'MSD'){
       coordinates = [[4.7683,52.3105]]
+      completed1 = true
     }
-    else {
+    if (company === 'DHL') {
       coordinates = [[4.7683,52.3105], [4.8683,52.3105]]
+      completed2 = true
+    }
+    if (company === 'KLM') {
+      coordinates = [[4.7683,52.3105], [4.8683,52.3105]]
+      completed3 = true
+    }
+    if (company === 'Final') {
+      coordinates = [[4.7683,52.3105], [4.8683,52.3105], [12.8683,52.3105]]
+      completed4 = true
     }
     // const nextCompany = events.find(({completed}: any) => !completed)?.owner
     // const route = events
@@ -58,14 +72,38 @@ export class DetailsItem extends React.Component<Props> {
               longitudeDelta={0.0421}
               height="200"/>
             <View>
-              {events.map((event:any, i:number) => (
+            <DetailsItemStep
+                  key={0}
+                  first={true}
+                  last={false}
+                  recipient={'by'}
+                  completed={completed1 || completed2 || completed3} />
+            <DetailsItemStep
+                  key={1}
+                  first={false}
+                  last={false}
+                  recipient={'by DHL'}
+                  completed={completed2 || completed3|| false} />
+            <DetailsItemStep
+                  key={2}
+                  first={false}
+                  last={false}
+                  recipient={'by KLM'}
+                  completed={completed3 || completed4 || false} />
+            <DetailsItemStep
+                  key={3}
+                  first={false}
+                  last={true}
+                  recipient={'by'}
+                  completed={completed4} />
+              {/* {events.map((event:any, i:number) => (
                 <DetailsItemStep
                   key={i}
                   first={i === 0}
                   last={i === events.length - 1}
                   recipient={'by'}
                   completed={true} />
-              ))}
+              ))} */}
             </View>
           </View>
         </ScrollView>

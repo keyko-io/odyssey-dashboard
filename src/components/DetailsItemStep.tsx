@@ -23,7 +23,7 @@ export class DetailsItemStep extends React.Component<Props> {
           size={30}
           disabled />
         <Subheading style={[styles.text, completed ? styles.textCompleted : {}]}>
-          {first ? 'PACKAGE REGISTERED' : `PACKAGED RECEIVED at ${recipient}`}
+          {first ? 'PACKAGE REGISTERED' : `PACKAGED RECEIVED ${recipient}`}
         </Subheading>
       </View>
     );
