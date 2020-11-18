@@ -29,7 +29,7 @@ const signatures = [
 const values = [
 	{prop: 'State', value: 'PACKAGE RECIEVEED'},
 	{prop: 'Date', value: '12/12/12'},
-	{prop: 'Listed By', value: 'MSD'},
+	{prop: 'Listed By', value: 'Man'},
 ]
 
 export function ItemStatus() {

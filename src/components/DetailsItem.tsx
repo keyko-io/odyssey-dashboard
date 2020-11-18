@@ -40,27 +40,24 @@ export class DetailsItem extends React.Component<Props, States> {
     console.log(this.props.route.params)
 
     const {company} = this.context
-    
-    let coordinates 
-    let completed1
-    let completed2
-    let completed3
-    let completed4
-    if (company === 'MSD'){
+
+    let coordinates
+    let completed = 0
+    if (company === 'Man'){
       coordinates = [[4.9041,52.3675]]
-      completed1 = true
+      completed = 1
     }
-    if (company === 'DHL') {
+    if (company === 'Trans0') {
       coordinates = [[4.9041, 52.3675], [4.9041, 52.3676]]
-      completed2 = true
+      completed = 2
     }
-    if (company === 'KLM') {
+    if (company === 'Trans1') {
       coordinates = [[4.7683,52.3105], [4.9041, 52.3676]]
-      completed3 = true
+      completed = 3
     }
-    if (company === 'Final') {
+    if (company === 'Recip') {
       coordinates = [[4.7683,52.3105], [4.8683,52.3105], [12.8683,52.3105]]
-      completed4 = true
+      completed = 4
     }
     // const nextCompany = events.find(({completed}: any) => !completed)?.owner
     // const route = events
@@ -93,33 +90,29 @@ export class DetailsItem extends React.Component<Props, States> {
               height="200"/>
             <View>
             <DetailsItemStep
-                  key={0}
                   first={true}
                   last={false}
-                  recipient={'by'}
-                  completed={completed1 || completed2 || completed3} 
+                  recipient={''}
+                  completed={completed > 0}
                   navigation= {this.props.navigation}/>
             <DetailsItemStep
-                  key={1}
                   first={false}
                   last={false}
-                  recipient={'by DHL'}
-                  completed={completed2 || completed3|| false}
+                  recipient={'by A.S.'}
+                  completed={completed > 1}
                   navigation= {this.props.navigation} />
             <DetailsItemStep
-                  key={2}
                   first={false}
                   last={false}
-                  recipient={'by KLM'}
-                  completed={completed3 || completed4 || false}
+                  recipient={'by P.C.'}
+                  completed={completed > 2}
                   yellow={this.state.yellow}
                   navigation= {this.props.navigation} />
             <DetailsItemStep
-                  key={3}
                   first={false}
                   last={true}
-                  recipient={'by'}
-                  completed={completed4}
+                  recipient={''}
+                  completed={completed > 3}
                   navigation= {this.props.navigation} />
               {/* {events.map((event:any, i:number) => (
                 <DetailsItemStep
@@ -139,7 +132,7 @@ export class DetailsItem extends React.Component<Props, States> {
           onPress={() => this.props.navigation.navigate('register', {did, name})} >
           Inspect package
         </Button>
-        {this.context.company === 'KLM'?
+        {this.context.company === 'Trans1'?
           <Button style={{position:'absolute', bottom:80}} onPress={()=>this.showDialoge()}>Temperature Check</Button>
         :null}
         <RNPDialog style={styles.whiteBackground} visible={this.state.showDialog} onDismiss={this.hideDialog}>

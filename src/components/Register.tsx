@@ -62,7 +62,7 @@ export function Register(props: Props) {
 
   const {control, register, handleSubmit, errors, setValue, getValues} = useForm<Inputs>({mode: 'onChange', criteriaMode: 'all'})
   const {params} = props?.route
-  const isInspect = context.company !== 'MSD'
+  const isInspect = context.company !== 'Man'
   // const isInspect = !!params
   const {name, description} = getValues()
   console.log(params)
@@ -74,7 +74,7 @@ export function Register(props: Props) {
     if(context.company !== 'FR'){
       let acc1: any = msd
       let acc2: any = dhl
-      if(context.company === 'KLM'){
+      if(context.company === 'Trans1'){
         acc1 = dhl
         acc2 = klm
       }

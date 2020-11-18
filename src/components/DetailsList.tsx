@@ -85,7 +85,7 @@ export class DetailsList extends React.Component<Props, State> {
             <ActivityIndicator size="large" color="#000"></ActivityIndicator>
           </View>
         )}
-        {company === 'MSD'
+        {company === 'Man'
           ? (
             <Button
               icon="plus"

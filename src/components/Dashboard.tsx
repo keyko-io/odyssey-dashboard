@@ -11,10 +11,10 @@ interface Props {
 }
 
 const dashboardItems = [
-  {company: 'MSD', logo: (<MSDLogo/>), title: 'MSD', subtitle: 'Supplier'},
-  {company: 'DHL', logo: (<DHLLogo/>), title: 'DHL', subtitle: 'Logistics'},
-  {company: 'KLM', logo: (<KLMLogo/>), title: 'KLM', subtitle: 'Logistics'},
-  {company: 'FR', logo: (<RECIPIENTLogo/>), title: 'Final', subtitle: 'Recipient'},
+  {company: 'Man', logo: (<MSDLogo/>), title: 'Acme Co.', subtitle: 'Manufacturer'},
+  {company: 'Trans0', logo: (<DHLLogo/>), title: 'Armadillo Shipping', subtitle: 'Ground Transport'},
+  {company: 'Trans1', logo: (<KLMLogo/>), title: 'Pidgeon Carriers', subtitle: 'Air Transport'},
+  {company: 'Recip', logo: (<RECIPIENTLogo/>), title: 'John Doe', subtitle: 'End Recipient'},
 ]
 
 export class Dashboard extends React.Component<Props, {}> {
@@ -31,9 +31,9 @@ export class Dashboard extends React.Component<Props, {}> {
         <Text style={styles.title}>Welcome</Text>
         <View style={styles.tilesWrapper}>
           {dashboardItems.map(({company, logo, title, subtitle}) => (
-            <TouchableOpacity onPress={()=> this.openList(company)}>
+            <TouchableOpacity style={styles.tileTouchable} onPress={()=> this.openList(company)}>
               <View style={styles.tile}>
-                <View style={styles.logoWrapper}>{logo}</View>
+                {/*<View style={styles.logoWrapper}>{logo}</View>*/}
                 <View style={styles.textWrapper}>
                   <Text style={styles.text}>
                     {title} {'\n'} <Text style={styles.companySubtitle}>{subtitle}</Text>
@@ -57,20 +57,27 @@ const styles = StyleSheet.create({
   },
   tilesWrapper: {
     justifyContent: 'center',
-    flexDirection: 'column',
+    flexDirection: 'row',
     flexWrap: 'wrap',
     paddingTop: '2.5em',
+    width: '100%',
     flex: 1,
   },
-  tile: {
+  tileTouchable: {
     margin: 10,
     display: 'flex',
+    maxWidth: '44%',
+    minWidth: '44%',
+    flex: 1,
     flexDirection: 'row',
     height: 100,
     alignItems: 'center',
     borderColor: '#86FFEA',
     borderWidth: 2,
     borderRadius: 12
+  },
+  tile: {
+    width: '100%',
   },
   text: {
     fontSize: 16,
@@ -90,7 +97,8 @@ const styles = StyleSheet.create({
     fontWeight: '400'
   },
   textWrapper: {
-    width: '70%',
     display: 'flex',
+    marginHorizontal: 'auto',
   }
 })
+

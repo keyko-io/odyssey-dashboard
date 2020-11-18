@@ -22,7 +22,7 @@ export class CameraView extends Component<Props> {
   }
 
   componentDidMount() {
-    this.canvasContext = this.canvasRef.current.getContext('2d');  
+    this.canvasContext = this.canvasRef.current.getContext('2d');
     if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
           this.videoRef.current.srcObject = stream;
@@ -35,7 +35,7 @@ export class CameraView extends Component<Props> {
       const code = jsQR(this.canvasContext.getImageData(0, 0, 640, 480).data,640,480)
       if(code !== null){
         clearInterval(this.interval)
-        if(this.context.company==="MSD"){
+        if(this.context.company === "Man"){
           for(const pkg of this.context.packages){
             if(pkg.events.length === 0) {
                 this.props.navigation.navigate('register', {did: pkg.did})
