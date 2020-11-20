@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Platform } from 'react-native';
+import { StyleSheet, Text, View, Platform, ActivityIndicator } from 'react-native';
 import { Context } from './context'
 import ContextProvider from './context/ContextProvider'
 import { Provider as PaperProvider } from 'react-native-paper';
@@ -39,11 +39,12 @@ export default function App() {
         <ContextProvider>
           <Context.Consumer>
               {states =>
-                states.isLoading ? (
-                  <Text>{states.message}</Text>
-                ) : (
-                  <Navigator></Navigator>
-                )
+                states.isLoading
+                  ? <View style={styles.loading}>
+                      <ActivityIndicator size="large" color="#000"></ActivityIndicator>
+                      <Text>{'\n\n'}{states.message}</Text>
+                    </View>
+                  : <Navigator></Navigator>
               }
           </Context.Consumer>
         </ContextProvider>
@@ -51,3 +52,11 @@ export default function App() {
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  loading: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%'
+  }
+})
