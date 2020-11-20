@@ -30,7 +30,10 @@ function Navigator() {
           <MainStack.Screen
             key={props.name}
             {...props}
-            options={{headerTitle: props => <LogoTitle/>}} />
+            options={{
+              headerTitle: props => <LogoTitle/>,
+              headerTitleAlign: 'center',
+            }} />
         ))}
       </MainStack.Navigator>
     </NavigationContainer>
